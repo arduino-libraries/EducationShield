@@ -1,9 +1,0 @@
-name=EducationShield
-version=1.0
-author=David Cuartielles
-maintainer=David Cuartielles
-sentence=Library used for the completion of all the projects related to CTC 
-paragraph=Is intended to be used with the Education Shield provided in the CTC kit. It presents the neccesary functions to interact with 3 and 4 pin connectors used in many sensors and actuators. Furthermore, it includes the functionality of SD-Card Reader and audio jack.
-category=Education
-url=http://kreatech.verkstad.cc/en/course-literature/education-shield/
-architectures=avr
