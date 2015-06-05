@@ -7,6 +7,10 @@
 *
 *       (c) 2013 Arduino Verkstad
 */
+#include <CapacitiveSensor.h>
+#include <Servo.h>
+#include <SPI.h>
+#include <SD.h>
 #include <EducationShield.h>
 
 //pitches.h includes the definition of notes. Put it in your sketch

@@ -14,6 +14,10 @@
   (c) 2014 Arduino Verkstad
 */
 
+#include <CapacitiveSensor.h>
+#include <Servo.h>
+#include <SPI.h>
+#include <SD.h>
 #include <EducationShield.h>
 
 //Declare the ultrasonic sensor with the trigger pin connecter to

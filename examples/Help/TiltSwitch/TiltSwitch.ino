@@ -6,6 +6,10 @@
 *  (c) 2013 Arduino Verkstad
 */
 
+#include <CapacitiveSensor.h>
+#include <Servo.h>
+#include <SPI.h>
+#include <SD.h>
 #include <EducationShield.h>
 
 //Declare the tilt switch. A TinkerKit tilt switch can be

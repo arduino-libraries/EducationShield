@@ -19,6 +19,9 @@
 //Always import CapacitiveSensor.h when using CapacitiveSwitch
 #include <CapacitiveSensor.h>
 
+#include <Servo.h>
+#include <SPI.h>
+#include <SD.h>
 #include <EducationShield.h>
 
 //The sensor is connected between 2 and 3 by default

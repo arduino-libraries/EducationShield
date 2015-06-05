@@ -27,4 +27,3 @@ IMPORTANT
 =========
 
 Move the folder CapacitiveSensor and SoundWave to the libraries folder of your Arduino installation before using. Some features are dependent on them.
-# EducationShield
