@@ -12,17 +12,15 @@
 */
 
 
-#include <CapacitiveSensor.h>
-#include <Servo.h>
-#include <SPI.h>
-#include <SD.h>
-#include <EducationShield.h>
+#include <IntelCTC.h>
 #include "pitches.h"
+#include <Servo.h>
+
 /*
 An array of pin numbers to which LEDs are attached
 the defaults are 2 to 6 but you can choose any of the digital pins
 */
-int ledPins[] = {2, 3, 4, 5, 6};
+int ledPins[] = {2, 3, 7, 5, 6};
 int pinCount = 5;
 VUMeter vuMeter;
 
@@ -32,11 +30,25 @@ LDR ldr = LDR(A1); //the ldr connected to analog pin 1
 int score = 0;
 
 void setup(){
+  
+  Serial.begin(9600);
+  
   //if your are using other pins than 2 to 6 you need to configure that here
   vuMeter.config(pinCount, ledPins);
   vuMeter.begin(); //does the same as pinMode, LEDs are outputs
+  
+  //Calibrate only the high value
+  long bt=millis();
+  int high=0;
+  while(millis()-bt<3000){
+    int val=analogRead(A1);
+    if(val>high)high=val;
+    
+  }
+  Serial.println(high);
 
-  ldr.config(800, 600); //first run LDRtest example to see what values you need to put here
+
+  ldr.config(high, high-100); //first run LDRtest example to see what values you need to put here
 }
 
 void loop(){
@@ -51,9 +63,9 @@ void loop(){
     int numberOfNotes = 2;
     piezo.play(numberOfNotes, melody, noteDurations, 1);
 
-    delay(50);
-
   if(score>=pinCount) startOver(); //If the score equals the amount of LEDs you start over
+
+  delay(2000);
 }
 
 

@@ -1,18 +1,20 @@
-#ifndef EducationShield_h
-#define EducationShield_h
+#ifndef IntelCTC_h
+#define IntelCTC_h
 
 #if ARDUINO >= 100
 #include "Arduino.h"
 #else
 #include "WProgram.h"
 #endif
-
-#include <CapacitiveSensor.h>
 #include <Servo.h>
+
+/*
+#include <CapacitiveSensor.h>
+
 #include <utility/SdFat.h>
 #include <utility/SdFatUtil.h>
 #include <SD.h>
-
+*/
 
 #define LED_LENGTH 20
 #define BUTTONGROUP_LENGTH 10
@@ -94,18 +96,21 @@ class LDR : public Button{
 		void config(int baseValue,int threashold);
 		virtual bool getState();
 		void test();
+		void calibrate(int t=5000);
+		void showConfig();
 
 	protected:
 		int base;
 		int threashold;
 
 };
-
+/*
 class TiltSwitch : public Button{
 	public:
 		TiltSwitch(int pin, bool pressedValue=LOW);
 };
-
+*/
+/*
 class CapacitiveSwitch : public Button{
 	public:
 		CapacitiveSwitch(int pin_in=13, int pin=12);
@@ -118,7 +123,7 @@ class CapacitiveSwitch : public Button{
 		CapacitiveSensor sensor;
 		int threashold;
 };
-
+*/
 class LED{
 	//Mostly for the LED component in Tinkerkit
 	public:
@@ -130,7 +135,7 @@ class LED{
 	private:
 		int pin;
 };
-
+/*
 class PiezoKnockSensor{
 	public:
 		PiezoKnockSensor(int pin=A0);
@@ -142,6 +147,8 @@ class PiezoKnockSensor{
 		int threshold;
 		long debounceTime;
 };
+*/
+/*
 class Player{
     public:
         Player();
@@ -155,7 +162,8 @@ class Player{
         File root;
         char* name;
     };
-
+*/
+/*
 class Knob{
 	public:
 		Knob(int pin);
@@ -166,7 +174,8 @@ class Knob{
 		int pin;
 		int levels;
 };
-
+*/
+/*
 class Joystick{
     public:
         Joystick(int x, int y);
@@ -176,7 +185,7 @@ class Joystick{
         int x;
         int y;
     };
-
+*/
 class Wheels{
     public:
         Wheels(int lpin=10, int rpin=9);
@@ -196,9 +205,8 @@ class Wheels{
         int toL, toR;
         int tl, tr;
     };
-
-#define KP 9
-#define KD 1
+#define KP 30
+#define KD 7
 #define LINE_THRESSHOLD 30
 #define ROBOT_SPEED 50 //In % [0..100]
 #define INTEGRATION_TIME 10
@@ -222,7 +230,7 @@ class IRArray{
 		int threshold;
 
 };
-
+/*
 class UltrasonicSensor{
     public:
         UltrasonicSensor(int trig=11, int echo=12);
@@ -230,6 +238,6 @@ class UltrasonicSensor{
     private:
 		int trig, echo;
 };
-
+*/
 
 #endif
