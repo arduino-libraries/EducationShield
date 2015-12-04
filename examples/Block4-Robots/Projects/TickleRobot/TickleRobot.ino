@@ -8,8 +8,6 @@
     (c) 2013 Arduino Verkstad
 */
 
-#include <SPI.h>
-#include <SD.h>
 #include <EducationShield.h>
 
 //Necessary to include Servo.h when using Servo

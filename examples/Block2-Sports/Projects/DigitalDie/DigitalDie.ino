@@ -14,8 +14,6 @@
 
 #include <CapacitiveSensor.h>
 #include <Servo.h>
-#include <SPI.h>
-#include <SD.h>
 #include <EducationShield.h>
 
 //declare the pins used for leds, 9 leds in total

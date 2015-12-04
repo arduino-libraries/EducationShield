@@ -13,8 +13,6 @@
 */
 
 #include <CapacitiveSensor.h>
-#include <SPI.h>
-#include <SD.h>
 #include <EducationShield.h>
 #include <Servo.h>
 

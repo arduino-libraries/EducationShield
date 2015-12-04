@@ -9,8 +9,6 @@
 
 
 #include <CapacitiveSensor.h>
-#include <SPI.h>
-#include <SD.h>
 #include <EducationShield.h>
 //Servo.h is necessary to be included here
 #include <Servo.h>
@@ -18,7 +16,7 @@
 //IRArray(IR1, IR2, IR3)
 IRArray ir = IRArray(A1, A2, A3);
 //Wheels(left, right)
-Wheels wheels=Wheels(10, 9);
+Wheels wheels=Wheels(9, 5);
 
 void setup(){
   wheels.begin();

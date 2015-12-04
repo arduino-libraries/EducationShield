@@ -17,8 +17,6 @@
 
 #include <CapacitiveSensor.h>
 #include <Servo.h>
-#include <SPI.h>
-#include <SD.h>
 #include <EducationShield.h>
 
 //The number of knocks that can be recorded

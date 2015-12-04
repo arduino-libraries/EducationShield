@@ -1,10 +1,3 @@
-#include <CapacitiveSensor.h>
-
-#include <Servo.h>
-#include <SPI.h>
-#include <SD.h>
-#include <EducationShield.h>
-
 /*
  * Elektor Monster Jar February 2013
  *
@@ -33,6 +26,10 @@
  * Based on code by Paul Badger 2008
  *
  */
+ 
+#include <CapacitiveSensor.h>
+#include <Servo.h>
+#include <EducationShield.h>
 
 //Define the capacitive sensor
 CapacitiveSwitch sensor=CapacitiveSwitch(2,3);
