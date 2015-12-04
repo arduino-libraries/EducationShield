@@ -1,5 +1,5 @@
-#ifndef IntelCTC_h
-#define IntelCTC_h
+#ifndef EducationShield_H
+#define EducationShield_H
 
 #if ARDUINO >= 100
 #include "Arduino.h"
@@ -8,9 +8,9 @@
 #endif
 #include <Servo.h>
 
-/*
-#include <CapacitiveSensor.h>
 
+#include <CapacitiveSensor.h>
+/*
 #include <utility/SdFat.h>
 #include <utility/SdFatUtil.h>
 #include <SD.h>
@@ -104,13 +104,13 @@ class LDR : public Button{
 		int threashold;
 
 };
-/*
+
 class TiltSwitch : public Button{
 	public:
 		TiltSwitch(int pin, bool pressedValue=LOW);
 };
-*/
-/*
+
+
 class CapacitiveSwitch : public Button{
 	public:
 		CapacitiveSwitch(int pin_in=13, int pin=12);
@@ -123,7 +123,7 @@ class CapacitiveSwitch : public Button{
 		CapacitiveSensor sensor;
 		int threashold;
 };
-*/
+
 class LED{
 	//Mostly for the LED component in Tinkerkit
 	public:
@@ -135,7 +135,7 @@ class LED{
 	private:
 		int pin;
 };
-/*
+
 class PiezoKnockSensor{
 	public:
 		PiezoKnockSensor(int pin=A0);
@@ -147,7 +147,7 @@ class PiezoKnockSensor{
 		int threshold;
 		long debounceTime;
 };
-*/
+
 /*
 class Player{
     public:
@@ -163,7 +163,7 @@ class Player{
         char* name;
     };
 */
-/*
+
 class Knob{
 	public:
 		Knob(int pin);
@@ -174,8 +174,8 @@ class Knob{
 		int pin;
 		int levels;
 };
-*/
-/*
+
+
 class Joystick{
     public:
         Joystick(int x, int y);
@@ -185,7 +185,7 @@ class Joystick{
         int x;
         int y;
     };
-*/
+
 class Wheels{
     public:
         Wheels(int lpin=10, int rpin=9);
@@ -230,7 +230,7 @@ class IRArray{
 		int threshold;
 
 };
-/*
+
 class UltrasonicSensor{
     public:
         UltrasonicSensor(int trig=11, int echo=12);
@@ -238,6 +238,6 @@ class UltrasonicSensor{
     private:
 		int trig, echo;
 };
-*/
+
 
 #endif

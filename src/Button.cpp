@@ -32,8 +32,9 @@ bool Button::doublePressed(int timeout,int tolerance){
 bool Button::checkPress(int timeout,bool requiredState){
 	//help function, check if the button has changed
 	//from not "requiredState" to "requiredState" within timeout
-	long timer=millis();
+	unsigned long timer=millis();
 	bool iStart=false;
+
 	do{
 		if(!iStart){
 			if(getState()!=requiredState){
@@ -45,7 +46,7 @@ bool Button::checkPress(int timeout,bool requiredState){
 			}
 		}
 		//delay(10);
-	}while(millis()-timer<=timeout || !timeout );
+	}while(millis()-timer<=(unsigned long)timeout || timeout==0 );
 
 	return false;
 }

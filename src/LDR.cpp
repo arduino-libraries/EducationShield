@@ -1,15 +1,15 @@
-#include "IntelCTC.h"
+#include "EducationShield.h"
 #include <Arduino.h>
 
 LDR::LDR(int pin):Button(pin,HIGH){
 }
 
 void LDR::calibrate(int t){
-	long startT=millis();
+	unsigned long startT=millis();
 	int low=1023;
 	int high=0;
 
-	while(millis()-startT<t){
+	while(millis()-startT<(unsigned long)t){
 		int val=analogRead(pin);
 		if(val<low){
 			low=val;

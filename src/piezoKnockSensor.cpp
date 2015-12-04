@@ -16,13 +16,13 @@ void PiezoKnockSensor::config(int threshold, int debounceTime){
 }
 
 bool PiezoKnockSensor::knocked(int timeout){
-	long begin=millis();
+	unsigned long begin=millis();
 	do{
-		if(analogRead(pin)>threshold){
+		if(analogRead(pin)>(unsigned long)threshold){
 			delay(debounceTime);
 			return true;
 		}
-	}while(millis()-begin>timeout || !timeout);
+	}while(millis()-begin>(unsigned long)timeout || timeout==0);
 	return false;
 }
 

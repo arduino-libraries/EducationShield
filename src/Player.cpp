@@ -4,7 +4,7 @@
 #else
 #include "WProgram.h"
 #endif
-
+/*
 Player::Player(){
 	//this->pin=pin;
 	//this->pressedValue=pressedValue;
@@ -14,6 +14,7 @@ void Player::begin(){
 	initPlayer();
 	initSD();
 }
+
 
 void Player::play(char* name) {
     this->name=name;
@@ -113,3 +114,4 @@ void Player::printDirectory(File dir, int numTabs) {
    }
 }
 
+*/

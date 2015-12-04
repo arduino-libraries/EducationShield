@@ -31,8 +31,8 @@ int ButtonGroup::checkPress(int timeout, bool requiredValue){
 		iStarted[i]=false;
 	}
 
-	long timer=millis();
-	while(!timeout || millis()-timer<=timeout){
+	unsigned long timer=millis();
+	while(timeout==0 || millis()-timer<=(unsigned long)timeout){
 		for(int i=0;i<this->buttonsCount;i++){
 			bool stat=digitalRead(this->buttons[i]);
 			if(stat==!requiredValue && !iStarted[i]){

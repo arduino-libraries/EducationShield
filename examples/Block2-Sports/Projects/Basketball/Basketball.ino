@@ -12,9 +12,11 @@
 */
 
 
-#include <IntelCTC.h>
+#include <EducationShield.h>
 #include "pitches.h"
 #include <Servo.h>
+#include <CapacitiveSensor.h>
+
 
 /*
 An array of pin numbers to which LEDs are attached
