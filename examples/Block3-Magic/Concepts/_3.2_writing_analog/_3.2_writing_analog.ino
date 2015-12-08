@@ -1,4 +1,4 @@
-int ledPin = 10;
+int ledPin = 9;
 int fade = 0;
 
 void setup() {

@@ -8,13 +8,11 @@
 
 #include <CapacitiveSensor.h>
 #include <Servo.h>
-#include <SPI.h>
-#include <SD.h>
 #include <EducationShield.h>
 
 //Declare the tilt switch. A TinkerKit tilt switch can be
-//connected to D10 or D9 (We use D10 here).
-TiltSwitch me=TiltSwitch(10);
+//connected to D5 or D9 (We use D9 here).
+TiltSwitch me=TiltSwitch(9);
 
 void setup(){
   Serial.begin(9600);

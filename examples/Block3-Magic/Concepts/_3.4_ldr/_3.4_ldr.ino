@@ -1,4 +1,4 @@
-int ledPin=10;
+int ledPin=9;
 int ldrPin=A1;
 int potPin=A5;
 

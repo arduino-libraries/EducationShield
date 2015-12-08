@@ -1,7 +1,5 @@
 #include <CapacitiveSensor.h>
 #include <Servo.h>
-#include <SPI.h>
-#include <SD.h>
 #include <EducationShield.h>
 Knob pot=Knob(A5);//a knob is connected to A0
 

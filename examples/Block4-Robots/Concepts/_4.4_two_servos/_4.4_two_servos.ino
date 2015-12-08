@@ -4,7 +4,7 @@ Servo myservo1, myservo2;
 
 void setup() {
   myservo1.attach(9);
-  myservo2.attach(10);
+  myservo2.attach(5);
 }
 
 void loop() {
@@ -16,7 +16,7 @@ void loop() {
   delay(1000);
 
   myservo1.detach();
-  myservo2.attach(10);
+  myservo2.attach(5);
   myservo2.write(70);
   delay(1000);
   myservo2.write(120);

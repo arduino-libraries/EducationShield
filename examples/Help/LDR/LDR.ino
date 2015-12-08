@@ -17,8 +17,6 @@ it correctly.
 
 #include <CapacitiveSensor.h>
 #include <Servo.h>
-#include <SPI.h>
-#include <SD.h>
 #include <EducationShield.h>
 
 //Tinkerkit LDR is connected to analog 1.

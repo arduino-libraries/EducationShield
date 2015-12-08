@@ -16,7 +16,7 @@ Servo front, back;
 void setup(){
   //servos are initialized
   front.attach(9);
-  back.attach(10);
+  back.attach(5);
 }
 
 void loop(){

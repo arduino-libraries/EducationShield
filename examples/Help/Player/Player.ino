@@ -9,6 +9,13 @@
   (c) 2014 Arduino Verkstad
 */
 
+/*
+
+
+  !!!!Warning not working without a new Player library
+
+
+*/
 #include <CapacitiveSensor.h>
 #include <Servo.h>
 #include <SPI.h>
