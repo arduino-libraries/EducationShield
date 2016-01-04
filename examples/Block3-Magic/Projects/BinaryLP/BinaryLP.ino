@@ -26,9 +26,9 @@ int lastReading = 0;
 void setup(){
   pinMode(piezo, OUTPUT);
   
-  //Use this line to set the threshold of the IR sensors. The default is 380
+  //Use this line to set the threshold of the IR sensors. The default is 380. If you're using Arduino 101 board, use 550 instead.
   //Use test() to check the values of each sensor in loop()
-  //ir.setThreshold(350);
+  ir.setThreshold(550);
   
   Serial.begin(9600);
 }

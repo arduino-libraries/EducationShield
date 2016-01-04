@@ -27,7 +27,7 @@ int IRArray::readBinary(){
     while(check){
         for(int i=0; i<3; i++){
            // sensorVal[i] = constrain(map(analogRead(sensPins[i]), 350, 400, 1, 0), 0, 1);
-		   sensorVal[i] = constrain(analogRead(sensPins[i]), 60, 400);
+		   sensorVal[i] = analogRead(sensPins[i]);
 			if(sensorVal[i]<threshold) sensorVal[i]=1;
 			else sensorVal[i]=0;
 		}
