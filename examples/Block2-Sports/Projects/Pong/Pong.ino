@@ -13,18 +13,20 @@
 
 #include <CapacitiveSensor.h>
 #include <Servo.h>
+#include <SPI.h>
+#include <SD.h>
 #include <EducationShield.h>
 /*
   An array of pin numbers to which LEDs are attached
   the defaults are 2 to 6 but you can choose any of the digital 
-  pins. Just remember to leave digital pin 9 and 10 for the buttons.
+  pins. Just remember to leave digital pin 9 and 6 for the buttons.
 */
-int ledPins[] = {2, 3, 4, 5, 6};
+int ledPins[] = {2, 3, 4, 5, 7};
 int pinCount = 5;
 VUMeter vuMeter;
 
 Button button1 = Button(9); //the button connected to digital pin 9
-Button button2 = Button(10); //the button connected to digital pin 10
+Button button2 = Button(6); //the button connected to digital pin 6
 
 int ledTime = 100; //determines how fast the LEDs will switch
 int pressTime = 200; //determines how long time a player has to press the button

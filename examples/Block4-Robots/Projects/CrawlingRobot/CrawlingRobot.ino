@@ -8,8 +8,10 @@
 */
 
 #include <CapacitiveSensor.h>
-#include <EducationShield.h>
 #include <Servo.h>
+#include <SPI.h>
+#include <SD.h>
+#include <EducationShield.h>
 
 Servo front, back;
 

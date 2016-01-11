@@ -11,16 +11,20 @@ void LDR::calibrate(int t){
 
 	while(millis()-startT<(unsigned long)t){
 		int val=analogRead(pin);
-		if(val<low){
+		/*if(val<low){
 			low=val;
 		}else if(val>high){
 			high=val;
 		}
-		delay(2);
+		delay(2);*/
+		if(val>high){
+			high=val;
+		}
 	}
 
 	this->base=high;
-	this->threashold=(high-low)/2;
+	this->threashold=high-100;
+	//this->threashold=(high-low)/2;
 
 }
 

@@ -10,11 +10,11 @@
 
 
 #include <CapacitiveSensor.h>
-/*
+
 #include <utility/SdFat.h>
 #include <utility/SdFatUtil.h>
 #include <SD.h>
-*/
+
 
 #define LED_LENGTH 20
 #define BUTTONGROUP_LENGTH 10
@@ -148,7 +148,7 @@ class PiezoKnockSensor{
 		long debounceTime;
 };
 
-/*
+
 class Player{
     public:
         Player();
@@ -161,8 +161,8 @@ class Player{
         void printDirectory(File dir, int numTabs);
         File root;
         char* name;
-    };
-*/
+};
+
 
 class Knob{
 	public:

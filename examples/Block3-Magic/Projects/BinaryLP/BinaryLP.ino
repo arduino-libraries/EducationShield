@@ -14,6 +14,8 @@
 
 #include <CapacitiveSensor.h>
 #include <Servo.h>
+#include <SPI.h>
+#include <SD.h>
 #include <EducationShield.h>
 #include "pitches.h"
 
@@ -28,7 +30,7 @@ void setup(){
   
   //Use this line to set the threshold of the IR sensors. The default is 380. If you're using Arduino 101 board, use 550 instead.
   //Use test() to check the values of each sensor in loop()
-  ir.setThreshold(550);
+  ir.setThreshold(530);
   
   Serial.begin(9600);
 }
