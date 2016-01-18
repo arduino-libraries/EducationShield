@@ -51,5 +51,6 @@ void LDR::test(){
 
 bool LDR::getState(){
 	int value=analogRead(pin);
-	return abs(value-base)>abs(threashold-base);
+	
+	return ((value-base)>(threashold-base)) || ((base-value)>(base-threashold));
 }
