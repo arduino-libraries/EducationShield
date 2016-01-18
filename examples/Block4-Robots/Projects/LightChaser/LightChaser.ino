@@ -19,7 +19,7 @@
 
 //Declare the two wheels of robot, left wheel to D10 and
 // right wheel to D9
-Wheels wheels=Wheels(9, 5);
+Wheels wheels=Wheels(6, 9);
 
 //Declare the two LDR sensors
 LDR sensorLeft=LDR(A0);

@@ -31,8 +31,8 @@ int tiltJoystick = 0;
 
 void setup(){
   //servos are initialized
-  pan.attach(9);
-  tilt.attach(10);
+  pan.attach(6);
+  tilt.attach(9);
 }
 void loop(){
   panJoystick = joystick.getX(); //Get X value from joystick
