@@ -12,14 +12,6 @@
   (c) 2013 Arduino Verkstad
 */
 
-/*
-
-To-do:
-  This is not working!!!! Due to the Player library needed.
-
-
-*/
-
 #include <CapacitiveSensor.h>
 #include <Servo.h>
 #include <SPI.h>
