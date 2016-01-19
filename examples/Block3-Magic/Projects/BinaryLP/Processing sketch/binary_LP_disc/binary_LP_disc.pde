@@ -37,7 +37,7 @@ import processing.pdf.*;
 
 void setup(){
   
-  size(w,h);
+  size(595,841);
   
   for(int i=0;i<30;i++){
     for(int j=0;j<3;j++){
