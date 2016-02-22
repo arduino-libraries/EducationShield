@@ -11,8 +11,6 @@
 
 #include <CapacitiveSensor.h>
 
-#include <utility/SdFat.h>
-#include <utility/SdFatUtil.h>
 #include <SD.h>
 
 
