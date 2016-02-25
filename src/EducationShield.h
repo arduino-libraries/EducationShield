@@ -6,13 +6,11 @@
 #else
 #include "WProgram.h"
 #endif
+
 #include <Servo.h>
-
-
 #include <CapacitiveSensor.h>
-
 #include <SD.h>
-
+#include <CurieBle.h>
 
 #define LED_LENGTH 20
 #define BUTTONGROUP_LENGTH 10
@@ -237,5 +235,30 @@ class UltrasonicSensor{
 		int trig, echo;
 };
 
+class BLEPeripheralBase{
+	public:
+		BlePeripheralBase();
+		void configure(int mode);
+		void setName(const char* name);
+	private:
+		BlePeripheral peri;
+		BleService service;
+
+};
+
+class BLEText{
+	public:
+		BleText();
+};
+
+class BLEInteger{
+	public:
+		BLEInteger();
+};
+
+class BLEAlienBaby{
+	public:
+		BLEAlienBaby();
+};
 
 #endif
