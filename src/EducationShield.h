@@ -237,28 +237,64 @@ class UltrasonicSensor{
 
 class BLEPeripheralBase{
 	public:
-		BlePeripheralBase();
-		void configure(int mode);
 		void setName(const char* name);
-	private:
-		BlePeripheral peri;
-		BleService service;
+		virtual void begin();
+		bool searchCentral();
+		bool connected();
+		virtual bool dataReceived()=0;
 
+		static const int MAX_LENGTH=20;
+	protected:
+		BLEPeripheralBase(const char* serviceID);
+
+		BLEPeripheral peri;
+		BLEService service;
+		BLECentral* central;
 };
 
-class BLEText{
+class BLEText : public BLEPeripheralBase{
 	public:
-		BleText();
+		BLEText();
+		void begin();
+		bool dataReceived();
+
+		void fetchData();
+		char getCharAt(int position);
+
+	protected:
+		BLECharacteristic textChari;
+
+		char readBuffer[MAX_LENGTH];
 };
 
-class BLEInteger{
+class BLEuart : public BLEPeripheralBase{
 	public:
-		BLEInteger();
+		BLEuart();
+		void begin();
+		bool dataReceived();
+
+		void fetchData();
+		void send();
+
+		void sendString(const char*, int length);
+		const char* receivedString();
+		void addValue(unsigned char val);
+		void addValueAt(unsigned char val, int position);
+		unsigned char getValueAt(int position);
+	protected:
+		BLECharacteristic txChari;
+		BLECharacteristic rxChari;
+
+		unsigned char readBuffer[MAX_LENGTH];
+		unsigned char writeBuffer[MAX_LENGTH];
+
+		int writeLength;
 };
 
-class BLEAlienBaby{
+class BLEAlienBaby : public BLEPeripheralBase{
 	public:
 		BLEAlienBaby();
+		void begin();
 };
 
 #endif
