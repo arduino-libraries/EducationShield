@@ -291,10 +291,11 @@ class BLEuart : public BLEPeripheralBase{
 		int writeLength;
 };
 
+/*
 class BLEAlienBaby : public BLEPeripheralBase{
 	public:
 		BLEAlienBaby();
 		void begin();
 };
-
+*/
 #endif
