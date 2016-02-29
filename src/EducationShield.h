@@ -10,7 +10,10 @@
 #include <Servo.h>
 #include <CapacitiveSensor.h>
 #include <SD.h>
+
 #include <CurieBle.h>
+#include <CurieImu.h>
+#include <Kalman.h>
 
 #define LED_LENGTH 20
 #define BUTTONGROUP_LENGTH 10
@@ -289,6 +292,40 @@ class BLEuart : public BLEPeripheralBase{
 		unsigned char writeBuffer[MAX_LENGTH];
 
 		int writeLength;
+};
+
+class IMU{
+	public:
+		IMU();
+		void begin();
+		void run(bool useRollPitch=true, bool useKalman=false);
+
+		int getPitch();
+		int getRoll();
+
+		int getAccelerometerX();
+		int getAccelerometerY();
+		int getAccelerometerZ();
+
+		int getGyroX();
+		int getGyroY();
+		int getGyroZ();
+	private:
+		void measureMotion();
+		void calculateRollPitch();
+
+		uint32_t timer;
+
+		Kalman kalmanX; // Create the Kalman instances
+		Kalman kalmanY;
+
+		int16_t ax, ay, az;         // accelerometer values
+		int16_t gx, gy, gz;         // gyrometer values
+
+		double pitch, roll;
+		double gyroXangle, gyroYangle; // Angle calculate using the gyro only
+		double compAngleX, compAngleY; // Calculated angle using a complementary filter
+		double kalAngleX, kalAngleY; // Calculated angle using a Kalman filter
 };
 
 /*
