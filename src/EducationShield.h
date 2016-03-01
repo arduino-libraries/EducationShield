@@ -13,7 +13,6 @@
 
 #include <CurieBle.h>
 #include <CurieImu.h>
-#include <Kalman.h>
 
 #define LED_LENGTH 20
 #define BUTTONGROUP_LENGTH 10
@@ -270,9 +269,14 @@ class BLEText : public BLEPeripheralBase{
 		char readBuffer[MAX_LENGTH];
 };
 
+#define SERVICEID_MESSENGER "19b10000-e8f2-537e-4f6c-d104768a1214"
+#define SERVICEID_LOGOROBOT "19f82bd2-da79-11e5-b5d2-0a1d41d68578"
+#define SERVICEID_TAMAGOTCHI "361dbb0c-0193-49dd-93af-753ab760a344"
+
+
 class BLEuart : public BLEPeripheralBase{
 	public:
-		BLEuart();
+		BLEuart(const char* serviceID="6E500001-B5A3-F393-E0A9-E50E24DCCA9E");
 		void begin();
 		bool dataReceived();
 
@@ -281,6 +285,7 @@ class BLEuart : public BLEPeripheralBase{
 
 		void sendString(const char*, int length);
 		const char* receivedString();
+		int getReceivedLength();
 		void addValue(unsigned char val);
 		void addValueAt(unsigned char val, int position);
 		unsigned char getValueAt(int position);
@@ -288,6 +293,7 @@ class BLEuart : public BLEPeripheralBase{
 		BLECharacteristic txChari;
 		BLECharacteristic rxChari;
 
+		unsigned short receivedLength;
 		unsigned char readBuffer[MAX_LENGTH];
 		unsigned char writeBuffer[MAX_LENGTH];
 
@@ -298,7 +304,11 @@ class IMU{
 	public:
 		IMU();
 		void begin();
-		void run(bool useRollPitch=true, bool useKalman=false);
+		void calibrate();
+		void run(bool useRollPitch=true);
+
+		void detectShock(int shockThreashold=192, int shockDuration=11);
+		void attachCallback(void (*callback)(void));
 
 		int getPitch();
 		int getRoll();
@@ -310,14 +320,15 @@ class IMU{
 		int getGyroX();
 		int getGyroY();
 		int getGyroZ();
+
 	private:
 		void measureMotion();
 		void calculateRollPitch();
 
 		uint32_t timer;
 
-		Kalman kalmanX; // Create the Kalman instances
-		Kalman kalmanY;
+		//Kalman kalmanX;
+		//Kalman kalmanY;
 
 		int16_t ax, ay, az;         // accelerometer values
 		int16_t gx, gy, gz;         // gyrometer values
@@ -326,6 +337,7 @@ class IMU{
 		double gyroXangle, gyroYangle; // Angle calculate using the gyro only
 		double compAngleX, compAngleY; // Calculated angle using a complementary filter
 		double kalAngleX, kalAngleY; // Calculated angle using a Kalman filter
+
 };
 
 /*
