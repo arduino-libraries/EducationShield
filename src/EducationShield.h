@@ -11,8 +11,10 @@
 #include <CapacitiveSensor.h>
 #include <SD.h>
 
+#if defined(__arc__)
 #include <CurieBle.h>
 #include <CurieImu.h>
+#endif
 
 #define LED_LENGTH 20
 #define BUTTONGROUP_LENGTH 10
@@ -237,6 +239,9 @@ class UltrasonicSensor{
 		int trig, echo;
 };
 
+
+#if defined(__arc__)
+
 class BLEPeripheralBase{
 	public:
 		void setName(const char* name);
@@ -273,11 +278,18 @@ class BLEText : public BLEPeripheralBase{
 #define SERVICEID_LOGOROBOT "19f82bd2-da79-11e5-b5d2-0a1d41d68578"
 #define SERVICEID_TAMAGOTCHI "361dbb0c-0193-49dd-93af-753ab760a344"
 
+#define TYPE_NONE -1
+#define TYPE_MESSENGER 1
+#define TYPE_LOGOROBOT 2
+#define TYPE_TAMAGOTCHI 3
 
 class BLEuart : public BLEPeripheralBase{
 	public:
-		BLEuart(const char* serviceID="6E500001-B5A3-F393-E0A9-E50E24DCCA9E");
+		//BLEuart(const char* serviceID="6E500001-B5A3-F393-E0A9-E50E24DCCA9E");
+		BLEuart(int exampleID=TYPE_NONE);
 		void begin();
+		void setExampleID(int exampleID);
+
 		bool dataReceived();
 
 		void fetchData();
@@ -292,6 +304,7 @@ class BLEuart : public BLEPeripheralBase{
 	protected:
 		BLECharacteristic txChari;
 		BLECharacteristic rxChari;
+		BLECharacteristic typeChari;
 
 		unsigned short receivedLength;
 		unsigned char readBuffer[MAX_LENGTH];
@@ -339,7 +352,7 @@ class IMU{
 		double kalAngleX, kalAngleY; // Calculated angle using a Kalman filter
 
 };
-
+#endif
 /*
 class BLEAlienBaby : public BLEPeripheralBase{
 	public:

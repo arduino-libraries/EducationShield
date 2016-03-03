@@ -1,3 +1,5 @@
+#if defined(__arc__)
+
 #include "EducationShield.h"
 #include "Arduino.h"
 #include "CurieImu.h"
@@ -142,3 +144,5 @@ int IMU::getGyroY(){
 int IMU::getGyroZ(){
 	return (int)gz;	
 }
+
+#endif

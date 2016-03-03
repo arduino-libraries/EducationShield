@@ -1,3 +1,5 @@
+#if defined(__arc__)
+
 #include "EducationShield.h"
 
 
@@ -29,3 +31,5 @@ bool BLEPeripheralBase::searchCentral(){
 bool BLEPeripheralBase::connected(){
 	return peri.connected();
 }
+
+#endif
