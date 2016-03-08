@@ -6,7 +6,7 @@ LDR::LDR(int pin):Button(pin,HIGH){
 
 void LDR::calibrate(int t){
 	unsigned long startT=millis();
-	int low=1023;
+	//int low=1023;
 	int high=0;
 
 	while(millis()-startT<(unsigned long)t){

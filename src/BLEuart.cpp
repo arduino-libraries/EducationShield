@@ -30,7 +30,7 @@ void BLEuart::begin(){
 }
 
 void BLEuart::setExampleID(int exampleID){
-	const unsigned char out[1]={(char)exampleID};
+	const unsigned char out[1]={(unsigned char)exampleID};
 	typeChari.setValue(out,1);
 }
 
@@ -60,8 +60,8 @@ int BLEuart::getReceivedLength(){
 	return (int)receivedLength;
 }
 
-void BLEuart::addValue(unsigned char val){
-	addValueAt(val,writeLength++);
+void BLEuart::addValue(int val){
+	addValueAt((unsigned char)val,writeLength++);
 }
 
 void BLEuart::addValueAt(unsigned char val, int position){

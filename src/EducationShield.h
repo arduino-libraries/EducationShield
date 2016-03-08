@@ -298,7 +298,7 @@ class BLEuart : public BLEPeripheralBase{
 		void sendString(const char*, int length);
 		const char* receivedString();
 		int getReceivedLength();
-		void addValue(unsigned char val);
+		void addValue(int val);
 		void addValueAt(unsigned char val, int position);
 		unsigned char getValueAt(int position);
 	protected:

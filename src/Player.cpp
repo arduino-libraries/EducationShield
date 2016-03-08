@@ -28,8 +28,8 @@ void Player::play(char* name) {
     while (true);
   }
 
-  const int S=512; // Number of samples to read in block
-  byte buffer[S];
+  //const int S=512; // Number of samples to read in block
+  //byte buffer[S];
 
   Serial.print("Playing");
   // until the file is not finished
