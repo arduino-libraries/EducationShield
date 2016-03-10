@@ -29,6 +29,19 @@ bool Button::doublePressed(int timeout,int tolerance){
 		return false;
 	}
 }
+
+bool Button::pressed_noBlock(){
+	bool state=getState();
+	bool result=false;
+	if(state!=lastState && state==HIGH){
+		result=true;
+	}
+	lastState=state;
+
+	return result;
+}
+
+
 bool Button::checkPress(int timeout,bool requiredState){
 	//help function, check if the button has changed
 	//from not "requiredState" to "requiredState" within timeout

@@ -67,11 +67,14 @@ class Button{
 		bool pressed(int timeout=0);
 		bool released(int timeout=0);
 		bool doublePressed(int timeout=0,int tolerance=500);
+
+		bool pressed_noBlock();
 		virtual bool getState();
 
 	protected:
 		int pin;
 		bool pressedValue;
+		bool lastState;
 		bool checkPress(int timeout, bool requiredState);
 
 };
