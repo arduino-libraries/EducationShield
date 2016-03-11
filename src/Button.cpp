@@ -30,7 +30,7 @@ bool Button::doublePressed(int timeout,int tolerance){
 	}
 }
 
-bool Button::pressed_noBlock(){
+bool Button::isPressed(){
 	bool state=getState();
 	bool result=false;
 	if(state!=lastState && state==HIGH){

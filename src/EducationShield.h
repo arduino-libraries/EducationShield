@@ -68,7 +68,7 @@ class Button{
 		bool released(int timeout=0);
 		bool doublePressed(int timeout=0,int tolerance=500);
 
-		bool pressed_noBlock();
+		bool isPressed();
 		virtual bool getState();
 
 	protected:
