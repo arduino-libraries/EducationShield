@@ -80,7 +80,7 @@ void updateStatus() {
   }
 
   //Fill the food stat when the button is being pressed
-  if(foodButton.isPressed()){
+  if(foodButton.beenPressed()){
     foodLv+=5;
   }
 
