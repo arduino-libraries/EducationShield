@@ -21,12 +21,12 @@
 // right wheel to D9
 Wheels wheels=Wheels(6, 9);
 
-//Declare the two LDR sensors
-LDR sensorLeft=LDR(A0);
-LDR sensorRight=LDR(A2);
+//Declare the two LightSensor
+LightSensor sensorLeft=LightSensor(A0);
+LightSensor sensorRight=LightSensor(A2);
 
 void setup(){
-  //initialize the LDR sensors
+  //initialize the LightSensor
   sensorLeft.config(600,800);
   sensorRight.config(600,800);
 
@@ -35,10 +35,10 @@ void setup(){
 }
 void loop(){
   if(sensorLeft.getState()){
-	//Left ldr detects strong light, the vechile turns left
+	//Left LightSensor detects strong light, the vechile turns left
     wheels.turnLeft();
   }else if(sensorRight.getState()){
-	//Right ldr detects strong light, the vechile turns right
+	//Right LightSensor detects strong light, the vechile turns right
     wheels.turnRight();
   }else{
 	//No strong light detected, the vechile goes straight

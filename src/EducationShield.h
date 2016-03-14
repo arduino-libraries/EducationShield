@@ -93,10 +93,10 @@ class ButtonGroup{
 		int checkPress(int timeout, bool requiredState);
 };
 
-class LDR : public Button{
+class LightSensor : public Button{
 	public:
-		LDR(int pin=A1);
-		void config(int baseValue,int threashold);
+		LightSensor(int pin=A1);
+		void config(int baseValue,int threshold);
 		virtual bool getState();
 		void test();
 		void calibrate(int t=5000);

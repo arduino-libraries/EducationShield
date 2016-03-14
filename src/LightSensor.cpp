@@ -1,10 +1,10 @@
 #include "EducationShield.h"
 #include <Arduino.h>
 
-LDR::LDR(int pin):Button(pin,HIGH){
+LightSensor::LightSensor(int pin):Button(pin,HIGH){
 }
 
-void LDR::calibrate(int t){
+void LightSensor::calibrate(int t){
 	unsigned long startT=millis();
 	//int low=1023;
 	int high=0;
@@ -23,39 +23,39 @@ void LDR::calibrate(int t){
 	}
 
 	this->base=high;
-	this->threashold=high-100;
+	this->threshold=high-100;
 	//this->threashold=(high-low)/2;
 
 }
 
-void LDR::config(int baseValue, int threashold){
+void LightSensor::config(int baseValue, int threshold){
 	//Base value should be the one when nothing is covering
 	//Threashold should be between base and covering value
 
 	this->base=baseValue;
-	this->threashold=threashold;
+	this->threshold=threshold;
 }
 
-void LDR::showConfig(){
+void LightSensor::showConfig(){
 	Serial.print("base "+this->base);
 	Serial.print(this->base);
 	Serial.print(' ');
 	Serial.print("threashold ");
-	Serial.println(this->threashold);
+	Serial.println(this->threshold);
 }
 
-void LDR::test(){
+void LightSensor::test(){
 	//Use the test to determin base and threashold first
 	Serial.println(analogRead(pin));
 }
 
-bool LDR::getState(){
+bool LightSensor::getState(){
 	int value=analogRead(pin);
 	
 	//return ((value-base)>(threashold-base)) || ((base-value)>(base-threashold));
-	if(base>threashold){
-		return value<threashold;
+	if(base>threshold){
+		return value<threshold;
 	}else{
-		return value>threashold;
+		return value>threshold;
 	}
 }

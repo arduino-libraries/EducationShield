@@ -5,7 +5,7 @@
   
   In this game, players will try to bounce a ping pong ball 
   into a cup. Make five points to win. The score is tracked 
-  using a light dependent resistor (LDR).
+  using a LightSensor.
   
   (c) 2013 Arduino Verkstad
 
@@ -27,7 +27,7 @@ int pinCount = 5;
 VUMeter vuMeter;
 
 Melody piezo = Melody(8); // the piezo connected to digital pin 8
-LDR ldr = LDR(A1); //the ldr connected to analog pin 1
+LightSensor sensor = LightSensor(A1); //the LightSensor connected to analog pin 1
 
 int score = 0;
 
@@ -36,13 +36,13 @@ void setup(){
   vuMeter.config(pinCount, ledPins);
   vuMeter.begin(); //does the same as pinMode, LEDs are outputs
 
-  ldr.config(800, 600); //first run LDRtest example to see what values you need to put here
+  sensor.config(800, 600); //first run LightSensortest example to see what values you need to put here
 }
 
 void loop(){
-  //if the ldr is covered the score increases with 1
+  //if the LightSensor is covered the score increases with 1
   //and a sounds is played
-    ldr.pressed();
+    sensor.pressed();
     score++;
     vuMeter.fill(score); //Turn on as many LEDs as the score
 

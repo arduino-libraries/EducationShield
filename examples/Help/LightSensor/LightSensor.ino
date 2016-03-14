@@ -19,15 +19,15 @@ it correctly.
 #include <Servo.h>
 #include <EducationShield.h>
 
-//Tinkerkit LDR is connected to analog 1.
-LDR sensor = LDR(A1);
+//LightSensor is connected to analog 1.
+LightSensor sensor = LightSensor(A1);
 
 void setup(){
 
   Serial.begin(9600);
 
-  //LDR needs to be configured with baseValue
-  //and threshold. See LDRTest sketch for
+  //LightSensor needs to be configured with baseValue
+  //and threshold. See LightSensorTest sketch for
   //details.
   sensor.config(700,900);
 }
@@ -37,13 +37,13 @@ void loop(){
 
   //pressed(timeout)
   //	timeout: milliseconds within which the
-  //		LDR should be cover-uncovered. If
+  //		LightSensor should be cover-uncovered. If
   //		cover-uncovered within time, the
   //		function returns 1, otherwise 0. If
   //		not used, it waits untill being
   //		cover-uncovered.
   //
-  //Wait until the LDR gets cover-uncovered.
+  //Wait until the LightSensor gets cover-uncovered.
   Serial.println(sensor.pressed());
 
   Serial.println("Please release...");
@@ -51,7 +51,7 @@ void loop(){
   //released(timeout)
   //	timeout: same as in pressed(timeout).
   //
-  //Wait until the LDR gets uncover-covered.
+  //Wait until the LightSensor gets uncover-covered.
   Serial.println(sensor.released());
 
 
