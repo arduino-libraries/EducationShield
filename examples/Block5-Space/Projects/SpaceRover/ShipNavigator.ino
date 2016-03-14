@@ -23,7 +23,7 @@ void loop() {
         Serial.println(uart.getReceivedLength());
         
         for(int i=0;i<uart.getReceivedLength();i++){
-          unsigned char n=uart.getValueAt(i);
+          unsigned char n=uart.receivedString()[i];
           
           Serial.print(n);
           
@@ -39,19 +39,19 @@ void loop() {
 
 void logoMove(unsigned char direction){
   switch(direction){
-    case 1:	
+    case 49:	//1
       wheels.goForward();
       delay(3000);
       break;
-    case 2:	
+    case 50:	//2
       wheels.goBackwards();
       delay(3000);
       break;
-    case 3:	
+    case 51:	//3
       wheels.turnLeft();
       delay(1500);
       break;
-    case 4:	
+    case 52:	//4
       wheels.turnRight();
       delay(1500);
       break;

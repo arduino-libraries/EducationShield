@@ -27,15 +27,16 @@ void setup() {
 
   Serial.begin(9600); // initialize Serial communication
 
+
   imu.begin();
 
 
-//Initialize the sound player
+  //Initialize the sound player
   player.begin();
 
   randomSeed(analogRead(0));// initializes the pseudo-random number generator
 
-  
+
 }
 
 void loop() {
@@ -63,22 +64,22 @@ void loop() {
 
 
   // check if the board has been tilted in any direction and set the direction bools accordingly
-  if (roll < -45) {
+  if (pitch < -45) {
     up = true;
     down = false;
     left = false;
     right = false;
-  } else if (roll > 45) {
+  } else if (pitch > 45) {
     up = false;
     down = true;
     left = false;
     right = false;
-  } else if (pitch  < -45) {
+  } else if (roll  < -45) {
     up = false;
     down = false;
     left = true;
     right = false;
-  } else if (pitch > 45) {
+  } else if (roll > 45) {
     up = false;
     down = false;
     left = false;
