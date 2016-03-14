@@ -4,8 +4,7 @@
   
   (c) 2013 Arduino Verkstad
 */
-#include <CapacitiveSensor.h>
-#include <Servo.h>
+
 #include <EducationShield.h>
 
 //Declaring the button group
@@ -16,6 +15,9 @@ int buttons[]={4,5,6};
 
 void setup(){
   Serial.begin(9600);
+
+  while(!Serial);
+  
   //initialize the button group. The first parameter is
   //number of buttons, the seconds is the array containing
   //pins used by these buttons.

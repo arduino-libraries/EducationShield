@@ -1,14 +1,13 @@
-/*	Melody
+/*  Melody
 *
-*	For playing sound with a piezo.
+* For playing sound with a piezo.
 *
-*	Connect the one pin of the piezo to a digital pin 
+* Connect the one pin of the piezo to a digital pin 
 *       (8 in this example) and the other pin to ground.
 *
 *       (c) 2013 Arduino Verkstad
 */
-#include <CapacitiveSensor.h>
-#include <Servo.h>
+
 #include <EducationShield.h>
 
 //pitches.h includes the definition of notes. Put it in your sketch
@@ -31,10 +30,10 @@ void loop(){
     4, 8, 8, 4,4,4,4,4 };
 
   //play(length, notes, duration, speed)
-  //	length: number of notes in your music.
-  //	notes: the arry of notes.
-  //	noteDuration: the array of note duration
-  //	speed: how fast the music plays. No less than 1.0, the bigger the slower
+  //  length: number of notes in your music.
+  //  notes: the arry of notes.
+  //  noteDuration: the array of note duration
+  //  speed: how fast the music plays. No less than 1.0, the bigger the slower
   //
   //Play the notes defined above
   me.play(8,notes,noteDurations,1.4);
@@ -42,10 +41,29 @@ void loop(){
   delay(3000);
 
   //beep(length)
-  //	length: how long the beep goes. Default to 30.
+  //  length: how long the beep goes. Default to 30.
   //
   //Make a beep sound
   me.beep();
+
+  delay(1000);
+  //effect_win()
+  //
+  //Make a win sound effect
+  me.effect_win();
+
+  delay(1000);
+  //effect_gameover()
+  //
+  //Make a gameover sound effect
+  me.effect_gameover();
+
+  delay(1000);
+  //effect_score()
+  //
+  //Make a scoring sound effect
+  me.effect_score();
+  
 
   delay(3000);
 }

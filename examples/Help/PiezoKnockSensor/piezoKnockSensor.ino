@@ -11,8 +11,6 @@
 * (c) 2013 Arduino Verkstad
 */
 
-#include <CapacitiveSensor.h>
-#include <Servo.h>
 #include <EducationShield.h>
 
 //Remember: Piezo as speaker is connected to digital pin
@@ -21,6 +19,9 @@ PiezoKnockSensor sensor=PiezoKnockSensor(A0);
 
 void setup(){
   Serial.begin(9600);
+
+  while(!Serial);
+  
   //define the threshold and debounce time of the knock
   //sensor. Threshold defines how hard you need to knock,
   //debounce time prevents the sensor from returning several

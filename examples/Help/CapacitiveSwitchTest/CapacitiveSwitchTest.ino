@@ -15,8 +15,6 @@
 *       (c) 2013 Arduino Verkstad
 */
 
-#include <CapacitiveSensor.h>
-#include <Servo.h>
 #include <EducationShield.h>
 
 //The sensor is connected between 2 and 3 by default

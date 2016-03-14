@@ -10,11 +10,8 @@
   
   (c) 2013 Arduino Verkstad
 */
-#include <CapacitiveSensor.h>
-#include <EducationShield.h>
 
-//It's necessary to include Servo.h if servo is used
-#include <Servo.h>
+#include <EducationShield.h>
 
 Servo me;
 
