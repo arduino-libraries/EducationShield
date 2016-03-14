@@ -8,6 +8,7 @@
 Button::Button(int pin,bool pressedValue){
 	this->pin=pin;
 	this->pressedValue=pressedValue;
+	this->debounceTime=0;
 }
 void Button::begin(){
 	//Must be called in setup
@@ -55,6 +56,7 @@ bool Button::checkPress(int timeout,bool requiredState){
 			}
 		}else{
 			if(getState()==requiredState){
+				delay(debounceTime);
 				return true;
 			}
 		}

@@ -75,6 +75,7 @@ class Button{
 		int pin;
 		bool pressedValue;
 		bool lastState;
+		long debounceTime;
 		bool checkPress(int timeout, bool requiredState);
 
 };
@@ -104,7 +105,7 @@ class LightSensor : public Button{
 
 	protected:
 		int base;
-		int threashold;
+		int threshold;
 
 };
 
@@ -117,14 +118,14 @@ class TiltSwitch : public Button{
 class CapacitiveSwitch : public Button{
 	public:
 		CapacitiveSwitch(int pin_in=13, int pin=12);
-		void config(int threashold);
+		void config(int threshold);
 		void test();
 		long getValue(int min=0);
 		virtual bool getState();
 
 	protected:
 		CapacitiveSensor sensor;
-		int threashold;
+		int threshold;
 };
 
 class LED{
@@ -139,16 +140,14 @@ class LED{
 		int pin;
 };
 
-class PiezoKnockSensor{
+class PiezoKnockSensor : public Button{
 	public:
 		PiezoKnockSensor(int pin=A0);
 		void config(int threshold=40,int debounceTime=80);
 		bool knocked(int timeout=0);
 		void test();
 	private:
-		int pin;
 		int threshold;
-		long debounceTime;
 };
 
 
@@ -219,7 +218,7 @@ class IRArray{
         IRArray(int IR1=A1, int IR2=A2, int IR3=A3);
         void begin();
         void test();
-		void setThreshold(int t);
+				void setThreshold(int t);
         int readBinary();
         int readLine();
     private:
@@ -230,7 +229,7 @@ class IRArray{
         int translateBinary();
         int calculateVelocity(int s);
         int last_diff;
-		int threshold;
+				int threshold;
 
 };
 
