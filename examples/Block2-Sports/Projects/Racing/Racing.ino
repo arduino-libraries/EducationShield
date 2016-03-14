@@ -19,9 +19,9 @@
 /*
   An array of pin numbers to which LEDs are attached
   the defaults are 2 to 6 but you can choose any of the digital pins
-  just remember to leave digital pin 9 and 10 for the buttons
+  just remember to leave digital pin 2,3 and 4 for the capacitive switches
 */
-int ledPins[] = {9, 10, 11, 12, 13};
+int ledPins[] = {8, 9, 10, 11, 13};
 int pinCount = 5;
 //This variable will let us keep track on which LED to turn on
 int LED = 0;
