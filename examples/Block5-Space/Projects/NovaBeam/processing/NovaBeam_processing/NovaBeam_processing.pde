@@ -1,8 +1,8 @@
 /*
- * Laser sword
+ * Nova Beam
  *
  * Create an augmented reality application that gives you the opportunity
- * to play with a laser sword. 
+ * to play with a nova beam. 
  *
  * (c) 2016 M. Ehrndal, Arduino Verkstad, Sweden
  */
