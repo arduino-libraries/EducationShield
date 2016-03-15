@@ -17,7 +17,7 @@
 //  Declares the wheels.
 //  left: the digital pin where you connect the left wheel
 //  right: the digital pin where you connect the right wheel
-Wheels wheels=Wheels(5, 9);
+Wheels wheels=Wheels(6, 9);
 
 void setup(){
   //Initialize the servo wheels

@@ -21,7 +21,7 @@ Servo me;
 void setup(){
   //Servo is initialized, 
   //in this example connected to digital pin 9
-  me.attach(9);
+  me.attach(6);
 }
 
 void loop(){
