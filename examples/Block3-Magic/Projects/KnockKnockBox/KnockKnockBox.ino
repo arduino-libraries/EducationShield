@@ -48,7 +48,7 @@ void setup(){
   //sensor. Threshold defines how hard you need to knock,
   //debounce time prevents the sensor from detecting
   //false knocks, but also limits how rapid you can knock.
-  sensor.config(40,80);
+  sensor.config(100,80);
 
   //initializing the values
   started=false;
@@ -60,7 +60,7 @@ void setup(){
 void loop(){
   //Knock sensor waits for a short time if a knock is detected
   //and then move on.
-  if(sensor.knocked(10)){
+  if(sensor.knocked(20)){
     //If it's the first knock in the round, start recording
     if(!started){
       started=true;

@@ -1,11 +1,7 @@
-#include <CapacitiveSensor.h>
+
 #include <EducationShield.h>
 
-#include <CurieImu.h>
-
-
 IMU imu; // the IMU
-
 
 
 int piezoPin = 8; //piezo
@@ -32,21 +28,16 @@ int average = 0;
 void setup() {
   Serial.begin(9600); // initialize Serial communication
 
-
   imu.begin();
 
-
-
-//smoothing function
+  //smoothing function
   // initialize all the readings to 0:
   for (int thisReading = 0; thisReading < numReadings; thisReading++) {
     readings[thisReading] = 0;
   }
 
-
- 
   pinMode(inputPin, INPUT);
-   pinMode(piezoPin, OUTPUT);
+  pinMode(piezoPin, OUTPUT);
   // configure Arduino LED for activity indicator
   pinMode(ledPin, OUTPUT);
   digitalWrite(ledPin, HIGH); // turn on led to show that the board has executed
@@ -109,7 +100,7 @@ void loop() {
   previous = buttonState;
 
 
- // get the gyro result from the filter and convert them into INT
+  // get the gyro result from the filter and convert them into INT
   int pitch = imu.getPitch();
   int roll = imu.getRoll();
 

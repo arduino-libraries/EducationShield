@@ -25,7 +25,7 @@ void setup(){
   //sensor. Threshold defines how hard you need to knock,
   //debounce time prevents the sensor from returning several
   //hits from one knock, but also limits how rapid you can knock.
-  sensor.config(40,80);
+  sensor.config(120,80);
 
 }
 void loop(){
@@ -38,5 +38,5 @@ void loop(){
   //		untill being knocked.
   //
   //Wait until the button is knocked.
-  Serial.println(sensor.knocked());
+  Serial.println(sensor.knocked(20));
 }

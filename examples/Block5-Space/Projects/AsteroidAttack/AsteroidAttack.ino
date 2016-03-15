@@ -1,14 +1,11 @@
 
-#include <CapacitiveSensor.h>
 #include <EducationShield.h>
-
-#include <CurieImu.h>
 
 
 IMU imu; // the IMU
 
 //Button variables
-int inputPin = 10;
+int inputPin = 6;
 int buttonState = 0;
 
 

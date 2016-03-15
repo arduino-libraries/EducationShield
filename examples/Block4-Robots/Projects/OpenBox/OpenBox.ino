@@ -29,7 +29,7 @@ void setup(){
   //false knocks, but also limits how rapid you can knock.
   //See the PiezoKnockSensor sketch in the help folder
   //to make sure your values are correct
-  sensor.config(40,80);
+  sensor.config(100,80);
 
   //initialize the servo
   lidOpener.attach(9);
@@ -38,7 +38,7 @@ void setup(){
 }
 void loop(){
 
-  if(sensor.knocked()){
+  if(sensor.knocked(20)){
 	//rotate the servo motor to open the lid
     lidOpener.write(0);
     delay(3000); //Wait for 3 seconds
