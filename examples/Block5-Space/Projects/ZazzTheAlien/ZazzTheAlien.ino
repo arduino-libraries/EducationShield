@@ -3,11 +3,6 @@
 BLEuart ble=BLEuart(TYPE_TAMAGOTCHI);
 IMU imu;
 
-// led pins
-LED redLed(12);
-LED greenLed(11);
-LED yellowLed(10);
-
 //const int lightPin = A0; //phototransistor
 LightSensor sleepSensor(A1);
 
@@ -29,11 +24,6 @@ void setup() {
   // set advertised local name
   ble.setName("Tamagotchi");
   ble.begin();
-
-  // configure the 2 leds to be outputs
-  redLed.begin();
-  greenLed.begin();
-  yellowLed.begin();
 
   foodButton.begin();
 
@@ -96,30 +86,10 @@ void updateStatus() {
   exerciseLv=constrain(exerciseLv,0,100);
   foodLv=constrain(foodLv,0,100);
   sleepLv=constrain(sleepLv,0,100);
-
-  // if any stats are to low, light the leds with the fitting color
-  if (sleepLv < 5) {
-    redLed.on();
-  } else {
-    redLed.off();
-  }
-
-  if (foodLv < 5) {
-    greenLed.on();
-  } else {
-    greenLed.off();
-  }
-
-  if (exerciseLv < 5) {
-    yellowLed.on();
-  } else {
-    yellowLed.off();
-  }
 }
 
 // this is called when the Imu detects  a shock in any direction
-static void shockCallback(void)
-{
+static void shockCallback(void) {
   //add 1 to the exerciseLv
   exerciseLv++;
 }
