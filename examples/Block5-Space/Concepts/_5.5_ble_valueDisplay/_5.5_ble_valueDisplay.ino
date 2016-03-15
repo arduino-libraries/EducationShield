@@ -3,23 +3,21 @@
 
 BLEuart uart=BLEuart();
 
+Button button(9);
+
 int count;
-bool btnPressed;
 
 void setup() {
   Serial.begin(9600);
-
-  //Set pin modes of digital pins
-  pinMode(9,INPUT);
 
   // Curie BLE setup
   // set advertised local name
   uart.setName("valDisp");
   uart.begin();
 
+  button.begin();
 
   count=0;
-  btnPressed=false;
 }
 
 void loop() {
@@ -29,7 +27,7 @@ void loop() {
     // while the central is still connected to peripheral:
     while(uart.connected()){
       //Get readings from sensors 
-      int buttonValue=digitalRead(9);
+      int buttonValue=button.getState();
       int lightValue=analogRead(A1);
 
       //Value Display can only pass numbers smaller than 255
@@ -37,11 +35,8 @@ void loop() {
 
       //Check if the button is being pressed, and update the
       //counter accordingly
-      if(btnPressed==false && buttonValue==HIGH){
+      if(button.isPressed()){
         count++;
-        btnPressed=true;
-      }else if(btnPressed==true && buttonValue==LOW){
-        btnPressed=false;
       }
 
 

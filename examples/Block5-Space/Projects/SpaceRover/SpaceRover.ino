@@ -39,19 +39,19 @@ void loop() {
 
 void logoMove(unsigned char direction){
   switch(direction){
-    case 49:	//1
+    case 1:	//forward
       wheels.goForward();
       delay(3000);
       break;
-    case 50:	//2
+    case 2:	//backwards
       wheels.goBackwards();
       delay(3000);
       break;
-    case 51:	//3
+    case 3:	//left
       wheels.turnLeft();
       delay(1500);
       break;
-    case 52:	//4
+    case 4:	//right
       wheels.turnRight();
       delay(1500);
       break;
