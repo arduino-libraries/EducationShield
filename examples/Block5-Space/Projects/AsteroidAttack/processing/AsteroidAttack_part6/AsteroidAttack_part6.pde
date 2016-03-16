@@ -59,7 +59,7 @@ float shotInterval=100; // The interval between shots, in milliseconds
 
 float asteroidTimer; // Asteroid timer
 float lastAsteroidCheck; // Recording last check
-float asteroidInterval=500; // The interval between asteroids, in milliseconds
+float asteroidInterval=1000; // The interval between asteroids, in milliseconds
 
 //player variables
 float playerWidth=100; // Width of the player
@@ -350,7 +350,7 @@ void createLifeBar() {
   rectMode(CORNER);
   
   //Green lifebar
-  fill(100, 220, 180);
+  fill(24, 148, 154);
   rect(20, 40, life, 40);
 }
 
