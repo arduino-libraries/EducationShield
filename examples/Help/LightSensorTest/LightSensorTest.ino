@@ -1,4 +1,4 @@
-/*	LDR test
+/*	LightSensor test
 *	This sketch should be used prior to using the component in
 *	Projects. Projects suitable for this library should have 2
 *	states: uncovered and covered. That is to say, you want to
@@ -14,17 +14,16 @@
 *
 *	Now cover the sensor with desired object. When the value
 *	gets stable, take note of it(topValue). Remembe these values
-*       and use them when configuring.
+* and use them when configuring.
 *
 *	"baseValue" and "threshold" will be used for defining the
-*	LDR switch in your project. You can fine tune the threshold
-*	to make the sensor more/less sensitive. The closer to
-*	baseValue, the more sensitive it is.
+*	LightSensor switch in your project. You can fine tune the 
+* threshold to make the sensor more/less sensitive. The closer 
+* to baseValue, the more sensitive it is.
 *  
 *       (c) 2013 Arduino Verkstad
 */
-#include <CapacitiveSensor.h>
-#include <Servo.h>
+
 #include <EducationShield.h>
 
 //Tinkerkit LDR is connected to analog 1.

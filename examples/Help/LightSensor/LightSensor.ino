@@ -1,33 +1,30 @@
 /*
-LDR
+LightSensor
 
-LDR is a sensor that reads the intensity of light. It gives 
-analog reading. When connected with Arduino analog pins, 
-its value ranges from 0 to 1023 depending on the amount of 
-light shining on it. 
+LightSensor is a sensor that reads the intensity of light. 
+It gives analog reading. When connected with Arduino analog 
+pins, its value ranges from 0 to 1023 depending on the amount 
+of light shining on it. 
 
-The BasicEducationShield library includes some features for 
-using the LDR as a button, or get values directly. Se the 
-example LDRtest fo more information about how to configure
-it correctly. 
+The EducationShield library includes some features for 
+using the LightSensor as a button, or get values directly. See 
+the example LightSensortest fo more information about how to 
+configure it correctly. 
 
 (c) 2013 Arduino Verkstad
 */
 
-
-#include <CapacitiveSensor.h>
-#include <Servo.h>
 #include <EducationShield.h>
 
-//LightSensor is connected to analog 1.
-LightSensor sensor = LightSensor(A1);
+//Tinkerkit LDR is connected to analog 1.
+LDR sensor = LDR(A1);
 
 void setup(){
 
   Serial.begin(9600);
 
-  //LightSensor needs to be configured with baseValue
-  //and threshold. See LightSensorTest sketch for
+  //LDR needs to be configured with baseValue
+  //and threshold. See LDRTest sketch for
   //details.
   sensor.config(700,900);
 }
@@ -37,13 +34,13 @@ void loop(){
 
   //pressed(timeout)
   //	timeout: milliseconds within which the
-  //		LightSensor should be cover-uncovered. If
+  //		LDR should be cover-uncovered. If
   //		cover-uncovered within time, the
   //		function returns 1, otherwise 0. If
   //		not used, it waits untill being
   //		cover-uncovered.
   //
-  //Wait until the LightSensor gets cover-uncovered.
+  //Wait until the LDR gets cover-uncovered.
   Serial.println(sensor.pressed());
 
   Serial.println("Please release...");
@@ -51,7 +48,7 @@ void loop(){
   //released(timeout)
   //	timeout: same as in pressed(timeout).
   //
-  //Wait until the LightSensor gets uncover-covered.
+  //Wait until the LDR gets uncover-covered.
   Serial.println(sensor.released());
 
 

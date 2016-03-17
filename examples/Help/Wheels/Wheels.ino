@@ -7,11 +7,7 @@
  (c) 2013 Arduino Verkstad
 */
 
-#include <CapacitiveSensor.h>
 #include <EducationShield.h>
-
-//Servo.h is necessary to be included here
-#include <Servo.h>
 
 //Wheels(left, right)
 //  Declares the wheels.

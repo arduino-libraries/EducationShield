@@ -16,10 +16,6 @@
 *       (c) 2013 Arduino Verkstad
 */
 
-//Always import CapacitiveSensor.h when using CapacitiveSwitch
-#include <CapacitiveSensor.h>
-
-#include <Servo.h>
 #include <EducationShield.h>
 
 //The sensor is connected between 2 and 3 by default
@@ -27,6 +23,8 @@ CapacitiveSwitch me=CapacitiveSwitch(2,3);
 
 void setup(){
   Serial.begin(9600);
+
+  while(!Serial);
 
   //Config the sensor, set threshold for the sensor used as
   //button. If sensor reading passes it, it's counted as

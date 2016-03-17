@@ -10,18 +10,15 @@
   
   (c) 2013 Arduino Verkstad
 */
-#include <CapacitiveSensor.h>
-#include <EducationShield.h>
 
-//It's necessary to include Servo.h if servo is used
-#include <Servo.h>
+#include <EducationShield.h>
 
 Servo me;
 
 void setup(){
   //Servo is initialized, 
   //in this example connected to digital pin 9
-  me.attach(6);
+  me.attach(9);
 }
 
 void loop(){
