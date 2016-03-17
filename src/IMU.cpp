@@ -11,7 +11,7 @@ IMU::IMU(){
 
 void IMU::begin(){
   //Serial.println("Initializing IMU device...");
-  CurieIMU.initialize();
+  CurieIMU.begin();
 
 }
 
