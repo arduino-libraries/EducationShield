@@ -2,7 +2,7 @@
 
 #include "EducationShield.h"
 #include "Arduino.h"
-#include "CurieImu.h"
+#include "CurieIMU.h"
 
 #define RESTRICT_PITCH // Comment out to restrict roll to ±90deg instead - please read: http://www.freescale.com/files/sensors/doc/app_note/AN3461.pdf
 
@@ -11,32 +11,32 @@ IMU::IMU(){
 
 void IMU::begin(){
   //Serial.println("Initializing IMU device...");
-  CurieImu.initialize();
+  CurieIMU.initialize();
 
 }
 
 void IMU::calibrate(){
   // verify connection
   Serial.println("Testing device connections...");
-  if (CurieImu.testConnection()) {
-    Serial.println("CurieImu connection successful");
+  if (CurieIMU.testConnection()) {
+    Serial.println("CurieIMU connection successful");
   } else {
-    Serial.println("CurieImu connection failed");
+    Serial.println("CurieIMU connection failed");
   }
 
   // use the code below to calibrate accel/gyro offset values
   Serial.println("Internal sensor offsets BEFORE calibration...");
-  Serial.print(CurieImu.getXAccelOffset());
+  Serial.print(CurieIMU.getXAccelOffset());
   Serial.print("\t"); // -76
-  Serial.print(CurieImu.getYAccelOffset());
+  Serial.print(CurieIMU.getYAccelOffset());
   Serial.print("\t"); // -235
-  Serial.print(CurieImu.getZAccelOffset());
+  Serial.print(CurieIMU.getZAccelOffset());
   Serial.print("\t"); // 168
-  Serial.print(CurieImu.getXGyroOffset());
+  Serial.print(CurieIMU.getXGyroOffset());
   Serial.print("\t"); // 0
-  Serial.print(CurieImu.getYGyroOffset());
+  Serial.print(CurieIMU.getYGyroOffset());
   Serial.print("\t"); // 0
-  Serial.println(CurieImu.getZGyroOffset());
+  Serial.println(CurieIMU.getZGyroOffset());
 
 
   Serial.println("About to calibrate. Make sure your board is stable and upright");
@@ -45,49 +45,49 @@ void IMU::calibrate(){
   // The board must be resting in a horizontal position for
   // the following calibration procedure to work correctly!
   Serial.print("Starting Gyroscope calibration...");
-  CurieImu.autoCalibrateGyroOffset();
+  CurieIMU.autoCalibrateGyroOffset();
   Serial.println(" Done");
   Serial.print("Starting Acceleration calibration...");
-  CurieImu.autoCalibrateXAccelOffset(0);
-  CurieImu.autoCalibrateYAccelOffset(0);
-  CurieImu.autoCalibrateZAccelOffset(1);
+  CurieIMU.autoCalibrateXAccelOffset(0);
+  CurieIMU.autoCalibrateYAccelOffset(0);
+  CurieIMU.autoCalibrateZAccelOffset(1);
   Serial.println(" Done");
 
   Serial.println("Internal sensor offsets AFTER calibration...");
-  Serial.print(CurieImu.getXAccelOffset());
+  Serial.print(CurieIMU.getXAccelOffset());
   Serial.print("\t"); // -76
-  Serial.print(CurieImu.getYAccelOffset());
+  Serial.print(CurieIMU.getYAccelOffset());
   Serial.print("\t"); // -2359
-  Serial.print(CurieImu.getZAccelOffset());
+  Serial.print(CurieIMU.getZAccelOffset());
   Serial.print("\t"); // 1688
-  Serial.print(CurieImu.getXGyroOffset());
+  Serial.print(CurieIMU.getXGyroOffset());
   Serial.print("\t"); // 0
-  Serial.print(CurieImu.getYGyroOffset());
+  Serial.print(CurieIMU.getYGyroOffset());
   Serial.print("\t"); // 0
-  Serial.println(CurieImu.getZGyroOffset());
+  Serial.println(CurieIMU.getZGyroOffset());
 
   Serial.println("Enabling Gyroscope/Acceleration offset compensation");
-  CurieImu.setGyroOffsetEnabled(true);
-  CurieImu.setAccelOffsetEnabled(true);
+  CurieIMU.setGyroOffsetEnabled(true);
+  CurieIMU.setAccelOffsetEnabled(true);
 
 }
 
 void IMU::detectShock(int shockThreashold, int shockDuration){
   /* Enable Shock Detection */
-  CurieImu.setShockDetectionThreshold(192); // 1.5g
-  CurieImu.setShockDetectionDuration(11);   // 30ms
-  CurieImu.setIntShockEnabled(true);
+  CurieIMU.setDetectionThreshold(CURIE_IMU_SHOCK, 192); // 1.5g
+  CurieIMU.setDetectionDuration(CURIE_IMU_SHOCK, 11);   // 30ms
+  CurieIMU.interrupts(CURIE_IMU_SHOCK);
 
   /* Enable Interrupts Notifications */
-  CurieImu.setIntEnabled(true);
+  //CurieIMU.setIntEnabled(true);
 }
 void IMU::attachCallback(void (*callback)(void)){
-	  CurieImu.attachInterrupt(callback);
+	  CurieIMU.attachInterrupt(callback);
 }
 
 void IMU::measureMotion(){
 	// read raw accel/gyro measurements from device
-	CurieImu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+	CurieIMU.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
 }
 
 

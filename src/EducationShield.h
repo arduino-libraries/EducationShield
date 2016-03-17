@@ -12,8 +12,8 @@
 #include <SD.h>
 
 #if defined(__arc__)
-#include <CurieBle.h>
-#include <CurieImu.h>
+#include <CurieBLE.h>
+#include <CurieIMU.h>
 #endif
 
 #define LED_LENGTH 20
