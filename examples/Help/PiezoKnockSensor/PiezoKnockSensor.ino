@@ -39,5 +39,5 @@ void loop(){
   //		untill being knocked.
   //
   //Wait until the button is knocked.
-  Serial.println(sensor.knocked(20));
+  Serial.println(sensor.knocked());
 }
