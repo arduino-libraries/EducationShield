@@ -6,7 +6,7 @@ class Bird {
     canFly = _canFly;
   }
 
-  void fly() {
+  void flapWings() {
     println("Flap, flap, flap");
   }
 }

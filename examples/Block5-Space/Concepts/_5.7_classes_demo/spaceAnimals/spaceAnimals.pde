@@ -7,6 +7,6 @@ void setup() {
 }
 
 void draw() {
-  myBird.fly();
+  myBird.flapWings();
   myRabbit.eatCarrot();
 }
