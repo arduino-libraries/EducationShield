@@ -1,7 +1,7 @@
 
 #include <EducationShield.h>
 
-BLEuart uart=BLEuart();
+BLEuart ble=BLEuart();
 
 Button button(9);
 
@@ -12,8 +12,8 @@ void setup() {
 
   // Curie BLE setup
   // set advertised local name
-  uart.setName("valDisp");
-  uart.begin();
+  ble.setName("valDisp");
+  ble.begin();
 
   button.begin();
 
@@ -22,10 +22,10 @@ void setup() {
 
 void loop() {
   // if a central is connected to peripheral:
-  if(uart.searchCentral()){
+  if(ble.searchCentral()){
     Serial.println("Connected to central ");
     // while the central is still connected to peripheral:
-    while(uart.connected()){
+    while(ble.connected()){
       //Get readings from sensors 
       int buttonValue=button.getState();
       int lightValue=analogRead(A1);
@@ -42,10 +42,10 @@ void loop() {
 
       //Note the sequence of data being sent, the phone app displays 
       //the values in the same squence.
-      uart.addValue(buttonValue);
-      uart.addValue(count);
-      uart.addValue(lightValue);    
-      uart.send();
+      ble.addValue(buttonValue);
+      ble.addValue(count);
+      ble.addValue(lightValue);    
+      ble.send();
         
     }
     // when the central disconnects, print it out:

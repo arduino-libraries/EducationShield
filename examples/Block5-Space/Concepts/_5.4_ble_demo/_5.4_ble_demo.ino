@@ -1,32 +1,32 @@
 #include <EducationShield.h>
 #include <CurieBle.h>
 
-BLEuart uart=BLEuart(TYPE_MESSENGER);
+BLEuart ble=BLEuart(TYPE_MESSENGER);
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  uart.setName("Messenger");
-  uart.begin();
+  ble.setName("Messenger");
+  ble.begin();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if(uart.searchCentral()){
+  if(ble.searchCentral()){
     Serial.println("Connected to central ");
-    while(uart.connected()){
+    while(ble.connected()){
 
       //When receiving data from mobile app, write it 
       //back to the sender
-      if(uart.dataReceived()){
-        uart.fetchData();
-        Serial.println(uart.receivedString());
+      if(ble.dataReceived()){
+        ble.fetchData();
+        Serial.println(ble.receivedString());
         char data[20];
-        int length=uart.getReceivedLength();
+        int length=ble.getReceivedLength();
         for(int i=0;i<length;i++){
-          data[i]=uart.receivedString()[i];
+          data[i]=ble.receivedString()[i];
         }
-        uart.sendString(data,length);
+        ble.sendString(data,length);
       }
 
     }

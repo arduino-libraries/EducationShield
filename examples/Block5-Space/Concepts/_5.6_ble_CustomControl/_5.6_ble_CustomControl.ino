@@ -1,6 +1,6 @@
 #include <EducationShield.h>
 
-BLEuart uart=BLEuart();
+BLEuart ble=BLEuart();
 
 void setup() {
   // put your setup code here, to run once:
@@ -8,23 +8,23 @@ void setup() {
 
   // Curie BLE setup
   // set advertised local name
-  uart.setName("CutomControl");
-  uart.begin();
+  ble.setName("CutomControl");
+  ble.begin();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if(uart.searchCentral()){
+  if(ble.searchCentral()){
     Serial.println("Connected to central ");
-    while(uart.connected()){
+    while(ble.connected()){
 
       //If data is sent through BLE to 101 board
-      if(uart.dataReceived()){
+      if(ble.dataReceived()){
         //Fetch all data from BLE
-        uart.fetchData();
+        ble.fetchData();
 
         //Read the 1 byte data received
-        unsigned char data=uart.getValueAt(0);
+        unsigned char data=ble.getValueAt(0);
         Serial.println(data);
       }
     }
