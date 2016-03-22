@@ -318,7 +318,7 @@ class BLEuart : public BLEPeripheralBase{
 class IMU{
 	public:
 		IMU();
-		void begin();
+		void begin(int accRange=2, int gyroRange=500);
 		void calibrate();
 		void run(bool useRollPitch=true);
 
@@ -331,27 +331,36 @@ class IMU{
 		int getAccelerometerX();
 		int getAccelerometerY();
 		int getAccelerometerZ();
+		float getAccelerometerX_g();
+		float getAccelerometerY_g();
+		float getAccelerometerZ_g();
 
 		int getGyroX();
 		int getGyroY();
 		int getGyroZ();
+		float getGyroX_dps();
+		float getGyroY_dps();
+		float getGyroZ_dps();
 
 	private:
 		void measureMotion();
-		void calculateRollPitch();
 
-		uint32_t timer;
+		void calculateRollPitch();
+		void calculateComplementaryRollPitch();
+
+		float convertAcclerometer_g(int16_t rawVal);
+		float convertGyro_dps(int16_t rawVal);
+
+		long timer;
 
 		//Kalman kalmanX;
 		//Kalman kalmanY;
+		int accRange, gyroRange;
 
 		int16_t ax, ay, az;         // accelerometer values
 		int16_t gx, gy, gz;         // gyrometer values
 
-		double pitch, roll;
-		double gyroXangle, gyroYangle; // Angle calculate using the gyro only
-		double compAngleX, compAngleY; // Calculated angle using a complementary filter
-		double kalAngleX, kalAngleY; // Calculated angle using a Kalman filter
+		float pitch, roll;
 
 };
 #endif

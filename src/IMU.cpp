@@ -9,13 +9,19 @@
 IMU::IMU(){	
 }
 
-void IMU::begin(){
+void IMU::begin(int accRange, int gyroRange){
   //Serial.println("Initializing IMU device...");
   CurieIMU.begin();
 
+  CurieIMU.setAccelerometerRange(accRange);
+  CurieIMU.setGyroRange(gyroRange);
+
+  this->accRange=accRange;
+  this->gyroRange=gyroRange;
 }
 
 void IMU::calibrate(){
+  
   // verify connection
   Serial.println("Testing device connections...");
   if (CurieIMU.testConnection()) {
@@ -96,13 +102,28 @@ void IMU::calculateRollPitch(){
 	// Source: http://www.freescale.com/files/sensors/doc/app_note/AN3461.pdf eq. 25 and eq. 26
 	// atan2 outputs the value of -π to π (radians) - see http://en.wikipedia.org/wiki/Atan2
 	// It is then converted from radians to degrees
-	#ifdef RESTRICT_PITCH // Eq. 25 and 26
+	/*#ifdef RESTRICT_PITCH // Eq. 25 and 26
 	  roll  = atan2(ay, az) * RAD_TO_DEG;
 	  pitch = atan(-ax / sqrt(ay * ay + az * az)) * RAD_TO_DEG;
 	#else // Eq. 28 and 29
 	  roll  = atan(ay / sqrt(ax * ax + az * az)) * RAD_TO_DEG;
 	  pitch = atan2(-ax, az) * RAD_TO_DEG;
-	#endif
+	#endif*/
+
+  calculateComplementaryRollPitch();
+}
+void calculateComplementaryRollPitch(){
+  long dt=millis()-timer;
+  timer=millis();
+
+  pitch=pitch-getGyroY_dps()*(dt/1000.0);
+  roll=roll+getGyroX_dps()*(dt/1000.0);
+
+  float pitchAcc=atan2(getAccelerometerX(),getAccelerometerZ())*RAD_TO_DEG;
+  float rollAcc=atan2(getAccelerometerY(),getAccelerometerZ())*RAD_TO_DEG;
+
+  pitch=pitch*0.98+pitchAcc*0.02;
+  roll=roll*0.98+rollAcc*0.02;
 }
 
 void IMU::run(bool useRollPitch){
@@ -143,6 +164,38 @@ int IMU::getGyroY(){
 
 int IMU::getGyroZ(){
 	return (int)gz;	
+}
+
+float IMU::getAccelerometerX_g(){
+  return convertAcclerometer_g(ax);
+}
+
+float IMU::getAccelerometerY_g(){
+  return convertAcclerometer_g(ay);
+}
+
+float IMU::getAccelerometerZ_g(){
+  return convertAcclerometer_g(az);
+}
+
+float IMU::getGyroX_dps(){
+  return convertGyro_dps(gx);
+}
+
+float IMU::getGyroY_dps(){
+  return convertGyro_dps(gy);
+}
+
+float IMU::getGyroZ_dps(){
+  return convertGyro_dps(gz);
+}
+
+float IMU::convertAcclerometer_g(int16_t rawVal){
+  return (float)rawVal*accRange/32768.0;
+}
+float IMU::convertGyro_dps(int16_t rawVal){
+  return (float)rawVal*gyroRange/32768.0;
+
 }
 
 #endif
