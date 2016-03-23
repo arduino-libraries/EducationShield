@@ -3,10 +3,27 @@
 #include "EducationShield.h"
 #include "Arduino.h"
 #include "CurieIMU.h"
+#include "CurieTimerOne.h"
 
 #define RESTRICT_PITCH // Comment out to restrict roll to ±90deg instead - please read: http://www.freescale.com/files/sensors/doc/app_note/AN3461.pdf
 
+long IMU::timer;
+bool IMU::useISR=false;
+
+int IMU::accRange,IMU::gyroRange;
+
+int16_t IMU::ax,IMU::ay,IMU::az;
+int16_t IMU::gx,IMU::gy,IMU::gz;
+
+float IMU::pitch,IMU::roll;
+
 IMU::IMU(){	
+}
+
+void staticRun(){
+  IMU::measureMotion();
+  IMU::calculateRollPitch();
+
 }
 
 void IMU::begin(int accRange, int gyroRange){
@@ -16,9 +33,14 @@ void IMU::begin(int accRange, int gyroRange){
   CurieIMU.setAccelerometerRange(accRange);
   CurieIMU.setGyroRange(gyroRange);
 
-  this->accRange=accRange;
-  this->gyroRange=gyroRange;
+  IMU::accRange=accRange;
+  IMU::gyroRange=gyroRange;
+
+  if(useISR){
+    CurieTimerOne.start(10,&staticRun);  
+  }
 }
+
 
 void IMU::calibrate(){
   
@@ -112,25 +134,25 @@ void IMU::calculateRollPitch(){
 
   calculateComplementaryRollPitch();
 }
-void calculateComplementaryRollPitch(){
-  long dt=millis()-timer;
-  timer=millis();
+void IMU::calculateComplementaryRollPitch(){
+  /*long dt=millis()-timer;
+  timer=millis();*/
+  float dt=10;
 
-  pitch=pitch-getGyroY_dps()*(dt/1000.0);
-  roll=roll+getGyroX_dps()*(dt/1000.0);
+  pitch=pitch-convertGyro_dps(gy)*(dt/1000.0);
+  roll=roll+convertGyro_dps(gx)*(dt/1000.0);
 
-  float pitchAcc=atan2(getAccelerometerX(),getAccelerometerZ())*RAD_TO_DEG;
-  float rollAcc=atan2(getAccelerometerY(),getAccelerometerZ())*RAD_TO_DEG;
+  float pitchAcc=atan2(ax,az)*RAD_TO_DEG;
+  float rollAcc=atan2(ay,az)*RAD_TO_DEG;
 
   pitch=pitch*0.98+pitchAcc*0.02;
   roll=roll*0.98+rollAcc*0.02;
 }
 
-void IMU::run(bool useRollPitch){
-	measureMotion();
-
-	if(!useRollPitch)return;
-
+void IMU::run(){
+	if(useISR)return;
+  
+  measureMotion();
 	calculateRollPitch();
 }
 
@@ -197,5 +219,6 @@ float IMU::convertGyro_dps(int16_t rawVal){
   return (float)rawVal*gyroRange/32768.0;
 
 }
+
 
 #endif

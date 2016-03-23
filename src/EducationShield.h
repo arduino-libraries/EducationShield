@@ -315,12 +315,15 @@ class BLEuart : public BLEPeripheralBase{
 		int writeLength;
 };
 
+#define USE_ISR false
+#define FILTER_TYPE 0
+
 class IMU{
 	public:
 		IMU();
 		void begin(int accRange=2, int gyroRange=500);
 		void calibrate();
-		void run(bool useRollPitch=true);
+		void run();
 
 		void detectShock(int shockThreashold=192, int shockDuration=11);
 		void attachCallback(void (*callback)(void));
@@ -342,25 +345,27 @@ class IMU{
 		float getGyroY_dps();
 		float getGyroZ_dps();
 
+		static void measureMotion();
+
+		static void calculateRollPitch();
+
 	private:
-		void measureMotion();
+		static void calculateComplementaryRollPitch();
 
-		void calculateRollPitch();
-		void calculateComplementaryRollPitch();
+		static float convertAcclerometer_g(int16_t rawVal);
+		static float convertGyro_dps(int16_t rawVal);
 
-		float convertAcclerometer_g(int16_t rawVal);
-		float convertGyro_dps(int16_t rawVal);
-
-		long timer;
+		static long timer;
+		static bool useISR;
 
 		//Kalman kalmanX;
 		//Kalman kalmanY;
-		int accRange, gyroRange;
+		static int accRange, gyroRange;
 
-		int16_t ax, ay, az;         // accelerometer values
-		int16_t gx, gy, gz;         // gyrometer values
+		static int16_t ax, ay, az;         // accelerometer values
+		static int16_t gx, gy, gz;         // gyrometer values
 
-		float pitch, roll;
+		static float pitch, roll;
 
 };
 #endif
