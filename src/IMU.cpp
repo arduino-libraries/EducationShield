@@ -36,7 +36,7 @@ void IMU::begin(int accRange, int gyroRange){
   IMU::accRange=accRange;
   IMU::gyroRange=gyroRange;
 
-  if(useISR){
+  if(USE_ISR){
     CurieTimerOne.start(10,&staticRun);  
   }
 }
@@ -124,15 +124,14 @@ void IMU::calculateRollPitch(){
 	// Source: http://www.freescale.com/files/sensors/doc/app_note/AN3461.pdf eq. 25 and eq. 26
 	// atan2 outputs the value of -π to π (radians) - see http://en.wikipedia.org/wiki/Atan2
 	// It is then converted from radians to degrees
-	/*#ifdef RESTRICT_PITCH // Eq. 25 and 26
+	#ifdef RESTRICT_PITCH // Eq. 25 and 26
 	  roll  = atan2(ay, az) * RAD_TO_DEG;
 	  pitch = atan(-ax / sqrt(ay * ay + az * az)) * RAD_TO_DEG;
 	#else // Eq. 28 and 29
 	  roll  = atan(ay / sqrt(ax * ax + az * az)) * RAD_TO_DEG;
 	  pitch = atan2(-ax, az) * RAD_TO_DEG;
-	#endif*/
+	#endif
 
-  calculateComplementaryRollPitch();
 }
 void IMU::calculateComplementaryRollPitch(){
   /*long dt=millis()-timer;
@@ -150,10 +149,15 @@ void IMU::calculateComplementaryRollPitch(){
 }
 
 void IMU::run(){
-	if(useISR)return;
-  
+	if(USE_ISR)return;
+
   measureMotion();
-	calculateRollPitch();
+
+  if(FILTER_TYPE==0){
+    calculateRollPitch();
+  }else if(FILTER_TYPE==1){
+    calculateComplementaryRollPitch();
+  }
 }
 
 int IMU::getPitch(){
