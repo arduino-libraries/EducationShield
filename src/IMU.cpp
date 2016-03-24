@@ -21,9 +21,7 @@ IMU::IMU(){
 }
 
 void staticRun(){
-  IMU::measureMotion();
-  IMU::calculateRollPitch();
-
+  IMU::run();
 }
 
 void IMU::begin(int accRange, int gyroRange){

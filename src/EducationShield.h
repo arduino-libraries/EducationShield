@@ -323,7 +323,7 @@ class IMU{
 		IMU();
 		void begin(int accRange=2, int gyroRange=500);
 		void calibrate();
-		void run();
+		static void run();
 
 		void detectShock(int shockThreashold=192, int shockDuration=11);
 		void attachCallback(void (*callback)(void));
@@ -344,12 +344,10 @@ class IMU{
 		float getGyroX_dps();
 		float getGyroY_dps();
 		float getGyroZ_dps();
-
+	private:
 		static void measureMotion();
 
 		static void calculateRollPitch();
-
-	private:
 		static void calculateComplementaryRollPitch();
 
 		static float convertAcclerometer_g(int16_t rawVal);
