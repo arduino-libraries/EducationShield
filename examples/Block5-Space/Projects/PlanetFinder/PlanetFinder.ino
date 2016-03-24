@@ -13,6 +13,7 @@ int piezoState = LOW;             // piezoState used to set the piezo
 bool newGame = true;
 int x = 0;
 int y = 0;
+const int errorMargin=10;
 
 unsigned long previousMillis = 0;   // last time the click played, in ms
 
@@ -82,10 +83,10 @@ void loop() {
 
   // calculate how close the gyro is to the goal values
 
-  //Computes the absolute value of the IMU reads and the goal target
-  int absoluteRoll = abs(roll) - abs(x);
-  int absolutePitch = abs(pitch) - abs(y);
-  int closeTogoal = absoluteRoll + absolutePitch;
+  //Computes the value of the IMU reads and the goal target
+  int absoluteRollDiff = abs(roll - x);
+  int absolutePitchDiff = abs(pitch - y);
+  int closeTogoal = absoluteRollDiff + absolutePitchDiff;
 
 
 
@@ -107,7 +108,7 @@ void loop() {
   }
 
   // if the gyro value is at the goal
-  if (closeTogoal == 0) {
+  if (closeTogoal <= errorMargin) {
 
     Serial.print("Win");
 
