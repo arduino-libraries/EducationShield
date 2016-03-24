@@ -4,8 +4,7 @@
 
 IMU imu; // the IMU
 
-//Button variables
-int inputPin = 6;
+Button button(6);
 int buttonState = 0;
 
 
@@ -15,12 +14,9 @@ boolean blinkState = false; // state of the LED
 void setup() {
   Serial.begin(9600); // initialize Serial communication
 
-
-
   imu.begin();
+  button.begin();
 
-
-  pinMode(inputPin, INPUT);
   // configure Arduino LED for activity indicator
   pinMode(ledPin, OUTPUT);
   digitalWrite(ledPin, HIGH); // turn on led to show that the board has executed
@@ -37,13 +33,8 @@ void loop() {
   int roll = imu.getRoll();
 
   //Check buttons
-  if (digitalRead(inputPin) == HIGH) {
-    buttonState = 1;
-
-  }
-  else {
-    buttonState = 0;
-
+  if(button.isPressed()){
+    buttonState=true;
   }
 
   // when Serial is open, send a "s" to processing
@@ -56,6 +47,7 @@ void loop() {
       Serial.print(buttonState);  Serial.print(",");
       Serial.println("");
 
+      buttonState=0;
 
     }
   }
