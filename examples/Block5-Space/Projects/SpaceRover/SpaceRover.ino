@@ -2,7 +2,7 @@
 
 BLEuart ble = BLEuart(TYPE_LOGOROBOT);
 
-Wheels wheels = Wheels(6, 9);
+Wheels wheels = Wheels(10, 9);
 
 void setup() {
   // put your setup code here, to run once:
