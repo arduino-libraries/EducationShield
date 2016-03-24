@@ -2,16 +2,11 @@
 #include <EducationShield.h>
 
 IMU imu; // the IMU
-
+Button toggleButton(10);
 
 int piezoPin = 8; //piezo
 
-//Button variables
-int inputPin = 10;
-int buttonState = 0;
 bool toggleState = false;
-int previous = LOW;    // the previous reading from the input pin
-
 
 const int ledPin = 13;      // activity LED pin
 boolean blinkState = false; // state of the LED
@@ -20,24 +15,22 @@ boolean blinkState = false; // state of the LED
 const int numReadings = 50;
 int readings[numReadings];      // the readings from the analog input
 int readIndex = 0;              // the index of the current reading
-int total = 0;                  // the running total
-int average = 0;
 
-
+//int total2,average2;
 
 void setup() {
   Serial.begin(9600); // initialize Serial communication
 
   imu.begin();
+  toggleButton.begin();
 
   //smoothing function
   // initialize all the readings to 0:
-  for (int thisReading = 0; thisReading < numReadings; thisReading++) {
-    readings[thisReading] = 0;
+  for (int i = 0; i < numReadings; i++) {
+    readings[i] = 0;
   }
 
-  pinMode(inputPin, INPUT);
-  pinMode(piezoPin, OUTPUT);
+
   // configure Arduino LED for activity indicator
   pinMode(ledPin, OUTPUT);
   digitalWrite(ledPin, HIGH); // turn on led to show that the board has executed
@@ -54,36 +47,29 @@ void loop() {
   // map the raw value to be on a smaller scale
   ay = map(ay, -36044 , 36043 , -360, 360);
 
-
-  //Computes the absolute value of the IMU read
-  int absoluteAy = abs(ay);
-
-  // get the average for the ay measurement
-  total = total - readings[readIndex];
   // read from the sensor:
-  readings[readIndex] = absoluteAy;
-  // add the reading to the total:
-  total = total + readings[readIndex];
+  readings[readIndex] = ay;
   // advance to the next position in the array:
   readIndex = readIndex + 1;
-
   // if we're at the end of the array...
   if (readIndex >= numReadings) {
     // ...wrap around to the beginning:
     readIndex = 0;
   }
 
+  // get the total of last 10 readings
+  int total=0;
+  for(int i=0;i<numReadings;i++){
+    total+=readings[i];
+  }
   // calculate the average:
-  average = total / numReadings;
-  // send it to the computer as ASCII digits
+  int average = total / numReadings;
 
   // map the average to a scale for the frequency for the piezo
-  int frequency = map(average, 0, 360, 200, 700);
+  int frequency = map(abs(average), 0, 360, 200, 700);
 
-  //Check buttons
-  buttonState = digitalRead(inputPin);
 
-  if (buttonState  == HIGH && previous == LOW) {
+  if(toggleButton.isPressed()){
     //toggle the button each time its pressed
     toggleState = !toggleState;
   }
@@ -96,10 +82,6 @@ void loop() {
     noTone(piezoPin);
   }
 
-  //save the previous to make sure that the button has been on then off for the toggle to work
-  previous = buttonState;
-
-
   // get the gyro result from the filter and convert them into INT
   int pitch = imu.getPitch();
   int roll = imu.getRoll();
@@ -110,11 +92,12 @@ void loop() {
     if (val == 's') { // if incoming serial is "s"
 
       // print the roll,pitch and toggleState to the Procssing
-      Serial.print(ay); Serial.print(",");
-
-      Serial.print(pitch);  Serial.print(",");
-
-      Serial.print(toggleState);  Serial.print(",");
+      Serial.print(average); 
+      Serial.print(",");
+      Serial.print(pitch);  
+      Serial.print(",");
+      Serial.print(toggleState);  
+      Serial.print(",");
       Serial.println("");
 
     }

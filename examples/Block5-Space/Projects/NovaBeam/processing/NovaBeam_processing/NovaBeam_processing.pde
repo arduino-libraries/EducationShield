@@ -45,7 +45,7 @@ void setup() {
   println(Serial.list());
 
   /*Set my serial port to same as the board, baud rate 9600*/
-  myPort = new Serial(this, Serial.list()[2], 9600); 
+  myPort = new Serial(this, Serial.list()[0], 9600); 
 
   // We write an 's' to receive data from Arduino
   myPort.write("s");
@@ -81,15 +81,15 @@ void serialEvent() {
     myPort.write("s"); // write an "s" to receive more data from Arduino
 
     // If statement to constrain values within certain range
-    if (rollVal>-90&&rollVal<90) {
-      // Map to constrain values and avoid movement jitter  
-      inVal=map(rollVal, 90, -90, 50, -50);
-    }
+    rollVal=constrain(rollVal,-90,90);
+    // Map to constrain values and avoid movement jitter  
+    inVal=map(rollVal, 90, -90, 50, -50);
+    
     // If statement to constrain values within certain range
-    if (pitchVal>-90&&pitchVal<10) {
-      //Map to adapt range to laser sword and window height 
-      laserHeight=map(pitchVal, 90, -90, 0, 400);
-    }
+    pitchVal=constrain(pitchVal,-90,10);
+    //Map to adapt range to laser sword and window height 
+    laserHeight=map(pitchVal, 90, -90, 0, 400);
+    
   }
 }
 
