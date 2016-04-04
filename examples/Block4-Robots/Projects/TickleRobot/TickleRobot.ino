@@ -7,16 +7,7 @@
     
     (c) 2013 Arduino Verkstad
 */
-
-#include <SPI.h>
-#include <SD.h>
 #include <EducationShield.h>
-
-//Necessary to include Servo.h when using Servo
-#include <Servo.h>
-
-//Necessary to include CapacitiveSensor.h when using capacitive sensor
-#include <CapacitiveSensor.h>
 
 //Declare the servo for controlling the string robot
 Servo pull;

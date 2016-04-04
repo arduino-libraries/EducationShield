@@ -11,11 +11,6 @@
   
   (c) 2013 Arduino Verkstad
 */
-
-#include <CapacitiveSensor.h>
-#include <Servo.h>
-#include <SPI.h>
-#include <SD.h>
 #include <EducationShield.h>
 
 //The joystick uses two analog pins. Here pin A0 and A1

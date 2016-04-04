@@ -7,14 +7,7 @@
   
   (c) 2013 Arduino Verkstad
 */
-
-#include <CapacitiveSensor.h>
-#include <SPI.h>
-#include <SD.h>
 #include <EducationShield.h>
-
-//It's necessary to include Servo.h if servo is used
-#include <Servo.h>
 
 //Declare the pezio knock sensor. Connected to A0
 PiezoKnockSensor sensor=PiezoKnockSensor(A0);

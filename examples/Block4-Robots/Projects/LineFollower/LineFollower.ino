@@ -6,15 +6,7 @@
   
   (c) 2014 Arduino Verkstad
 */
-
-
-#include <CapacitiveSensor.h>
-#include <SPI.h>
-#include <SD.h>
 #include <EducationShield.h>
-
-//Servo.h is necessary to be included here
-#include <Servo.h>
 
 //IRArray(IR1, IR2, IR3)
 IRArray ir = IRArray(A1, A2, A3);

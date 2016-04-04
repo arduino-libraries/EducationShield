@@ -8,14 +8,7 @@
   
   (c) 2013 Arduino Verkstad
 */
-
-#include <CapacitiveSensor.h>
-#include <SPI.h>
-#include <SD.h>
 #include <EducationShield.h>
-
-//Servo.h is necessary to be included here
-#include <Servo.h>
 
 //Declare the two wheels of robot, left wheel to D10 and
 // right wheel to D9
