@@ -11,14 +11,7 @@
   
   (c) 2013 Arduino Verkstad
 */
-
-#include <CapacitiveSensor.h>
-#include <Servo.h>
-#include <SPI.h>
 #include <EducationShield.h>
-
-//We need to include the SD library to be able to read from an SD card
-#include <SD.h>
 
 //Declare a button group with 3 buttons. The
 //sound player secrectly takes pin 3, 4 and 11,

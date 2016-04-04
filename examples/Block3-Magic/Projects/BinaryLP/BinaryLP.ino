@@ -10,12 +10,6 @@
   
   (c) 2014 Arduino Verkstad
 */
-
-
-#include <CapacitiveSensor.h>
-#include <Servo.h>
-#include <SPI.h>
-#include <SD.h>
 #include <EducationShield.h>
 #include "pitches.h"
 
