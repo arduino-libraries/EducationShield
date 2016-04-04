@@ -15,21 +15,9 @@
       fillFrom(startIndex, stopIndex) - turns LEDs from startIndex to stopIndex on
       fill(numberOfLEDs) - turns LEDs on from first to numberOfLEDs 
   
-  (c) 2013 Arduino Verkstad
+  (c) 2013 Verkstad
 */
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-#include <CapacitiveSensor.h>
-#include <Servo.h>
-=======
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 #include <EducationShield.h>
 
 //Declare the VUMeter

@@ -6,7 +6,7 @@
   which is helpful when a set of options are picked by the level of 
   the knob.
   
-  (c) 2013 Arduino Verkstad
+  (c) 2013 Verkstad
 */
 
 #include <EducationShield.h>

@@ -11,9 +11,9 @@
   corresponding IR sensor is changing. E.g. if you move IR1 from 
   black to white but only the value of IR2 is changed you need 
   to either change the analog pins in the code or change the 
-  connections to the analog pins on the Arduino. 
+  connections to the analog pins on the control board. 
   
-  (c) 2014 Arduino Verkstad
+  (c) 2014 Verkstad
 */
   
 #include <EducationShield.h>

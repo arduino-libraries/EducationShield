@@ -8,7 +8,7 @@
 * parallel to the piezo and resistor circuit, with its 
 * anode to GND, cathode to A5.
 *       
-* (c) 2013 Arduino Verkstad
+* (c) 2013 Verkstad
 */
 
 #include <EducationShield.h>

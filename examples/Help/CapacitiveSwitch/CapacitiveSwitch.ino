@@ -6,14 +6,14 @@
 *	here), and conductive material connected to receive
 *	pin.
 *
-*	When you touch the conductive material with hand, or
+*	When you touch the conductive material with your hand, or
 *	other objects(should be conductive), the sensor will
 *	get a different reading.
 *
 *	The library includes some features for using the
 *	capacitive sensor as a button, or get values directly.
 *
-*       (c) 2013 Arduino Verkstad
+*       (c) 2013 Verkstad
 */
 
 #include <EducationShield.h>

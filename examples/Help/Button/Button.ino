@@ -2,7 +2,7 @@
   Button
   A button is a digital input. This means that it can have two 
   states, either HIGH (5V in Uno, 3V in 101) or LOW (0V). When 
-  you connect a button to your Arduino board you can read these 
+  you connect a button to your control board you can read these 
   states as 1 or 0. 
   
   (c) 2013 Arduino Verkstad
@@ -23,7 +23,7 @@
 #include <EducationShield.h>
 
 //Declare the button component.
-//6 is the pin number. If it's a tinkerkit button, use 6 or 9.
+//6 is the pin number. If it's a button module, use 6 or 9.
 //HIGH can be ignored mostly, which means when the button is
 //pressed, what state it is in.
 Button me=Button(6,HIGH);

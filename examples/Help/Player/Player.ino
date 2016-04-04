@@ -6,7 +6,7 @@
   
   Or use one of the .wav files in the BoomBox example. 
   
-  (c) 2014 Arduino Verkstad
+  (c) 2014 Verkstad
 */
 
 #include <EducationShield.h>

@@ -5,8 +5,8 @@
 *	track objects covering/moving pass the sensor.
 *
 *	HOW-TO:
-*	Upload this sketch to Arduino, open the serial monitor. You
-*	will see the current value of the ldr sensor.
+*	Upload this sketch to the control board, open the serial monitor. You
+*	will see the current value of the phototransistor.
 *
 *	Make sure the sensor is in its desired setting and not
 *	moving. When the value gets stable, take note of it(we call
@@ -21,13 +21,13 @@
 * threshold to make the sensor more/less sensitive. The closer 
 * to baseValue, the more sensitive it is.
 *  
-*       (c) 2013 Arduino Verkstad
+*       (c) 2013 Verkstad
 */
 
 #include <EducationShield.h>
 
-//Tinkerkit LDR is connected to analog 1.
-LDR sensor = LDR(A1);
+//Phototransistor module is connected to analog 1.
+LightSensor sensor = LightSensor(A1);
 
 void setup(){
   Serial.begin(9600);

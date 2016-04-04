@@ -2,7 +2,7 @@
 LightSensor
 
 LightSensor is a sensor that reads the intensity of light. 
-It gives analog reading. When connected with Arduino analog 
+It gives analog reading. When connected with analog 
 pins, its value ranges from 0 to 1023 depending on the amount 
 of light shining on it. 
 
@@ -11,20 +11,20 @@ using the LightSensor as a button, or get values directly. See
 the example LightSensortest fo more information about how to 
 configure it correctly. 
 
-(c) 2013 Arduino Verkstad
+(c) 2013 Verkstad
 */
 
 #include <EducationShield.h>
 
-//Tinkerkit LDR is connected to analog 1.
-LDR sensor = LDR(A1);
+//Phototransistor component is connected to analog 1.
+LightSensor sensor = LightSensor(A1);
 
 void setup(){
 
   Serial.begin(9600);
 
   //LDR needs to be configured with baseValue
-  //and threshold. See LDRTest sketch for
+  //and threshold. See LightSensorTest sketch for
   //details.
   sensor.config(700,900);
 }
@@ -34,13 +34,13 @@ void loop(){
 
   //pressed(timeout)
   //	timeout: milliseconds within which the
-  //		LDR should be cover-uncovered. If
+  //		phototransistor should be cover-uncovered. If
   //		cover-uncovered within time, the
   //		function returns 1, otherwise 0. If
   //		not used, it waits untill being
   //		cover-uncovered.
   //
-  //Wait until the LDR gets cover-uncovered.
+  //Wait until the phototransistor gets cover-uncovered.
   Serial.println(sensor.pressed());
 
   Serial.println("Please release...");
@@ -48,7 +48,7 @@ void loop(){
   //released(timeout)
   //	timeout: same as in pressed(timeout).
   //
-  //Wait until the LDR gets uncover-covered.
+  //Wait until the phototransistor gets uncover-covered.
   Serial.println(sensor.released());
 
 

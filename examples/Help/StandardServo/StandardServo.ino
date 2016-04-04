@@ -4,11 +4,11 @@
   180º standard servos are a type of motor which have a limited 
   rotation angle. It has precise control over the angle of rotation.
   
-  The ones provided for Basic Education Shield projects are 
+  The ones provided for Education Shield projects are 
   microservos. Microservos behave the same as a standard servo, 
   but are slimmer in size and exert less turning power. 
   
-  (c) 2013 Arduino Verkstad
+  (c) 2013 Verkstad
 */
 
 #include <EducationShield.h>
