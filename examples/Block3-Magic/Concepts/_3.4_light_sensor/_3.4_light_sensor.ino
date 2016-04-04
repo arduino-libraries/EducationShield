@@ -1,5 +1,5 @@
 int ledPin=9;
-int ldrPin=A1;
+int lightSensorPin=A1;
 int potPin=A5;
 
 void setup() {
@@ -7,10 +7,10 @@ void setup() {
 }
 
 void loop() {
-  int ldrValue=analogRead(ldrPin);
+  int lightSensorValue=analogRead(lightSensorPin);
   int threshold=analogRead(potPin);
 
-  if(ldrValue>threshold){
+  if(lightSensorValue>threshold){
     digitalWrite(ledPin,LOW);
   }
   else{
