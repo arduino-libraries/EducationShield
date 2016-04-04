@@ -1,10 +1,6 @@
 
 #include <EducationShield.h>
 
-//We need to include the SD library to be able to read from an SD card
-#include <SD.h>
-
-
 Player player = Player(); // for playing sounds
 IMU imu; // the IMU
 
