@@ -1,5 +1,4 @@
 #include <EducationShield.h>
-#include <CurieBle.h>
 
 BLEuart ble=BLEuart(TYPE_MESSENGER);
 
