@@ -8,18 +8,6 @@
   (c) 2013 Arduino Verkstad
 */
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-#include <CapacitiveSensor.h>
-#include <Servo.h>
-=======
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 #include <EducationShield.h>
 
 //Declare the button component.
