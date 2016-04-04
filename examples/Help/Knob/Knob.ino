@@ -11,7 +11,7 @@
 
 #include <EducationShield.h>
 
-Knob pot=Knob(A5);//a knob is connected to A0
+Knob pot=Knob(A5);//a knob is connected to A5
 
 void setup(){
   Serial.begin(9600);
