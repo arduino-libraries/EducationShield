@@ -1,11 +1,11 @@
 #include <Servo.h>
 
 Servo myservo;
-int potPin = A0;
+int potPin = A5;
 int val;
 
 void setup() {
-  myservo.attach(9);
+  myservo.attach(6);
 }
 
 void loop() {
