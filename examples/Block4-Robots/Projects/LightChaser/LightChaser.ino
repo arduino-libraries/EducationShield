@@ -1,5 +1,6 @@
 /*
 * LightChaser
+*
 * This little vehicle is on an impossible, never ending 
 * mission to catch the light. You can make it follw you 
 * by pointing a flashligt at it. (The one on your mobile 
