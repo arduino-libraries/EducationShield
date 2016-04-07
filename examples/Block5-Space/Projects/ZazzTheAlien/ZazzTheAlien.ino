@@ -1,3 +1,13 @@
+/*
+*  ZazztheAlien
+* 
+* It is a lot of responsibility but now you will have to take care of the alien baby. This particular
+* alien baby communicates with bluetooth. You need to make sure it has proper exercises, get
+* enough food and sleep.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
 #include <EducationShield.h>
 
 BLEuart ble=BLEuart(TYPE_TAMAGOTCHI);

@@ -1,3 +1,14 @@
+/*
+* _5.5_ble_valueDisplay
+* 
+* The 101 board monitors the status of a button connected to digital pin 9,
+* a press counter, and a light sensor connected to pin A0. 
+* The 3 values are sent through the BLE in such sequence, 
+* and the app reads the values in the same sequence. 
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
 
 #include <EducationShield.h>
 

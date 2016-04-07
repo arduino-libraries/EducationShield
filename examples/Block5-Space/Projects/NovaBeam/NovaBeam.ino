@@ -1,3 +1,11 @@
+/*
+* NovaBeam
+* 
+* Ever wondered what it might be like to swing a laser beam? Then this project is for you! See
+* yourself play with the Nova Beam on screen, and listen to the awesome sounds it makes.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
 
 #include <EducationShield.h>
 

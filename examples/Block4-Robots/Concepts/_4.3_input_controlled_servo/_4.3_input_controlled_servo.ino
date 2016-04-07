@@ -1,3 +1,11 @@
+/*
+*  _4.3_input_controlled_servo
+* 
+* The board will use a potentiometer to control the position of a standard servo.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
 #include <Servo.h>
 
 Servo myservo;

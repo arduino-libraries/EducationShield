@@ -1,16 +1,17 @@
 /*
-  Digital Die
-  
-  Use this digital die next time you play a board game. 
-
-  You "throw" the die by shaking a tilt sensor. The LEDs 
-  will show different numbers, waiting a longer and longer 
-  time for each number,  until it finally stops. Don't be 
-  too fast to cheer believing it stopped on your desired 
-  number or you might get disappointed ...
-
-  (c) 2014 Arduino Verkstad  
+* DigitalDie
+* 
+*   Use this digital die next time you play a board game. 
+*
+* You "throw" the die by shaking a tilt sensor. The LEDs 
+* will show different numbers, waiting a longer and longer 
+* time for each number,  until it finally stops. Don't be 
+* too fast to cheer believing it stopped on your desired 
+* number or you might get disappointed ...
+*
+* (c) 2013-2016 Arduino LLC.
 */
+ 
 #include <EducationShield.h>
 
 //declare the pins used for leds, 9 leds in total

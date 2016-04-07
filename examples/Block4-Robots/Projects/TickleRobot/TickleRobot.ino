@@ -1,12 +1,13 @@
 /*
-    Tickle Robot
-    
-    This is just a regular ticklish robot in a rocking chair. 
-    Come to think of it, that doesn't sound very regular at all. 
-    Tickle the robot on its heart and it will start wiggle like crazy. 
-    
-    (c) 2013 Arduino Verkstad
+*   TickleRobot
+*
+*   This is just a regular ticklish robot in a rocking chair. 
+*   Come to think of it, that doesn't sound very regular at all. 
+*   Tickle the robot on its heart and it will start wiggle like crazy. 
+*   
+*   (c) 2013-2016 Arduino LLC.
 */
+
 #include <EducationShield.h>
 
 //Declare the servo for controlling the string robot

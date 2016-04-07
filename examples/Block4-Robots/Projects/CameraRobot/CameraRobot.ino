@@ -1,16 +1,17 @@
 /*
-  Camera Robot
-  
-  Spy on your cat with this robot camera. Mount the camera robot and
-  control it with a small joystick. You can run everything from the
-  computer and when you see your cat doing something suspicious, 
-  take a picture! 
-  
-  You need to run the processing sketch included in the sketch folder
-  to be able to take photos with a webcam connected to your computer.
-  
-  (c) 2013 Arduino Verkstad
+* CameraRobot
+* 
+* Spy on your cat with this robot camera. Mount the camera robot and
+* control it with a small joystick. You can run everything from the
+* computer and when you see your cat doing something suspicious, 
+* take a picture! 
+* 
+* You need to run the processing sketch included in the sketch folder
+* to be able to take photos with a webcam connected to your computer.
+* 
+* (c) 2013-2016 Arduino LLC.
 */
+
 #include <EducationShield.h>
 
 //The joystick uses two analog pins. Here pin A0 and A1

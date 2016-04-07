@@ -1,3 +1,11 @@
+/*
+* _4.4_two_servos
+* 
+* The board  will ccontrol two servos, moving one at a time to make sure that the can provide enough current.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
 #include <Servo.h>
 
 Servo myservo1, myservo2;

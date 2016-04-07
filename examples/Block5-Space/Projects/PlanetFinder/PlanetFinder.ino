@@ -1,3 +1,11 @@
+/*
+*  PlanetFinder
+* 
+* The universe is big, really big, so if you are ever going to be able to find any planets then you'll
+* need a tool track them down for you.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
 
 #include <EducationShield.h>
 

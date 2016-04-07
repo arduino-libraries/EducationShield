@@ -1,3 +1,10 @@
+/*
+* _5.3_pitchroll_demo
+* 
+* The Piezo will now play sound based on how you angle the board in the two axes
+*
+* (c) 2013-2016 Arduino LLC.
+*/
 
 #include <EducationShield.h>
 

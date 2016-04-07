@@ -1,18 +1,12 @@
 /*
- * Asteroid attack
- *
- * Create a videogame using Processing. The game for this exercise is
- * getting your programming skills a little further and making a computer
- * game where your space craft, powered by Genuino 101, will help you 
- * become a winner. You learn how to use classes, objects and functions.
- *
- * Step 3:
- *  - Create a class called Star
- *  - Use the class to draw stars randomly
- *  - Make sure the stars are endless, like the universe
- *
- * (c) 2016 M. Ehrndal, Arduino Verkstad, Sweden
- */
+* AsteroidAttack
+* 
+* You will create a retro style space
+* shooter game, and learn about how to use classes and functions. In the end you will be able to
+* tweak values and rewrite the program to redesign the game so it suits your taste.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
 
 import processing.serial.*;
 

@@ -1,13 +1,13 @@
 /*
-  Light Chaser
-  
-  This little vehicle is on an impossible, never ending 
-  mission to catch the light. You can make it follw you 
-  by pointing a flashligt at it. (The one on your mobile 
-  phone eg.) It will always turn towards the light. 
-  
-  (c) 2013 Arduino Verkstad
+* LightChaser
+* This little vehicle is on an impossible, never ending 
+* mission to catch the light. You can make it follw you 
+* by pointing a flashligt at it. (The one on your mobile 
+* phone eg.) It will always turn towards the light. 
+* 
+* (c) 2013-2016 Arduino LLC.
 */
+
 #include <EducationShield.h>
 
 //Declare the two wheels of robot, left wheel to D10 and

@@ -1,3 +1,12 @@
+/*
+* _3.4_light_sensor
+* 
+* The light sensor acts as a switch and turn an LED on or off depending on the readings.
+* With a potentiometer to set the switch threshold.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
 int ledPin=9;
 int lightSensorPin=A1;
 int potPin=A5;

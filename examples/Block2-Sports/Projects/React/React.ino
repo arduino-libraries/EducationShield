@@ -1,13 +1,15 @@
 /*
-  React
-  Test your reaction time!
-  
-  In this game, one of three LEDs will randomly light up. 
-  You must tap the corresponding capacitive sensor as quick 
-  as possible. If you don’t react fast enough, the game is over. 
-  
-  (c) 2013 Arduino Verkstad
+* React
+* 
+*  Test your reaction time!
+*
+* In this game, one of three LEDs will randomly light up. 
+* You must tap the corresponding capacitive sensor as quick 
+* as possible. If you don’t react fast enough, the game is over. 
+*
+* (c) 2013-2016 Arduino LLC.
 */
+
 #include <EducationShield.h>
 #include "pitches.h"
 

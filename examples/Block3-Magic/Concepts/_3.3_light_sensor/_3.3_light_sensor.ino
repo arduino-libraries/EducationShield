@@ -1,3 +1,12 @@
+/*
+* _3.3_light_sensor
+* 
+* The board changes the light intensity of an LED depending on the readings from a light sensor.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+
 int ledPin=9;
 int lightSensorPin=A1;
 

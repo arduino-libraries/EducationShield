@@ -1,31 +1,17 @@
 /*
- * Elektor Monster Jar February 2013
- *
- * File Elektor_feb13_monsterjar.ino
- *
- * Read the value of the a capacitive sensor between pins 2 and 3 and
- * turn on a ultra-bright LED to light up the scene as well as send
- * a character "p" (as in "picture") over serial when detecting the
- * value on the touch sensor went over a threshold.
- *
- * We place a 1M resistor between pins 2 and 3 and use pin 3 as touchpad.
- * Pin 9 is connected to the ultra-bright white LED.
- *
- * You will have to configure the value of the THRESHOLD constant for the
- * program to operate properly. Follow these steps:
- *
- * 1) connect your circuit to the aluminium folie
- * 2) measure the default value, depending on how much folie you have this
- *    value could be in the range of 200
- * 3) touch the sensitive area and observe the measurement in the Serial Monitor
- * 4) make THRESHOLD = (MAX_VALUE + DEFAULT_VALUE) / 2 and change it in the code
- *
- * (c) 2013 B&D Cuartielles
- *
- * This code is Free Software, licensed under GPLv3
- * Based on code by Paul Badger 2008
- *
- */
+* CookieMonster
+* 
+* Someone is eating our cookies, let's gather some proof
+* about that person and get him/her to confess.
+*
+* (c) 2013-2016 Arduino LLC. B&D Cuartielles
+*
+* This code is Free Software, licensed under GPLv3
+* Based on code by Paul Badger 2008
+*
+*/
+
+
 #include <EducationShield.h>
 
 //Define the capacitive sensor

@@ -1,11 +1,12 @@
 /*
-  LineFollower  
-  The Line Follower does exactly what the name suggests, 
-  it follows a line. Make it go where ever you want by 
-  showing the way with a 3 cm wide, black line. 
-  
-  (c) 2014 Arduino Verkstad
+* LineFollower  
+* The Line Follower does exactly what the name suggests, 
+* it follows a line. Make it go where ever you want by 
+* showing the way with a 3 cm wide, black line. 
+* 
+* (c) 2013-2016 Arduino LLC.
 */
+
 #include <EducationShield.h>
 
 //IRArray(IR1, IR2, IR3)

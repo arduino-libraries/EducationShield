@@ -1,16 +1,17 @@
 /*
-  Boom Box
-  
-  This is your first step towards theese kinds of skills:
-  http://www.youtube.com/watch?v=FcJCxe1VSLA&noredirect=1
-  The boom box is a small sample player you can use to make music, 
-  or just random sound. It comes with three prerecorded samples 
-  but we probably don’t have the same creative cleverness when it
-  comes to recording as you do so you should definitely record your 
-  own samples too! 
-  
-  (c) 2013 Arduino Verkstad
+* BoomBox
+* 
+* This is your first step towards theese kinds of skills:
+* http://www.youtube.com/watch?v=FcJCxe1VSLA&noredirect=1
+* The boom box is a small sample player you can use to make music, 
+* or just random sound. It comes with three prerecorded samples 
+* but we probably don’t have the same creative cleverness when it
+* comes to recording as you do so you should definitely record your 
+* own samples too! 
+* 
+*  (c) 2013-2016 Arduino LLC.
 */
+
 #include <EducationShield.h>
 
 //Declare a button group with 3 buttons. The

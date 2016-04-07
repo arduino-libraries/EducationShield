@@ -1,15 +1,18 @@
 /*
-  Binary LP
-  This sort of works as an LP player. The difference is 
-  that instead of using a needle on a plastic disc, 
-  we use three IR sensors in a row to read a pattern from 
-  a paper disc. 
-  
-  If you are both musically and digitally inclined, 
-  you will have lots of fun creating melodies with this. 
-  
-  (c) 2014 Arduino Verkstad
+* BinaryLP
+* 
+* This sort of works as an LP player. The difference is 
+* that instead of using a needle on a plastic disc, 
+* we use three IR sensors in a row to read a pattern from 
+* a paper disc. 
+* 
+* If you are both musically and digitally inclined, 
+* you will have lots of fun creating melodies with this.
+*
+* (c) 2013-2016 Arduino LLC.
 */
+
+
 #include <EducationShield.h>
 #include "pitches.h"
 

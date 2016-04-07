@@ -1,3 +1,11 @@
+/*
+* _2.4_beep
+* 
+* The piezo makes click with a 2 second interval.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
 int speakerPin = 8;
 
 void setup() {

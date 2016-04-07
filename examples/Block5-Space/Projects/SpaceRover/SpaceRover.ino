@@ -1,3 +1,13 @@
+/*
+*  SpaceRover
+* 
+* Getting around on alien planets can be difficult. 
+* You are going to need a rover to investigate these new alien worlds. 
+* Now you will be able to control the rover to explore alien planets.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
 #include <EducationShield.h>
 
 BLEuart ble = BLEuart(TYPE_LOGOROBOT);

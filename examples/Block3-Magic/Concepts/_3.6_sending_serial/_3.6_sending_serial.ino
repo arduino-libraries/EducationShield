@@ -1,3 +1,11 @@
+/*
+* _3.6_sending_serial
+* 
+* The board will  read the analog value from a light sensor and print that value to the serial monitor.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
 void setup() {
   Serial.begin(9600);
 }

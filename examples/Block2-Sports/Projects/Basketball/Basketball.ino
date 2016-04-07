@@ -1,15 +1,15 @@
 /*
-  Basketball
-  
-  Score a goal!
-  
-  In this game, players will try to bounce a ping pong ball 
-  into a cup. Make five points to win. The score is tracked 
-  using a LightSensor.
-  
-  (c) 2013 Arduino Verkstad
-
+* Basketball
+* 
+* Score a goal!
+* 
+* In this game, players will try to bounce a ping pong ball 
+* into a cup. Make five points to win. The score is tracked 
+* using a LightSensor.
+*
+* (c) 2013-2016 Arduino LLC.
 */
+
 #include <EducationShield.h>
 #include "pitches.h"
 /*

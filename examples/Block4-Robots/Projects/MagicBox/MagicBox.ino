@@ -1,12 +1,13 @@
 /*
-  OpenBox
-  
-  OpenBox is an open source box that contains open source 
-  electronics. Oh, and it automatically opens when you 
-  knock on it. 
-  
-  (c) 2013 Arduino Verkstad
+* MagicBox
+* 
+* MagicBox is an open source box that contains open source 
+* electronics. Oh, and it automatically opens when you 
+* knock on it. 
+* 
+* (c) 2013-2016 Arduino LLC.
 */
+
 #include <EducationShield.h>
 
 //Declare the pezio knock sensor. Connected to A0

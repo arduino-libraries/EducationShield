@@ -1,15 +1,16 @@
 /*
-  Pong
-  
-  Play a simplified version of the classic arcade game, Pong!
-  
-  In this game, a “pong” will move across five LEDs (VU-meter) 
-  and bounce back and forth as players press the button. 
-  Players must press the button at the right time in order to 
-  return the pong. 
-  
-  (c) 2013 Arduino Verkstad
+* Pong
+* 
+* Play a simplified version of the classic arcade game, Pong!
+* 
+* In this game, a “pong” will move across five LEDs (VU-meter) 
+* and bounce back and forth as players press the button. 
+* Players must press the button at the right time in order to 
+* return the pong. 
+*
+* (c) 2013-2016 Arduino LLC.
 */
+
 #include <EducationShield.h>
 /*
   An array of pin numbers to which LEDs are attached

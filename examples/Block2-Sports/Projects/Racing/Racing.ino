@@ -1,14 +1,15 @@
 /*
-  Racing
-  
-  Run with your fingers as fast as you can.
-  
-  In this game, the player must tap two sensors repeatedly 
-  in order to run laps. One LED will light up per lap. 
-  When all laps are completed, LEDs will blink in victory. 
-  
-  (c) 2013 Arduino Verkstad
+* Racing
+* 
+*  Run with your fingers as fast as you can.
+* 
+* In this game, the player must tap two sensors repeatedly 
+* in order to run laps. One LED will light up per lap. 
+* When all laps are completed, LEDs will blink in victory. 
+*
+* (c) 2013-2016 Arduino LLC.
 */
+
 #include <EducationShield.h>
 
 /*

@@ -4,7 +4,7 @@
  * Create an augmented reality application that gives you the opportunity
  * to play with a nova beam. 
  *
- * (c) 2016 M. Ehrndal, Arduino Verkstad, Sweden
+ * (c) 2013-2016 Arduino LLC.
  */
 
 

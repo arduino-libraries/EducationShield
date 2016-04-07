@@ -1,3 +1,12 @@
+
+/*
+* _5.4_ble_demo
+* 
+* The board will now store a message that is sent to it and send it back to anyone connecting to it
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
 #include <EducationShield.h>
 
 BLEuart ble=BLEuart(TYPE_MESSENGER);

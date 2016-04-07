@@ -1,18 +1,18 @@
-/**
- * Hunting Cookie Monster
- *
- * Someone is eating our cookies, let's gather some proof
- * about that person and get him/her to confess.
- *
- * This program initializes a webcam connected to a PC
- * and listens to the serial port. If a "P" command arrives
- * it will then take a picture with the webcam and store it
- * locally in the sketch folder.
- * 
- * (c) 2013 B. & D. Cuartielles in a quest for the truth 
- * This is Free Software under GPLv3
- * Based on previous code by C. Reas and B. Fry
- */ 
+/*
+* CookieMonster
+* 
+* Someone is eating our cookies, let's gather some proof
+* about that person and get him/her to confess.
+*
+* This program initializes a webcam connected to a PC
+* and listens to the serial port. If a "P" command arrives
+* it will then take a picture with the webcam and store it
+* locally in the sketch folder.
+* 
+* (c) 2013-2016 Arduino LLC. B. & D. Cuartielles in a quest for the truth 
+* This is Free Software under GPLv3
+* Based on previous code by C. Reas and B. Fry
+*/ 
  
 import processing.video.*;
 import processing.serial.*;

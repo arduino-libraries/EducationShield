@@ -6,6 +6,7 @@
  * the webcam and store it locally in the sketch folder.
  * 
  * Based on Cookie Monster by David Cuartielles
+ * (c) 2013-2016 Arduino LLC.
  */ 
  
 import processing.video.*;

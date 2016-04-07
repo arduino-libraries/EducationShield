@@ -1,12 +1,16 @@
 /*
-  Fencing
-  Test your reaction time against an opponent!
-  
-  In this game, two players will hold tilt switch swords. 
-  When the green LED randomly lights up, the first person 
-  to swing their sword wins. 
-  (c) 2013 Aduino Verkstad
+* Fencing
+* 
+*   Test your reaction time against an opponent!
+* 
+* In this game, two players will hold tilt switch swords. 
+* When the green LED randomly lights up, the first person 
+* to swing their sword wins. 
+*
+* (c) 2013-2016 Arduino LLC.
 */
+
+
 #include <EducationShield.h>
 
 //Position of the leds in VU-meter is represented

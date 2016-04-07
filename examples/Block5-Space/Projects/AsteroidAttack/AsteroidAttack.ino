@@ -1,3 +1,12 @@
+/*
+* AsteroidAttack
+* 
+* You will create a retro style space
+* shooter game, and learn about how to use classes and functions. In the end you will be able to
+* tweak values and rewrite the program to redesign the game so it suits your taste.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
 
 #include <EducationShield.h>
 
