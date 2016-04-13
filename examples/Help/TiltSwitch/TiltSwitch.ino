@@ -9,8 +9,8 @@
 #include <EducationShield.h>
 
 //Declare the tilt switch. A tilt switch module can be
-//connected to D6 or D9 (We use D6 here).
-TiltSwitch me=TiltSwitch(6);
+//connected to D6 or D9 (We use D9 here).
+TiltSwitch me=TiltSwitch(9);
 
 void setup(){
   Serial.begin(9600);
