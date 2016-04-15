@@ -12,7 +12,7 @@
 *	It can also be used for adjusting the threshold when using
 *	capacitive sensor as a button.
 *
-*       (c) 2013 Verkstad
+*      (c) 2013-2016 Arduino LLC.
 */
 
 #include <EducationShield.h>

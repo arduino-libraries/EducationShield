@@ -3,7 +3,7 @@
 *  Tilt Switch is a component that detects if it’s right side up
 *  or tilted.
 *
-*  (c) 2013 Verkstad
+*  (c) 2013-2016 Arduino LLC.
 */
 
 #include <EducationShield.h>

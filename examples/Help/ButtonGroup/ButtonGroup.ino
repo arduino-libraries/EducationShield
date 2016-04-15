@@ -1,8 +1,8 @@
 /*  
-  ButtonGroup
-  ButtonGroup is used for making a few buttons to work together.
-  
-  (c) 2013 Arduino Verkstad
+*  ButtonGroup
+* ButtonGroup is used for making a few buttons to work together.
+* 
+* (c) 2013-2016 Arduino LLC.
 */
 
 #include <EducationShield.h>

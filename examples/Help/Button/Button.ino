@@ -1,11 +1,11 @@
 /*  
-  Button
-  A button is a digital input. This means that it can have two 
-  states, either HIGH (5V in Uno, 3V in 101) or LOW (0V). When 
-  you connect a button to your control board you can read these 
-  states as 1 or 0. 
-  
-  (c) 2013 Arduino Verkstad
+* Button
+* A button is a digital input. This means that it can have two 
+* states, either HIGH (5V in Uno, 3V in 101) or LOW (0V). When 
+* you connect a button to your control board you can read these 
+* states as 1 or 0. 
+* 
+* (c) 2013-2016 Arduino LLC.
 */
 
 #include <EducationShield.h>

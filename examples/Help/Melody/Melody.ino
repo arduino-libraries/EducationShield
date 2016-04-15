@@ -5,7 +5,7 @@
 * Connect the one pin of the piezo to a digital pin 
 *       (8 in this example) and the other pin to ground.
 *
-*       (c) 2013 Verkstad
+*       (c) 2013-2016 Arduino LLC.
 */
 
 #include <EducationShield.h>

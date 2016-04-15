@@ -1,14 +1,14 @@
-/*	Piezo Knock Sensor
+/* 
+* Piezo Knock Sensor
+* Piezo can play music, as well as used as knock sensor.
 *
-*	Piezo can play music, as well as used as knock sensor.
-*
-*	Connect the red pin of the piezo to a 1m ohm resistor, 
+* Connect the red pin of the piezo to a 1m ohm resistor, 
 * and the resistor to an analog pin(A5 in this example), 
 * the other pin to GND. Connect a 3.3v zener diode in 
 * parallel to the piezo and resistor circuit, with its 
 * anode to GND, cathode to A5.
 *       
-* (c) 2013 Verkstad
+* (c) 2013-2016 Arduino LLC.
 */
 
 #include <EducationShield.h>

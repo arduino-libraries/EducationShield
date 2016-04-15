@@ -1,21 +1,21 @@
 /*	
-  VU-Meter
-  VU-Meter is a few LEDs grouped together into a line.
-  
-  This library has some features that makes it easy to control 
-  several LEDs. Functions to use are:
-  
-      clear() - turns all LEDs off.
-      on(LEDindex) - turns one LED on
-      off(LEDindex) - turns one LED off
-      scrollRight(speed, startIndex) - one LED light up at a time from left to right
-      scrollLeft(speed, startIndex) - one LED light up at a time from right to left
-      blink(LEDindex,speed, times) - one LED blinks
-      blinkAll(speed, times) - all LEDs blink
-      fillFrom(startIndex, stopIndex) - turns LEDs from startIndex to stopIndex on
-      fill(numberOfLEDs) - turns LEDs on from first to numberOfLEDs 
-  
-  (c) 2013 Verkstad
+* VU-Meter
+*  VU-Meter is a few LEDs grouped together into a line.
+* 
+* This library has some features that makes it easy to control 
+* several LEDs. Functions to use are:
+* 
+*     clear() - turns all LEDs off.
+*     on(LEDindex) - turns one LED on
+*     off(LEDindex) - turns one LED off
+*     scrollRight(speed, startIndex) - one LED light up at a time from left to right
+*     scrollLeft(speed, startIndex) - one LED light up at a time from right to left
+*     blink(LEDindex,speed, times) - one LED blinks
+*     blinkAll(speed, times) - all LEDs blink
+*     fillFrom(startIndex, stopIndex) - turns LEDs from startIndex to stopIndex on
+*     fill(numberOfLEDs) - turns LEDs on from first to numberOfLEDs 
+* 
+* (c) 2013-2016 Arduino LLC.
 */
 
 #include <EducationShield.h>

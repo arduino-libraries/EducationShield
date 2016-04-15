@@ -1,12 +1,12 @@
 /*  
-  Knob
-
-  The Knob class is used for working with potentiometers. It provides
-  functionalities to divide the raw value into a set amount of levels,
-  which is helpful when a set of options are picked by the level of 
-  the knob.
-  
-  (c) 2013 Verkstad
+* Knob
+*
+* The Knob class is used for working with potentiometers. It provides
+* functionalities to divide the raw value into a set amount of levels,
+* which is helpful when a set of options are picked by the level of 
+* the knob.
+* 
+* (c) 2013-2016 Arduino LLC.
 */
 
 #include <EducationShield.h>

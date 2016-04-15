@@ -1,17 +1,17 @@
 /*
-LightSensor
-
-LightSensor is a sensor that reads the intensity of light. 
-It gives analog reading. When connected with analog 
-pins, its value ranges from 0 to 1023 depending on the amount 
-of light shining on it. 
-
-The EducationShield library includes some features for 
-using the LightSensor as a button, or get values directly. See 
-the example LightSensortest fo more information about how to 
-configure it correctly. 
-
-(c) 2013 Verkstad
+* LightSensor
+*
+* LightSensor is a sensor that reads the intensity of light. 
+* It gives analog reading. When connected with analog 
+* pins, its value ranges from 0 to 1023 depending on the amount 
+* of light shining on it. 
+*
+* The EducationShield library includes some features for 
+* using the LightSensor as a button, or get values directly. See 
+* the example LightSensortest fo more information about how to 
+* configure it correctly. 
+*
+* (c) 2013-2016 Arduino LLC.
 */
 
 #include <EducationShield.h>

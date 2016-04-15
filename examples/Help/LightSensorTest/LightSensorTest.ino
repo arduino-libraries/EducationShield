@@ -21,7 +21,7 @@
 * threshold to make the sensor more/less sensitive. The closer 
 * to baseValue, the more sensitive it is.
 *  
-*       (c) 2013 Verkstad
+*       (c) 2013-2016 Arduino LLC.
 */
 
 #include <EducationShield.h>
