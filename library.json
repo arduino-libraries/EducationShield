@@ -4,7 +4,7 @@
 "keywords": "CTC, Education, Shield",
 "description": "Library for the CTC projects",
 "url": "http://kreatech.verkstad.cc/en/course-literature/education-shield/",
-"downloadUrl": "https://github.com/arduinoverkstad/CTC-Arduino",
+"downloadUrl": "https://github.com/arduino/CTC-Arduino",
 "authors":
 {
         "name": "David Cuartielles",
@@ -13,6 +13,6 @@
 "repository":
 {
     "type": "git",
-    "url": "https://github.com/arduinoverkstad/CTC-Arduino.git"
+    "url": "https://github.com/arduino/CTC-Arduino.git"
 }
 }
