@@ -26,8 +26,8 @@ int ledPins[]={2,3,4,5};
 int pinCount=4;
 VUMeter lights;
 
-TiltSwitch player_1 = TiltSwitch(9);
-TiltSwitch player_2 = TiltSwitch(10);
+TiltSwitch player_1 = TiltSwitch(6);
+TiltSwitch player_2 = TiltSwitch(9);
 
 void setup(){
   lights.config(pinCount,ledPins);
