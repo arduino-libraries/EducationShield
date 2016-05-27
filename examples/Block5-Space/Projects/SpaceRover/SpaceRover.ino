@@ -17,7 +17,7 @@ Wheels wheels = Wheels(6, 9);
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  ble.setName("LogoRobot");
+  ble.setName("Rover");
   ble.begin();
   
  wheels.begin();

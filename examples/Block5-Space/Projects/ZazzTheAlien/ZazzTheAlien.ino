@@ -32,7 +32,7 @@ void setup() {
   imu.attachCallback(shockCallback);
 
   // set advertised local name
-  ble.setName("Tamagotchi");
+  ble.setName("Zazz");
   ble.begin();
 
   foodButton.begin();
