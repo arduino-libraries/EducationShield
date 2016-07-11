@@ -2,17 +2,17 @@
 "name": "EducationShield",
 "frameworks": "Arduino",
 "keywords": "CTC, Education, Shield",
-"description": "Library for the CTC projects",
-"url": "http://kreatech.verkstad.cc/en/course-literature/education-shield/",
-"downloadUrl": "https://github.com/arduinoverkstad/CTC-Arduino",
+"description": "Library for the CTC Education Shield and education materials",
+"url": "https://github.com/arduino/EducationShield",
+"downloadUrl": "https://github.com/arduino/EducationShield/releases",
 "authors":
 {
-        "name": "David Cuartielles",
+        "name": "David Cuartielles, Marcus Johansson, Xun Yang",
         "maintainer": true
 },
 "repository":
 {
     "type": "git",
-    "url": "https://github.com/arduinoverkstad/CTC-Arduino.git"
+    "url": "https://github.com/arduino/EducationShield.git"
 }
 }
