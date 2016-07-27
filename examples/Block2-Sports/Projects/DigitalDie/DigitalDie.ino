@@ -33,7 +33,7 @@ TiltSwitch ts=TiltSwitch(9);
   big array of 6 elements, each element is an array of
   9 integers.
 */
-int dice[6][9]={
+int die[6][9]={
   //1
   {
   0,0,0,
@@ -102,7 +102,7 @@ void loop(){
   waitTime=2;
   
   /*
-    Imagine when you throw a dice, it'll bounce around, 
+    Imagine when you throw a die, it'll bounce around, 
     showing a few values before laying still. 
   
     Let's keep generating new values until it's stable
@@ -110,16 +110,16 @@ void loop(){
   */
   while(waitTime<1000){
     /*
-      Generate a random dice value.
-      The dice value can be 1 to 6, in the array it's
-      dice[0] to dice[5]. random(0,6) generate a value
+      Generate a random die value.
+      The die value can be 1 to 6, in the array it's
+      die[0] to die[5]. random(0,6) generate a value
       between 0 to 6, that would be 0 to 5 in effect.
     */
     int value;
     value=random(0,6);
     
-    //Display the dice value
-    displayDice(value);
+    //Display the die value
+    displayDie(value);
     
     /*
       See why waitTime have to be float? If it's an integer,
@@ -133,16 +133,16 @@ void loop(){
   }
   
   /*
-    Now the dice is stable, wait untill the tilt switch is 
+    Now the die is stable, wait untill the tilt switch is 
     activated again. ts.pressed() stops the whole program 
     until it's activated.
   */
   ts.pressed();
 }
 
-void displayDice(int num){
-  //Show the dice value by turning on/off the right leds
+void displayDie(int num){
+  //Show the die value by turning on/off the right leds
   for(int i=0;i<pinCount;i++){
-    digitalWrite(ledPins[i],dice[num][i]);
+    digitalWrite(ledPins[i],die[num][i]);
   }
 }
