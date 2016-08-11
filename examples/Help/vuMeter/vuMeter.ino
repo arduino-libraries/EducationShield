@@ -23,10 +23,10 @@
 //Declare the VUMeter
 VUMeter me;
 
-//The pins used by the VUMeter, default to 2-6. Can be
+//The pins used by the VUMeter, default to 2-5 and 7. Can be
 //customized as wish, but do change the pinCount if the
 //number of LEDs are changed.
-int pins[]={2,3,4,5,6};
+int pins[]={2,3,4,5,7};
 
 //How many pins are used. Should reflect the pins array above.
 int pinCount=5;
