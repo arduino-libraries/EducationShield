@@ -16,7 +16,7 @@
 
 //declare the pins used for leds, 9 leds in total
 int pinCount=9;
-int ledPins[] = {2, 3, 4, 5, 6, 7, 8, 11, 12};
+int ledPins[] = {2, 3, 4, 5, 6, 7, 8, 11, 13};
 
 /*
 declare the tilt switch, it's connected to tinkerkit 
