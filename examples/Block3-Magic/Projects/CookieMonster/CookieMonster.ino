@@ -35,13 +35,13 @@ void loop(){
   //cookie jar, the sensor is activated
   if(sensor.pressed()){
     //Turn on the LED
-    digitalWrite(9, HIGH);
+    digitalWrite(led, HIGH);
     //Sends signal to processing, so a picture
     //will be captured
     Serial.print('p');
     //Wait 2 seconds before turning the LED off
     delay(2000);
-    digitalWrite(9, LOW);
+    digitalWrite(led, LOW);
   }
 }
 
