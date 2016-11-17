@@ -16,9 +16,9 @@
 
 //Define the capacitive sensor
 CapacitiveSwitch sensor=CapacitiveSwitch(2,3);
-//Use Tinkerkit LED(or Tinkerkit LED matrix) here.
-//Deinfe the LED
-int led = 9;
+
+//Define the LED
+int led = 6;
 
 void setup()
 {
