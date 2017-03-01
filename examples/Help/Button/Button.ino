@@ -52,7 +52,7 @@ void loop(){
   long timer=millis();
   int counter=0;
   while(millis()-timer<3000){
-    if(me.beenPressed()){
+    if(me.isPressed()){
       counter++;
     }
   }
