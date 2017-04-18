@@ -70,7 +70,8 @@ void Player::initPlayer() {
     TCCR2B = TCCR2B & 0b11111000 | 0x01;
   #else
   #ifdef __ARDUINO_ARC__
-    g_APinDescription[3].ulPwmScale = 6;
+    //g_APinDescription[3].ulPwmScale = 6;
+    analogWriteFrequency(3,31250);
   #endif
   #endif
 }
