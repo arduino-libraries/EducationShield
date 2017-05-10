@@ -1,4 +1,4 @@
-/*	ContinuousServo
+/*ContinuousServo
 *
 *	Continuous servo looks the same as a standard servo, but its
 *	capable of rotating continuous like a normal motor. You can not

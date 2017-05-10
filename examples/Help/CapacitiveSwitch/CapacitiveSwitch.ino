@@ -13,7 +13,7 @@
 *	The library includes some features for using the
 *	capacitive sensor as a button, or get values directly.
 *
-*       (c) 2013-2016 Arduino LLC.
+*       (c) 2013-2016 Arduino LLC. 
 */
 
 #include <EducationShield.h>
