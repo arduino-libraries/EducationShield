@@ -26,7 +26,7 @@ void setup(){
   pinMode(piezo, OUTPUT);
   
   //Use this line to set the threshold of the IR sensors. 
-  //If you are using the Uno board, set the threshold to 380,if you're using the 101 board, set it to 550.
+  //If you are using the Uno board, set the threshold to 380,if you're using the 101 board, set it to 530.
   //Use ir.test() to check the values of each sensor in the loop()
   ir.setThreshold(380);
   
