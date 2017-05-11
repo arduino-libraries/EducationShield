@@ -23,7 +23,7 @@ IRArray ir = IRArray(A1, A2, A3);
 
 void setup(){
   
-    //Use this line to set the threshold of the IR sensors. The default is 380. If you're using Arduino 101 board, use 550 instead.
+    //Use this line to set the threshold of the IR sensors. The default is 380. If you're using Arduino 101 board, use 530 instead.
   //Use test() to check the values of each sensor in loop()
   ir.setThreshold(530);
   
