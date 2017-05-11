@@ -2,7 +2,7 @@
 *
 *	CapacitiveSwitch can be constructed in various ways.
 *	Typically a 1 million ohm resistor between sender pin
-*	and receiver pin(we use 3 as sender, 2 as receiver
+*	and receiver pin(we use 2 as sender, 3 as receiver
 *	here), and conductive material connected to receive
 *	pin.
 *
