@@ -14,7 +14,7 @@ BLEuart ble=BLEuart(TYPE_MESSENGER);
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  ble.setName("Messenger");
+  ble.setName("Message");
   ble.begin();
 }
 
