@@ -247,18 +247,17 @@ class UltrasonicSensor{
 class BLEPeripheralBase{
 	public:
 		void setName(const char* name);
-		virtual void begin();
+		//virtual void begin();
 		bool searchCentral();
 		bool connected();
 		virtual bool dataReceived()=0;
 
 		static const int MAX_LENGTH=20;
-	protected:
-		BLEPeripheralBase(const char* serviceID);
 
-		BLEPeripheral peri;
-		BLEService service;
-		BLECentral* central;
+	protected:
+		BLEPeripheralBase(/*const char* serviceID*/);
+		BLEDevice central;
+
 };
 
 class BLEText : public BLEPeripheralBase{
@@ -303,7 +302,9 @@ class BLEuart : public BLEPeripheralBase{
 		void addValue(int val);
 		void addValueAt(unsigned char val, int position);
 		unsigned char getValueAt(int position);
+
 	protected:
+		BLEService service;
 		BLECharacteristic txChari;
 		BLECharacteristic rxChari;
 		BLECharacteristic typeChari;
@@ -313,6 +314,8 @@ class BLEuart : public BLEPeripheralBase{
 		unsigned char writeBuffer[MAX_LENGTH];
 
 		int writeLength;
+	private:
+
 };
 
 #define USE_ISR false

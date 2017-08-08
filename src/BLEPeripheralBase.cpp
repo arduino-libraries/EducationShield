@@ -3,33 +3,34 @@
 #include "EducationShield.h"
 
 
-BLEPeripheralBase::BLEPeripheralBase(const char* serviceID):
-	service(serviceID)
+BLEPeripheralBase::BLEPeripheralBase()/*const char* serviceID):
+	service(serviceID)*/
 {
 
 }
 
 void BLEPeripheralBase::setName(const char* name){
-	peri.setLocalName(name);
+	BLE.setLocalName(name);
 }
 
 
-void BLEPeripheralBase::begin(){
-	peri.setAdvertisedServiceUuid(service.uuid());
-	peri.addAttribute(service);
-}
+/*void BLEPeripheralBase::begin(){
+	//peri.setAdvertisedService(service.uuid());
+	//peri.addAttribute(service);
+
+}*/
 
 bool BLEPeripheralBase::searchCentral(){
-	BLECentral cen=peri.central();
-	central=&cen;
-	if(*central)
+	central=BLE.central();
+	//central=&cen;
+	if(central)
 		return true;
 	else
 		return false;
 }
 
 bool BLEPeripheralBase::connected(){
-	return peri.connected();
+	return central.connected();
 }
 
 #endif

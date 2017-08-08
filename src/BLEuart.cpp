@@ -12,26 +12,36 @@ BLEuart::BLEuart(const char* serviceID):
 
 }*/
 BLEuart::BLEuart(int exampleID):
-	BLEPeripheralBase("6E400001-B5A3-F393-E0A9-E50E24DCCA9E"),
+	service("6E400001-B5A3-F393-E0A9-E50E24DCCA9E"),
 	txChari("6E400003-B5A3-F393-E0A9-E50E24DCCA9E", BLENotify | BLERead, MAX_LENGTH),
 	rxChari("6E400002-B5A3-F393-E0A9-E50E24DCCA9E", BLEWrite, MAX_LENGTH),
 	typeChari("6E400004-B5A3-F393-E0A9-E50E24DCCA9E", BLERead, MAX_LENGTH)
 {
 	setExampleID(exampleID);
-}	
+	//type=exampleID;
+}
 
 void BLEuart::begin(){
-	BLEPeripheralBase::begin();
-	peri.addAttribute(txChari);
-	peri.addAttribute(rxChari);
-	peri.addAttribute(typeChari);
+	//BLEPeripheralBase::begin();
+	//peri.addAttribute(txChari);
+	//peri.addAttribute(rxChari);
+	//peri.addAttribute(typeChari);
 
-	peri.begin();
+	//peri.begin();
+	BLE.begin();
+	BLE.setAdvertisedService(service);
+	service.addCharacteristic(txChari);
+	service.addCharacteristic(rxChari);
+	service.addCharacteristic(typeChari);
+	BLE.addService(service);
+	//typeChari.setValue("10");
+	BLE.advertise();
 }
 
 void BLEuart::setExampleID(int exampleID){
 	const unsigned char out[1]={(unsigned char)exampleID};
 	typeChari.setValue(out,1);
+	//typeChari.setValue(1);
 }
 
 bool BLEuart::dataReceived(){
@@ -44,8 +54,9 @@ void BLEuart::fetchData(){
 	readBuffer[rxChari.valueLength()]=0;
 }
 void BLEuart::send(){
-	txChari.setValue(writeBuffer,writeLength);
-	writeLength=0;
+		txChari.setValue(writeBuffer,writeLength);
+		writeLength=0;
+		delay(30);
 }
 
 void BLEuart::sendString(const char* text,int length){
