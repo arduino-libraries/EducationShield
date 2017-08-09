@@ -18,7 +18,7 @@ void setup() {
 
   // Curie BLE setup
   // set advertised local name
-  ble.setName("CutomControl");
+  ble.setName("CustomC");
   ble.begin();
 }
 
