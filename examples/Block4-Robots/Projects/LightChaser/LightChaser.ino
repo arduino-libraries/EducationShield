@@ -11,7 +11,7 @@
 
 #include <EducationShield.h>
 
-//Declare the two wheels of robot, left wheel to D10 and
+//Declare the two wheels of robot, left wheel to D6 and
 // right wheel to D9
 Wheels wheels=Wheels(6, 9);
 
