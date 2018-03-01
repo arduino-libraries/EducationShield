@@ -15,7 +15,7 @@ TiltSwitch	KEYWORD1
 CapacitiveSwitch	KEYWORD1
 PiezoKnockSensor	KEYWORD1
 Player	KEYWORD1
-Knob KEYWORD1
+Knob	KEYWORD1
 Joystick	KEYWORD1
 Wheels	KEYWORD1
 IRArray	KEYWORD1
