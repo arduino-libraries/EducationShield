@@ -11,6 +11,7 @@
 */
 
 
+// Requires the CapacitiveSensor library: http://librarymanager/All#CapacitiveSensor
 #include <EducationShield.h>
 
 //Position of the leds in VU-meter is represented

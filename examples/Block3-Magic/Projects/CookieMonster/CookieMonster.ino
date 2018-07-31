@@ -12,6 +12,7 @@
 */
 
 
+// Requires the CapacitiveSensor library: http://librarymanager/All#CapacitiveSensor
 #include <EducationShield.h>
 
 //Define the capacitive sensor

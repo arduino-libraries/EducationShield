@@ -9,6 +9,7 @@
 * (c) 2013-2016 Arduino LLC.
 */
 
+// Requires the CapacitiveSensor library: http://librarymanager/All#CapacitiveSensor
 #include <EducationShield.h>
 
 //Declare the two wheels of robot, left wheel to D6 and

@@ -8,6 +8,7 @@
 *       (c) 2013-2016 Arduino LLC.
 */
 
+// Requires the CapacitiveSensor library: http://librarymanager/All#CapacitiveSensor
 #include <EducationShield.h>
 
 //pitches.h includes the definition of notes. Put it in your sketch

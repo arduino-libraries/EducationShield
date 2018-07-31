@@ -10,6 +10,7 @@
 */
 
 
+// Requires the CapacitiveSensor library: http://librarymanager/All#CapacitiveSensor
 #include <EducationShield.h>
 
 BLEuart ble=BLEuart();

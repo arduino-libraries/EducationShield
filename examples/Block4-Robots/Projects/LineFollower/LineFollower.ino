@@ -7,6 +7,7 @@
 * (c) 2013-2016 Arduino LLC.
 */
 
+// Requires the CapacitiveSensor library: http://librarymanager/All#CapacitiveSensor
 #include <EducationShield.h>
 
 //IRArray(IR1, IR2, IR3)

@@ -12,6 +12,7 @@
 * (c) 2013-2016 Arduino LLC.
 */
 
+// Requires the CapacitiveSensor library: http://librarymanager/All#CapacitiveSensor
 #include <EducationShield.h>
 
 //The joystick uses two analog pins. Here pin A0 and A1
