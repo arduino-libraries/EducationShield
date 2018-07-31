@@ -39,7 +39,14 @@ If you want to collaborate by adding translations to this collection of exercise
 IMPORTANT
 =========
 
-Move the folder CapacitiveSensor and SoundWave to the libraries folder of your Arduino installation before using. Some features are dependent on them.
+This library requires the CapacitiveSensor library. You can install it by following these instructions:
+1. (In the Arduino IDE) Sketch > Include Library > Manage Libraries...
+2. Wait for the download to finish.
+3. In the "Filter your search..." box, type "capacitivesensor"
+4. Click on "CapacitiveSensor by Paul Badger, Paul Stoffregen".
+5. Click "Install".
+6. Wait for installation to finish.
+7. Click "Close".
 
 Updates
 =======
