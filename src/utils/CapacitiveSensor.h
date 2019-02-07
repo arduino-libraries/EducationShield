@@ -160,7 +160,8 @@ void directWriteHigh(volatile IO_REG_TYPE *base, IO_REG_TYPE pin)
 
 // some 3.3V chips with 5V tolerant pins need this workaround
 //
-#if defined(__MK20DX256__)
+#if defined(__MK20DX256__) || defined(__arc__)
+#warning "Using Five Volts Tolerance Workaround!"
 #define FIVE_VOLT_TOLERANCE_WORKAROUND
 #endif
 
