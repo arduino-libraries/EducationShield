@@ -1,5 +1,4 @@
 #include "EducationShield.h"
-#include <CapacitiveSensor.h>
 
 CapacitiveSwitch::CapacitiveSwitch(int pin_in,int pin):Button(pin,HIGH),sensor(pin_in,pin){
 

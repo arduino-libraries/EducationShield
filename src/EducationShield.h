@@ -8,7 +8,7 @@
 #endif
 
 #include <Servo.h>
-#include <CapacitiveSensor.h>
+#include "utils/CapacitiveSensor.h"
 #include <SD.h>
 
 #if defined(__arc__)
