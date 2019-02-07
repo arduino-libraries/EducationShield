@@ -70,17 +70,6 @@
 #define DIRECT_WRITE_LOW(base, mask)    (*((base)+8) = (mask))
 #define DIRECT_WRITE_HIGH(base, mask)   (*((base)+4) = (mask))
 
-#elif defined(__IMXRT1052__) || defined(__IMXRT1062__)
-#define PIN_TO_BASEREG(pin)             (portOutputRegister(pin))
-#define PIN_TO_BITMASK(pin)             (digitalPinToBitMask(pin))
-#define IO_REG_TYPE uint32_t
-#define IO_REG_ASM
-#define DIRECT_READ(base, mask)         ((*((base)+2) & (mask)) ? 1 : 0)
-#define DIRECT_MODE_INPUT(base, mask)   (*((base)+1) &= ~(mask))
-#define DIRECT_MODE_OUTPUT(base, mask)  (*((base)+1) |= (mask))
-#define DIRECT_WRITE_LOW(base, mask)    (*((base)+34) = (mask))
-#define DIRECT_WRITE_HIGH(base, mask)   (*((base)+33) = (mask))
-
 #elif defined(__SAM3X8E__)
 #define PIN_TO_BASEREG(pin)             (&(digitalPinToPort(pin)->PIO_PER))
 #define PIN_TO_BITMASK(pin)             (digitalPinToBitMask(pin))
@@ -331,7 +320,8 @@ void directWriteHigh(volatile IO_REG_TYPE *base, IO_REG_TYPE pin)
 
 // some 3.3V chips with 5V tolerant pins need this workaround
 //
-#if defined(__MK20DX256__)
+#if defined(__MK20DX256__) || defined(__arc__) 
+#warning "Using Five Volts Tolerance Workarround!"
 #define FIVE_VOLT_TOLERANCE_WORKAROUND
 #endif
 
@@ -350,6 +340,8 @@ class CapacitiveSensor
   // library-accessible "private" interface
   private:
   // variables
+  	int _sendPin;
+	int _receivePin;
 	int error;
 	unsigned long  leastTotal;
 	unsigned int   loopTimingFactor;
