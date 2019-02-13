@@ -1,13 +1,30 @@
 /*
- CapacitiveSense.h v.04 - Capacitive Sensing Library for 'duino / Wiring
+ CapacitiveSense.h - Capacitive Sensing Library for 'duino / Wiring
  https://github.com/PaulStoffregen/CapacitiveSensor
  http://www.pjrc.com/teensy/td_libs_CapacitiveSensor.html
  http://playground.arduino.cc/Main/CapacitiveSensor
- Copyright (c) 2009 Paul Bagder  All right reserved.
- Version 05 by Paul Stoffregen - Support non-AVR board: Teensy 3.x, Arduino Due
- Version 04 by Paul Stoffregen - Arduino 1.0 compatibility, issue 146 fix
+ Copyright (c) 2009 Paul Bagder
+ Updates for other hardare by Paul Stoffregen, 2010-2016
  vim: set ts=4:
- */
+
+ Permission is hereby granted, free of charge, to any person obtaining a
+ copy of this software and associated documentation files (the "Software"),
+ to deal in the Software without restriction, including without limitation
+ the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ DEALINGS IN THE SOFTWARE.
+*/
 
 #if ARDUINO >= 100
 #include "Arduino.h"
@@ -24,6 +41,10 @@
 
 CapacitiveSensor::CapacitiveSensor(uint8_t sendPin, uint8_t receivePin)
 {
+	//save pin numbers
+	_sendPin = sendPin;
+	_receivePin = receivePin;
+
 	// initialize this instance's variables
 	// Serial.begin(9600);		// for debugging
 	error = 1;
@@ -46,10 +67,11 @@ CapacitiveSensor::CapacitiveSensor(uint8_t sendPin, uint8_t receivePin)
 	pinMode(receivePin, INPUT);						// receivePin to INPUT
 	digitalWrite(sendPin, LOW);
 
-	sBit =  PIN_TO_BITMASK(sendPin);			// get send pin's ports and bitmask
+	//TODO SYV: Quitar esto si no se va a usar
+	sBit = PIN_TO_BITMASK(sendPin);					// get send pin's ports and bitmask
 	sReg = PIN_TO_BASEREG(sendPin);					// get pointer to output register
 
-	rBit = PIN_TO_BITMASK(receivePin);			// get receive pin's ports and bitmask
+	rBit = PIN_TO_BITMASK(receivePin);				// get receive pin's ports and bitmask
 	rReg = PIN_TO_BASEREG(receivePin);
 
 	// get pin mapping and port for receive Pin - from digital pin functions in Wiring.c
@@ -136,49 +158,43 @@ void CapacitiveSensor::set_CS_Timeout_Millis(unsigned long timeout_millis){
 
 int CapacitiveSensor::SenseOneCycle(void)
 {
-
-
-    noInterrupts();
-	DIRECT_WRITE_LOW(sReg, sBit);	// sendPin Register low
-	DIRECT_MODE_INPUT(rReg, rBit);	// receivePin to input (pullups are off)
-	DIRECT_MODE_OUTPUT(rReg, rBit); // receivePin to OUTPUT
-	DIRECT_WRITE_LOW(rReg, rBit);	// pin is now LOW AND OUTPUT
+  noInterrupts();
+	digitalWrite(_sendPin,LOW);
+	digitalWrite(_receivePin, INPUT);
+	pinMode(_receivePin, OUTPUT);
+	digitalWrite(_receivePin, LOW);
 	delayMicroseconds(10);
-	DIRECT_MODE_INPUT(rReg, rBit);	// receivePin to input (pullups are off)
-	DIRECT_WRITE_HIGH(sReg, sBit);	// sendPin High
-    interrupts();
+	pinMode(_receivePin, INPUT);
+	digitalWrite(_sendPin, HIGH);
+  interrupts();
 
 	while ( !DIRECT_READ(rReg, rBit) && (total < CS_Timeout_Millis) ) {  // while receive pin is LOW AND total is positive value
 		total++;
 	}
-	//Serial.print("SenseOneCycle(1): ");
-	//Serial.println(total);
 
 	if (total > CS_Timeout_Millis) {
 		return -2;         //  total variable over timeout
 	}
 
 	// set receive pin HIGH briefly to charge up fully - because the while loop above will exit when pin is ~ 2.5V
-    noInterrupts();
-	DIRECT_WRITE_HIGH(rReg, rBit);
-	DIRECT_MODE_OUTPUT(rReg, rBit);  // receivePin to OUTPUT - pin is now HIGH AND OUTPUT
-	DIRECT_WRITE_HIGH(rReg, rBit);
-	DIRECT_MODE_INPUT(rReg, rBit);	// receivePin to INPUT (pullup is off)
-	DIRECT_WRITE_LOW(sReg, sBit);	// sendPin LOW
-    interrupts();
+  noInterrupts();
+	digitalWrite(_receivePin,HIGH);
+	pinMode(_receivePin, OUTPUT);
+	digitalWrite(_receivePin, HIGH);
+	pinMode(_receivePin, INPUT);
+	digitalWrite(_sendPin, LOW);
+  interrupts();
 
 #ifdef FIVE_VOLT_TOLERANCE_WORKAROUND
-	DIRECT_MODE_OUTPUT(rReg, rBit);
-	DIRECT_WRITE_LOW(rReg, rBit);
+	pinMode(_receivePin, OUTPUT);
 	delayMicroseconds(10);
-	DIRECT_MODE_INPUT(rReg, rBit);	// receivePin to INPUT (pullup is off)
+	pinMode(_receivePin, INPUT);
 #else
 	while ( DIRECT_READ(rReg, rBit) && (total < CS_Timeout_Millis) ) {  // while receive pin is HIGH  AND total is less than timeout
 		total++;
 	}
 #endif
-	//Serial.print("SenseOneCycle(2): ");
-	//Serial.println(total);
+
 
 	if (total >= CS_Timeout_Millis) {
 		return -2;     // total variable over timeout
