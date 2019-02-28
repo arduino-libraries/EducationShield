@@ -8,7 +8,7 @@ Reference
 - [Button](https://github.com/ai/size-limit) -
 - [ButtonGroup](https://github.com/ai/size-limit) -
 - [CapacitiveSwitch](https://github.com/ai/size-limit) -
-- [IMU](https://github.com/ai/size-limit) -
+- [IMU](#imu) -
 - [IRarray](https://github.com/ai/size-limit) -
 - [Joystick](https://github.com/ai/size-limit) -
 - [Knob](https://github.com/ai/size-limit) -
@@ -83,8 +83,8 @@ CapacitiveSwitch
 
 **getState()**:
 
-IMU
------------------
+## IMU
+
 blahblah
 
 IRarray
