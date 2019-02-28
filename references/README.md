@@ -1,6 +1,8 @@
 Reference
 ==========
 
+Reference section which explains the functions and constants defined in the library.
+
 
 - [CapacitiveSensor](#capacitivesensor)
 - [BLE PeripheralBase](#ble-peripheralbase)

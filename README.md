@@ -13,7 +13,7 @@ The library is an educational project carried by Arduino LLC in Malmo. It is a c
 
 References
 ===========
-[Reference](references/)
+[Reference](references/) section which explains the functions and constants defined in the library.
 
 Credits
 ===========
