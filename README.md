@@ -14,4 +14,4 @@ The library is an educational project carried by Arduino LLC in Malmo. It is a c
 Credits
 ===========
 
-X. Yang, M. Johansson, C. Leivas, T. Hansson, L. Balboa, K. Engdahl, T. Pham , A. Goransson , D. Cuartielles 
+X. Yang, M. Johansson, C. Leivas, T. Hansson, L. Balboa, K. Engdahl, T. Pham , A. Goransson , D. Cuartielles
