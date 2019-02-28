@@ -2,33 +2,33 @@ Reference
 ==========
 
 
-- [CapacitiveSensor](https://github.com/ai/size-limit) -
-- [BLE  PeripheralBase](https://github.com/ai/size-limit) -
-- [BLEuart](https://github.com/ai/size-limit) -
-- [Button](https://github.com/ai/size-limit) -
-- [ButtonGroup](https://github.com/ai/size-limit) -
-- [CapacitiveSwitch](https://github.com/ai/size-limit) -
-- [IMU](#imu) -
-- [IRarray](https://github.com/ai/size-limit) -
-- [Joystick](https://github.com/ai/size-limit) -
-- [Knob](https://github.com/ai/size-limit) -
-- [LED](https://github.com/ai/size-limit) -
-- [LightSensor](https://github.com/ai/size-limit) -
-- [Melody & pitches](https://github.com/ai/size-limit) -
-- [Player](https://github.com/ai/size-limit) -
-- [TiltSwitch](https://github.com/ai/size-limit) -
-- [UltrasonicSensor](https://github.com/ai/size-limit) -
-- [VUMeter](https://github.com/ai/size-limit) -
-- [Wheels](https://github.com/ai/size-limit) -
-- [PiezoKnockSensor](https://github.com/ai/size-limit) -
+- [CapacitiveSensor](#capacitivesensor) 
+- [BLE PeripheralBase](#ble-peripheralbase) 
+- [BLEuart](#bleuart) 
+- [Button](#button) 
+- [ButtonGroup](#buttongroup) 
+- [CapacitiveSwitch](#capacitiveswitch) 
+- [IMU](#imu) 
+- [IRarray](#irarray) 
+- [Joystick](#joystick) 
+- [Knob](#knob) 
+- [LED](#led) 
+- [LightSensor](#lightsensor) 
+- [Melody & pitches](#melody-&-pitches) 
+- [Player](#player) 
+- [TiltSwitch](#tiltswitch) 
+- [UltrasonicSensor](#ultrasonicsensor) 
+- [VUMeter](#vumeter) 
+- [Wheels](#wheels) 
+- [PiezoKnockSensor](#piezoknocksensor) 
 
 
-utils/CapacitiveSensor
------------------
+## CapacitiveSensor
+
 blahblah
 
-BLE  PeripheralBase
------------------
+## BLE PeripheralBase
+
  **BLEPeripheralBase()**: (constructor) Creates a BLE objec in ordet to interact with the BLE characteristics.
 
  **setName(*name*)**: changes the name of the BLE to *name*.
@@ -37,12 +37,12 @@ BLE  PeripheralBase
 
  **connected()**: returnd true if the device is connected, false otherwise.
 
-BLEuart
------------------
+## BLEuart
+
 blahblah
 
-Button
------------------
+## Button
+
 
   **Button(*pin*, *pressedValue*)**: (constructor) Creates a button object with the *pin* it is connected to, and the *pressedValue* it will have when pressed (pressed = 0 or pressed = 1).
 
@@ -60,8 +60,8 @@ Button
 
   **getState()**: returns the current state of the *pin* connected to the button.
 
-ButtonGroup
------------------
+## ButtonGroup
+
 
   **ButtonGroup()**: (constructor) Creates an object of a group of buttons to manage together (Up to 10).
 
@@ -71,8 +71,8 @@ ButtonGroup
 
   **checkPressed(*timeout*, *requiredValue*)**: stops the program until the state of any of the buttons' state changes to *requiredValue* and returns the number of that button. It will wait up to *timeout* milliseconds (forever if *timeout* is 0), and if no button was pressed during this time, it will return -1.
 
-CapacitiveSwitch
------------------
+## CapacitiveSwitch
+
 **CapacitiveSwitch(*pin_in*, *pin*)**: (constructor) Creates an object of 3 IR sensors to manage together. The default threshold value (the value at which the percieved value changes from 0 to 1) is 380, w
 
 **config(*threshold*)**:
@@ -87,8 +87,8 @@ CapacitiveSwitch
 
 blahblah
 
-IRarray
------------------
+## IRarray
+
 
   **IRarray(*IR1*, *IR2*, *IR3*)**: (constructor) Creates an object of the 3 IR sensors connected to *IR1*, *IR2* and *IR3* to manage together. The default threshold value (the value at which the percieved value changes from 0 to 1) is 380, when using Arduino 101 this threshold needs to be set to 530 (use *setThreshold()*).
 
@@ -104,8 +104,8 @@ IRarray
 
   **setThreshold(*t*)**: sets to *t* the value of the threshold to interpret when the sensors change from 0 to 1.
 
-Joystick
------------------
+## Joystick
+
 
   **Joystick(*x*, *y*)**: (constructor) Creates a joystick object which X coordinate is connected to *x* pin and Y coordinate to *y* pin.
 
@@ -113,8 +113,8 @@ Joystick
 
   **getY()**: returns the value of the Y coordinate read by the joystick.
 
-Knob
------------------
+## Knob
+
 
   **Knob(*pin*)**: (constructor) Creates a knob object, associated to pin *pin*.
 
@@ -124,8 +124,8 @@ Knob
 
   **getLevel()**: gets the value of the knob mapped between 0 and *levels*.
 
-LED
------------------
+## LED
+
 
   **LED(*pin*)**: (constructor) Creates an LED object, associated to pin *pin*.
 
@@ -137,8 +137,8 @@ LED
 
   **blink(*speed*, *times*)**: turs the LED on for *speed* milliseconds, then off for another *speed* milliseconds, and repeats it *times* times.
 
-LightSensor
------------------
+## LightSensor
+
   **LighSensor(*pin*)**: (constructor) Creates a LightSensor object connected to *pin*.
 
   **calibrate(*t*)**: uses the values obtained during *t* milliseconds to set the values of the base (highest value measured), and the threshold that will set where is teh line between measuring a 0 and a 1.
@@ -151,8 +151,8 @@ LightSensor
 
  **getState()**: returns 0 if the measured value is between base and threshold, and 1 otherwise.
 
-Melody & pitches
------------------
+## Melody & pitches
+
 In *pitches.h* there is a wide list with notes and their own frequency, useful whn playing melidies with the buzzer / piezo.
 
  **Melody(*pin*)**: (constructor) Creates a melody object, where the piezo / buzzer is connected to *pin* pin.
@@ -169,8 +169,8 @@ In *pitches.h* there is a wide list with notes and their own frequency, useful w
 
  **effect_score()**: plays a short melody, great when scoring points/goals.
 
-Player
------------------
+## Player
+
 Uses pins 0, 1 (Serial communication), 3 (PWM for the jack connector), 4 and 10 (SD card reader).
 
   **Player()**: (constructor) Creates a player object.
@@ -185,19 +185,19 @@ Uses pins 0, 1 (Serial communication), 3 (PWM for the jack connector), 4 and 10 
 
   **play(*name*)**: plays the file *name* through the jack connector. While it is playing it, the SErial monitor will print dots until the file is finished, when *"End of file. Thank you for listening!"* will be printed.
 
-TiltSwitch
------------------
+## TiltSwitch
+
  **TiltSwitch( *pin*, *pressedValue*)**: creates a TiltSwitch object, connected to *pin*, and the *pressedValue* it will have when upright (upright = 0 or upright = 1).
 
-UltrasonicSensor
------------------
+## UltrasonicSensor
+
 
   **UltrasonicSensor(*trig*, *echo*)**: (constructor) Creates an Ultrasonic object, with the trigger connected to *trig* pin, and the echo connected to *echo* pin.
 
   **getDistance()**: returnd the distance measured by the sensor.
 
-VUMeter
------------------
+## VUMeter
+
 
  **VUMeter()**: (constructor) Creates an VUMeter object with its LEDs connected to pins 2 to 6 (by default).
 
@@ -227,8 +227,8 @@ VUMeter
 
   **clear()**: turns off all LEDs.
 
-Wheels
------------------
+## Wheels
+
 
   **Wheels(*lpin*, *rpin*)**: (constructor) Creates an wheels object, with the left wheel connected to *lpin* and the right wheel connected to *rpin*.
 
@@ -248,8 +248,8 @@ Wheels
 
   **follow(*d*)**: changes the speed of the motors *d* units. Useful for the linefollower, where *d* would be the error when reading the line (how far away to the sides the robot is going), positive when the robot is diverting to the right of the line, 0 if it is on the line, and negative when it's diverting to the left.
 
-PiezoKnockSensor
------------------
+## PiezoKnockSensor
+
   **PiezoKnockSensor(*pin*)**: (constructor) Creates an piezoKnockSensor object, connected to *pin*.
 
   **config(*threshold*, *debouceTime*)**: allows to change the default values of the *threshold* (value at which the board value changes from 0 to 1), and *debounceTime* to wait in order not to read the same knocking several times.
