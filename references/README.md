@@ -1,6 +1,28 @@
 Reference
 ==========
 
+
+- [CapacitiveSensor](https://github.com/ai/size-limit) -
+- [BLE  PeripheralBase](https://github.com/ai/size-limit) -
+- [BLEuart](https://github.com/ai/size-limit) -
+- [Button](https://github.com/ai/size-limit) -
+- [ButtonGroup](https://github.com/ai/size-limit) -
+- [CapacitiveSwitch](https://github.com/ai/size-limit) -
+- [IMU](https://github.com/ai/size-limit) -
+- [IRarray](https://github.com/ai/size-limit) -
+- [Joystick](https://github.com/ai/size-limit) -
+- [Knob](https://github.com/ai/size-limit) -
+- [LED](https://github.com/ai/size-limit) -
+- [LightSensor](https://github.com/ai/size-limit) -
+- [Melody & pitches](https://github.com/ai/size-limit) -
+- [Player](https://github.com/ai/size-limit) -
+- [TiltSwitch](https://github.com/ai/size-limit) -
+- [UltrasonicSensor](https://github.com/ai/size-limit) -
+- [VUMeter](https://github.com/ai/size-limit) -
+- [Wheels](https://github.com/ai/size-limit) -
+- [PiezoKnockSensor](https://github.com/ai/size-limit) -
+
+
 utils/CapacitiveSensor
 -----------------
 blahblah
