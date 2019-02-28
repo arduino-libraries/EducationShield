@@ -15,7 +15,7 @@ Reference
 - [LED](#led)
 - [LightSensor](#lightsensor)
 - [Melody and pitches](#melody-and-pitches)
-- [Player](#player) 
+- [Player](#player)
 - [TiltSwitch](#tiltswitch)
 - [UltrasonicSensor](#ultrasonicsensor)
 - [VUMeter](#vumeter)
@@ -151,7 +151,7 @@ blahblah
 
  **getState()**: returns 0 if the measured value is between base and threshold, and 1 otherwise.
 
-## Melody & pitches
+## Melody and pitches
 
 In *pitches.h* there is a wide list with notes and their own frequency, useful whn playing melidies with the buzzer / piezo.
 
