@@ -27,9 +27,17 @@ Reference section which explains the functions and constants defined in the libr
 
 ## CapacitiveSensor
 
-blahblah
+ **CapacitiveSwitch( *senderPin*, *receiverPin* )**: (constructor) Creates a CapacitiveSwitch object, where *senderPin* is the digital pin that acts as the sender (the same *senderPin* can be used as sender for several capacitive sensors), and *receiverPin* is the digital pin that acts as the receiver (each different sensor must have a different *receiverPin*).
 
+ **config( *threshold* )**: If the capacitive sensor is to be used as a switch, this function can be used to configure the *threshold* (value for the capacitive switch to register a press). **test()** can be used to check the sensor readings first in order to decide the *threshold* value.
+
+ **pressed( *timeout* )**: stops the program until the state of the sensor changes to *pressed*. It will wait up to *timeout* milliseconds, or forever if *timeout* is 0. Returns 1 if the sensor has been *pressed*, 0 if it's not.
+ 
+ **released( *timeout* )**: stops the program until the state of the sensor changes to *released*. It will wait up to *timeout* milliseconds, or forever if *timeout* is 0. Returns 1 if the sensor has been *released*, 0 if it's not.
+ 
+ 
 ## BLE PeripheralBase
+
 
  **BLEPeripheralBase()**: (constructor) Creates a BLE objec in ordet to interact with the BLE characteristics.
 
@@ -38,6 +46,7 @@ blahblah
  **searchCentral()**: returns true if the connection to the central is active, false otherwise.
 
  **connected()**: returnd true if the device is connected, false otherwise.
+
 
 ## BLEuart
 
