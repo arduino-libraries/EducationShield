@@ -50,7 +50,7 @@ Reference section which explains the functions and constants defined in the libr
  
  **send()**: sends teh information currently stored in the send buffer.
 
- **sendString(* \* text*, *length* )**: sends the string.
+ **sendString(** \* ***text*, *length* )**: sends the string.
 
  **receivedString()**: returns the information stored in the buffer.
 
@@ -120,7 +120,7 @@ Reference section which explains the functions and constants defined in the libr
 
  **detectShock( *shockThreashold*, *shockDuration*)**: enables the shock detection feature, a shock will be detected as long as the shock is greater then *shockThreashold*, and lasts longer than *shockDuration*
   
- **attachCallback(*(\*callback)*)**: when the shock is detected, the function *callback* will be called.
+ **attachCallback(** \* ***callback*)**: when the shock is detected, the function *callback* will be called.
 
  **measureMotion()**: retrieves and stores all currently available motion sensor raw values.
 
