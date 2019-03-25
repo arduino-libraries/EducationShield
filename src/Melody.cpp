@@ -25,7 +25,7 @@ void Melody::play(int length, int notes[],int duration[],float speed){
 		tone(pin,notes[i],1000/duration[i]);
 		int pauseBetweenNotes = 1000/duration[i]*speed;
 		delay(pauseBetweenNotes);
-		noTone(8);
+		noTone(pin);
 	}
 }
 void Melody::beep(int note, int length){
