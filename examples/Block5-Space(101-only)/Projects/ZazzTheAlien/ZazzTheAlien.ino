@@ -1,8 +1,8 @@
 /*
-*  ZazztheAlien
+*  ZazzTheAlien
 * 
-* It is a lot of responsibility but now you will have to take care of the alien baby. This particular
-* alien baby communicates with bluetooth. You need to make sure it has proper exercises, get
+* It is a lot of responsibility, but now you will have to take care of the alien baby. This particular
+* alien baby communicates with Bluetooth. You need to make sure it has proper exercises, gets
 * enough food and sleep.
 *
 * (c) 2013-2016 Arduino LLC.
@@ -83,7 +83,7 @@ void updateStatus() {
     foodLv+=5;
   }
 
-  // every 3 sec update and lower the 3 stats in diffrent rates
+  // every 3 sec update and lower the 3 stats in different rates
   if (millis() - updateTimer >= 3000) {
     exerciseLv = exerciseLv - 1;
     foodLv = foodLv - 2;
@@ -98,7 +98,7 @@ void updateStatus() {
   sleepLv=constrain(sleepLv,0,100);
 }
 
-// this is called when the Imu detects  a shock in any direction
+// this is called when the IMU detects a shock in any direction
 static void shockCallback(void) {
   //add 1 to the exerciseLv
   exerciseLv++;

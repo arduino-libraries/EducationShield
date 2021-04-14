@@ -30,12 +30,12 @@ void setup(){
   vuMeter.config(pinCount, ledPins);
   vuMeter.begin(); //does the same as pinMode, LEDs are outputs
 
-  sensor.config(800, 600); //first run LightSensortest example to see what values you need to put here
+  sensor.config(800, 600); //first run the LightSensorTest example to see what values you need to put here
 }
 
 void loop(){
   //if the LightSensor is covered the score increases with 1
-  //and a sounds is played
+  //and a sound is played
     sensor.pressed();
     score++;
     vuMeter.fill(score); //Turn on as many LEDs as the score

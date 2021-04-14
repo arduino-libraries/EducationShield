@@ -2,8 +2,8 @@
 * LightChaser
 *
 * This little vehicle is on an impossible, never ending 
-* mission to catch the light. You can make it follw you 
-* by pointing a flashligt at it. (The one on your mobile 
+* mission to catch the light. You can make it follow you 
+* by pointing a flashlight at it. (The one on your mobile 
 * phone eg.) It will always turn towards the light. 
 * 
 * (c) 2013-2016 Arduino LLC.
@@ -29,13 +29,13 @@ void setup(){
 }
 void loop(){
   if(sensorLeft.getState()){
-	//Left LightSensor detects strong light, the vechile turns left
+	//Left LightSensor detects strong light, the vehicle turns left
     wheels.turnLeft();
   }else if(sensorRight.getState()){
-	//Right LightSensor detects strong light, the vechile turns right
+	//Right LightSensor detects strong light, the vehicle turns right
     wheels.turnRight();
   }else{
-	//No strong light detected, the vechile goes straight
+	//No strong light detected, the vehicle goes straight
     wheels.goForward();
   }
 }

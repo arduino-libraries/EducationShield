@@ -20,7 +20,7 @@ void Player::play(char* name) {
     this->name=name;
     int count=0;
 
-  // open wave file from sdcard
+  // open wave file from SD card
   File myFile = SD.open(name);
   if (!myFile) {
     // if the file didn't open, print an error and stop
@@ -32,7 +32,7 @@ void Player::play(char* name) {
   //byte buffer[S];
 
   Serial.print("Playing");
-  // until the file is not finished
+  // until the file is finished
   int header = 128;
   byte data = 0;
   while (myFile.available()) {

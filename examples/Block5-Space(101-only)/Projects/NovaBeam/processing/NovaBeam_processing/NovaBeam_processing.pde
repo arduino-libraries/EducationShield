@@ -150,7 +150,7 @@ void videoHandler() {
         // Take window size into account
         int displayLoc = x + y*width;
 
-        // Get the R,G and B values from the video pixels
+        // Get the R, G and B values from the video pixels
         float r = red   (video.pixels[videoLoc]);
         float g = green (video.pixels[videoLoc]);
         float b = blue  (video.pixels[videoLoc]);

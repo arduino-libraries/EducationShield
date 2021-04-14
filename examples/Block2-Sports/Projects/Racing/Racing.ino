@@ -19,7 +19,7 @@
 */
 int ledPins[] = {8, 9, 10, 11, 13};
 int pinCount = 5;
-//This variable will let us keep track on which LED to turn on
+//This variable will let us keep track of which LED to turn on
 int LED = 0;
 VUMeter scoreBoard;
 
@@ -54,14 +54,14 @@ void loop(){
   
   score=score+1; //After both feet are pressed, add one point
   
-  //Every 20 points light up a led
+  //Every 20 points light up a LED
   LED =score/20;
   scoreBoard.fill(LED);
   
  //When you get 100 points, you win
   if(score>100){
-    //if you win, blink all leds for celebration
-    //See vuMeter in refence list to make your own blink animation
+    //if you win, blink all LEDs for celebration
+    //See vuMeter in reference list to make your own blink animation
     scoreBoard.blinkAll(50,5);
     //and reset the game
     score=0;

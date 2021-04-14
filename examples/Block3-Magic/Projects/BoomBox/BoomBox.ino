@@ -1,7 +1,7 @@
 /*
 * BoomBox
 * 
-* This is your first step towards theese kinds of skills:
+* This is your first step towards these kinds of skills:
 * http://www.youtube.com/watch?v=FcJCxe1VSLA&noredirect=1
 * The boom box is a small sample player you can use to make music, 
 * or just random sound. It comes with three prerecorded samples 
@@ -15,8 +15,8 @@
 #include <EducationShield.h>
 
 //Declare a button group with 3 buttons. The
-//sound player secrectly takes pin 3, 4 and 11,
-//so don't use them,
+//sound player secretly takes pin 3, 4 and 11,
+//so don't use them.
 ButtonGroup bg;
 int buttons[]={5,6,7};
 
@@ -30,7 +30,7 @@ void setup(){
   // Open serial communications and wait for port to open:
   Serial.begin(9600);
   
-  // Initialize the sound player. Open the serial monitor to see
+  // Initialize the sound player. Open the Serial Monitor to see
   //the sound files found on your micro SD card
   player.begin();
 

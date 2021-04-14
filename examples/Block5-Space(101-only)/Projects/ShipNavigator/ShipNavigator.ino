@@ -20,7 +20,7 @@ bool up, down, left, right; //used for checking if the board has been moved in a
 int moveTask = 1; //used for picking what direction should be done
 bool newMove = false; // used for checking if a newMove is needed
 
-long lastTimer; //used for saveing millis()
+long lastTimer; //used for saving millis()
 
 void setup() {
 
@@ -149,7 +149,7 @@ void loop() {
 
     if (newMove) {
       Serial.println("To slow");
-      //Play the sound for being to slow
+      //Play the sound for being too slow
       player.play("slow.wav");
       newMove = false;
     }
@@ -168,5 +168,3 @@ void loop() {
 
   delay(250);
 }
-
-

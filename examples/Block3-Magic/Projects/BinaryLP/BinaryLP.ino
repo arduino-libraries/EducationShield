@@ -26,7 +26,7 @@ void setup(){
   pinMode(piezo, OUTPUT);
   
   //Use this line to set the threshold of the IR sensors. 
-  //If you are using the Uno board, set the threshold to 380,if you're using the 101 board, set it to 530.
+  //If you are using the Uno board, set the threshold to 380. If you're using the 101 board, set it to 530.
   //Use ir.test() to check the values of each sensor in the loop()
   ir.setThreshold(530);
   
@@ -53,7 +53,7 @@ void playNote(int r){
     delay(20);
   }
   
-  //Play a different note depending on the value of b.
+  //Play a different note depending on the value of r.
   //Check pitches.h to see which notes you can use.
   //In this case the scale is C Major.
   switch (r){
@@ -82,6 +82,6 @@ void playNote(int r){
       break;   
   }
   
-  //If r is more than 0 we save that value to lastByte
+  //If r is more than 0 we save that value to lastReading
   if(r>0)lastReading = r;
 }

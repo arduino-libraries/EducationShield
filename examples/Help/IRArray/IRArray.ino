@@ -1,7 +1,7 @@
 /*
 * IRArray
 * This program will print each IR sensor reading to the 
-* serial monitor.
+* Serial Monitor.
 * 
 * When you hold the IRarray over a white surface all sensors 
 * should give you a value of 400. When held over a black surface 

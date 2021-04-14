@@ -26,10 +26,10 @@ Button button2 = Button(6); //the button connected to digital pin 6
 
 int ledTime = 100; //determines how fast the LEDs will switch
 int pressTime = 200; //determines how long time a player has to press the button
-int buttonNotPressed = 0; //this keep track on who missed to press the button
+int buttonNotPressed = 0; //this keeps track of who missed pressing the button
 
 void setup(){
-  //if your are using other pins than 2 to 6 you need to configure that here
+  //if you are using other pins than 2 to 6 you need to configure that here
   vuMeter.config(pinCount, ledPins);
 
   vuMeter.begin(); //does the same as pinMode, LEDs are outputs
@@ -49,7 +49,7 @@ void loop(){
     vuMeter.scrollRight(ledTime, 1);
   }
   else{
-    buttonNotPressed = 1; //Keep track on where we are in the game
+    buttonNotPressed = 1; //Keep track of where we are in the game
     gameOver();
   }
 
@@ -62,7 +62,7 @@ void loop(){
     vuMeter.scrollLeft(ledTime, 1);
   }
   else{
-    buttonNotPressed = 2; //Keep track on where we are in the game
+    buttonNotPressed = 2; //Keep track of where we are in the game
     gameOver();
   }
 }
@@ -77,6 +77,6 @@ void loop(){
 void gameOver(){
   vuMeter.blinkAll(100,10);
 
-  if(buttonNotPressed==1) vuMeter.scrollRight(ledTime, 1); //if button1 was not pressed, scroll LEDs to right to start over
-  else if(buttonNotPressed==2) vuMeter.scrollLeft(ledTime, 1); //if button2 was not pressed, scroll LEDs to left to start over
+  if(buttonNotPressed==1) vuMeter.scrollRight(ledTime, 1); //if button1 was not pressed, scroll LEDs to the right to start over
+  else if(buttonNotPressed==2) vuMeter.scrollLeft(ledTime, 1); //if button2 was not pressed, scroll LEDs to the left to start over
 }

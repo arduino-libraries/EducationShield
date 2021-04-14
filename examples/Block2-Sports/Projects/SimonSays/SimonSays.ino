@@ -77,7 +77,7 @@ void getInputs(){
   for(int i=0;i<turns;i++){
     int input;
     //button.released() stops the program, so
-    //let's do it in short pulses, in between 
+    //let's do it in short pulses. In between 
     //we can change the vuMeter display.
     while(!button.released(10)){
      vuMeter.clear();
@@ -103,7 +103,7 @@ void getInputs(){
   levelUp();
 }
 void gameOver(){
-  //When it's gameover, difficutly resets 
+  //When it's gameover, difficulty resets 
   turns=turns_begin;
   //And play the gameover sound
   piezo.effect_gameover();
@@ -113,7 +113,7 @@ void levelUp(){
   if(turns<turns_max){
     turns++;
   }
-  //And play a wining sound
+  //And play a winning sound
   piezo.effect_win();
 
 }

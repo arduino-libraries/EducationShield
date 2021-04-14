@@ -69,7 +69,7 @@ void serialEvent() {
   message = myPort.readStringUntil(newLine); // Read from port until new line (ASCII code 13)
   if (message != null) {
     valArray = split(message, ","); // Slit message by commas and store in String array 
-    angleVal = float(valArray[0]); // Convert to float angeVal
+    angleVal = float(valArray[0]); // Convert to float angleVal
     buttonState = int(valArray[1]); // Convert to int buttonState
   
     myPort.write("s"); // Write an "s" to receive more data from the board
@@ -83,7 +83,7 @@ void playerPos() {
   posVar+=angleVal;
   
   //Position the player avatar
-  playerX=width/2+posVar; // Set center as the players starting x position
+  playerX=width/2+posVar; // Set center as the player's starting x position
   playerY=height-100; // Set the y position of the player
 
   // Limit the X coordinates

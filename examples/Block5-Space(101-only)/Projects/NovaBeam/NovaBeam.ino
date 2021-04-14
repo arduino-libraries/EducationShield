@@ -41,7 +41,7 @@ void setup() {
 
   // configure Arduino LED for activity indicator
   pinMode(ledPin, OUTPUT);
-  digitalWrite(ledPin, HIGH); // turn on led to show that the board has executed
+  digitalWrite(ledPin, HIGH); // turn on LED to show that the board has executed
 
 }
 

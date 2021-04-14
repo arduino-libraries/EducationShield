@@ -24,13 +24,13 @@ void LightSensor::calibrate(int t){
 
 	this->base=high;
 	this->threshold=high-100;
-	//this->threashold=(high-low)/2;
+	//this->threshold=(high-low)/2;
 
 }
 
 void LightSensor::config(int baseValue, int threshold){
 	//Base value should be the one when nothing is covering
-	//Threashold should be between base and covering value
+	//Threshold should be between base and covering value
 
 	this->base=baseValue;
 	this->threshold=threshold;
@@ -40,19 +40,19 @@ void LightSensor::showConfig(){
 	Serial.print("base "+this->base);
 	Serial.print(this->base);
 	Serial.print(' ');
-	Serial.print("threashold ");
+	Serial.print("threshold ");
 	Serial.println(this->threshold);
 }
 
 void LightSensor::test(){
-	//Use the test to determin base and threashold first
+	//Use the test to determine base and threshold first
 	Serial.println(analogRead(pin));
 }
 
 bool LightSensor::getState(){
 	int value=analogRead(pin);
 	
-	//return ((value-base)>(threashold-base)) || ((base-value)>(base-threashold));
+	//return ((value-base)>(threshold-base)) || ((base-value)>(base-threshold));
 	if(base>threshold){
 		return value<threshold;
 	}else{

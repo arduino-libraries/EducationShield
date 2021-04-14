@@ -1,6 +1,6 @@
 /*  
 *  ButtonGroup
-* ButtonGroup is used for making a few buttons to work together.
+* ButtonGroup is used for making a few buttons work together.
 * 
 * (c) 2013-2016 Arduino LLC.
 */
@@ -10,7 +10,7 @@
 //Declaring the button group
 ButtonGroup bg;
 
-//Delcaring the pins to which the buttons are connected
+//Declaring the pins to which the buttons are connected
 int buttons[]={4,5,6};
 
 void setup(){
@@ -19,7 +19,7 @@ void setup(){
   while(!Serial);
   
   //initialize the button group. The first parameter is
-  //number of buttons, the seconds is the array containing
+  //number of buttons, the second is the array containing
   //pins used by these buttons.
   bg.begin(3,buttons);
 }
@@ -28,8 +28,8 @@ void loop(){
   //pressed(timeout)
   //  timeout:milliseconds within which one button should
   //          be pressed. If pressed within time, the function
-  //          returns number of the button within inital list.
-  //          Otherwise -1. If not used, it waits untill being
+  //          returns number of the button within initial list.
+  //          Otherwise -1. If not used, it waits until being
   //          pressed.
   //
   //Wait until one button is pressed.

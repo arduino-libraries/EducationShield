@@ -19,7 +19,7 @@ VUMeter::VUMeter(){
 	}
 }
 void VUMeter::config(int length, int pins[]){
-	//set the pins used for vu-meter
+	//set the pins used for VU-meter
 	//length is the number of pins used,
 	//pins is an array of all pins
 	for(int i=0;i<length;i++){
@@ -38,15 +38,15 @@ void VUMeter::begin(){
 	}
 }
 void VUMeter::on(int index){
-	//turn the led at index of the list on
+	//turn the LED at index of the list on
 	digitalWrite(pins[index],HIGH);
 }
 void VUMeter::off(int index){
-	//turn the led at index of the list on
+	//turn the LED at index of the list on
 	digitalWrite(pins[index],LOW);
 }
 void VUMeter::scrollLeft(int speed,int startIndex){
-	//leds will turn on one at a time,
+	//LEDs will turn on one at a time,
 	//each for the duration of speed in milliseconds,
 	//start with the startIndex counting from right,
 	//go towards left
@@ -56,7 +56,7 @@ void VUMeter::scrollLeft(int speed,int startIndex){
 	}
 }
 void VUMeter::scrollRight(int speed,int startIndex){
-	//leds will turn on one at a time,
+	//LEDs will turn on one at a time,
 	//each for the duration of speed in milliseconds,
 	//start with the startIndex counting from left,
 	//go towards right
@@ -67,7 +67,7 @@ void VUMeter::scrollRight(int speed,int startIndex){
 	}
 }
 void VUMeter::fillFrom(int leftIndex,int rightIndex){
-	//Turn a few leds on at the same time
+	//Turn a few LEDs on at the same time
 	//From leftIndex to rightIndex
 	clear();
 	for(int i=leftIndex;i<=rightIndex;i++){
@@ -75,20 +75,20 @@ void VUMeter::fillFrom(int leftIndex,int rightIndex){
 	}
 }
 void VUMeter::fill(int length){
-	//Turn a few leds on at the same time
+	//Turn a few LEDs on at the same time
 	//From first in list to the specific length
 
 	fillFrom(0,length-1);
 }
 void VUMeter::blink(int index, int speed,int times){
-	//blink one leds for a few times(default is once)
+	//blink one LEDs for a few times (default is once)
 	//speed is the delay time for both on and off
 	for(int i=0;i<times;i++){
 		blinkOnce(index,speed,speed);
 	}
 }
 void VUMeter::blinkAll(int speed,int times){
-	//blink all leds for a few times(default is once)
+	//blink all LEDs for a few times (default is once)
 	//speed is the delay time for both on and off
 	for(int i=0;i<times;i++){
 		fill(pinCount);
@@ -107,7 +107,7 @@ void VUMeter::test(){
 }
 
 void VUMeter::blinkOnce(int index,int onTime,int offTime){
-	//help function, blink a led once with controlled time
+	//help function, blink a LED once with controlled time
 	digitalWrite(pins[index],HIGH);
 	delay(onTime);
 	digitalWrite(pins[index],LOW);

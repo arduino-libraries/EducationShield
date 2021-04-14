@@ -27,7 +27,7 @@ void loop(){
   //	timeout: milliseconds within which the tilt switch should
   //		be tilted. If tilted within time, the function
   //		returns 1, otherwise 0. If not used, it waits
-  //		untill being pressed.
+  //		until being pressed.
   //
   //Wait until the tilt switch is tilted.
   Serial.println(me.pressed());

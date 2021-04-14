@@ -1,5 +1,5 @@
 #######################################
-# Syntax Coloring Map BasicEducationShield
+# Syntax Coloring Map EducationShield
 #######################################
 
 #######################################

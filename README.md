@@ -7,7 +7,7 @@ The EducationShield library is intended to be used with the Education Shield pro
 
 ![alt tag](references/images/EducationShield.jpg)
 
-CTC101 Project
+CTC 101 Project
 ===========
 
 CTC 101 is a modular STEAM program consisting of a toolbox with more than 25 projects and easy to assemble experiments, an online platform, and guided educators support.

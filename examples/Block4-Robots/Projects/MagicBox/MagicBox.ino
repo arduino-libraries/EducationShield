@@ -10,7 +10,7 @@
 
 #include <EducationShield.h>
 
-//Declare the pezio knock sensor. Connected to A0
+//Declare the piezo knock sensor. Connected to A0
 PiezoKnockSensor sensor=PiezoKnockSensor(A0);
 
 //Declare the servo motor for opening the lid

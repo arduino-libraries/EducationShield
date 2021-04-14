@@ -20,7 +20,7 @@ boolean blinkState = false; // state of the LED
 void setup() {
   // configure Arduino LED for activity indicator
   pinMode(ledPin, OUTPUT);
-  digitalWrite(ledPin, HIGH); // turn on led to show that the board has executed
+  digitalWrite(ledPin, HIGH); // turn on LED to show that the board has executed
 
 
   Serial.begin(9600); // initialize Serial communication
@@ -32,7 +32,7 @@ void setup() {
 
 
 
-  // blink the led agein to show that the calibration is done
+  // blink the LED again to show that the calibration is done
   blinkState = !blinkState;
   digitalWrite(ledPin, blinkState);
 
@@ -70,7 +70,7 @@ void loop() {
   frequency = frequency / 2;
   frequency = map(frequency, 0, 360, 0, 1000);
 
-  // only plgy a sound if the frequency is not to low/ the IMU is still
+  // only play a sound if the frequency is not too low or the IMU is still
   if (frequency > 50) {
     tone(piezoPin, frequency);
   } else {
