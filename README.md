@@ -1,6 +1,7 @@
 Education Shield for Arduino 101
 ========
 
+[![Check Arduino status](https://github.com/arduino-libraries/EducationShield/actions/workflows/check-arduino.yml/badge.svg)](https://github.com/arduino-libraries/EducationShield/actions/workflows/check-arduino.yml)
 [![Spell Check status](https://github.com/arduino-libraries/EducationShield/actions/workflows/spell-check.yml/badge.svg)](https://github.com/arduino-libraries/EducationShield/actions/workflows/spell-check.yml)
 
 The EducationShield library is intended to be used with the Education Shield provided in the CTC kit. It presents the necessary functions to interact with 3 and 4 pin connectors used in many sensors and actuators. Furthermore, it includes the functionality of SD-Card Reader and audio jack.
