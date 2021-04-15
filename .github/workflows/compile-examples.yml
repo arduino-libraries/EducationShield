@@ -1,0 +1,107 @@
+name: Compile Examples
+
+# See: https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows
+on:
+  push:
+    paths:
+      - ".github/workflows/compile-examples.yml"
+      - "library.properties"
+      - "examples/**"
+      - "src/**"
+  pull_request:
+    paths:
+      - ".github/workflows/compile-examples.yml"
+      - "library.properties"
+      - "examples/**"
+      - "src/**"
+  schedule:
+    # Run every Tuesday at 8 AM UTC to catch breakage caused by changes to external resources (libraries, platforms).
+    - cron: "0 8 * * TUE"
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  build:
+    name: ${{ matrix.board.fqbn }}
+    runs-on: ubuntu-latest
+
+    env:
+      SKETCHES_REPORTS_PATH: sketches-reports
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        board:
+          - fqbn: Intel:arc32:arduino_101
+            platforms: |
+              - name: Intel:arc32
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Compile examples
+        uses: arduino/compile-sketches@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          fqbn: ${{ matrix.board.fqbn }}
+          platforms: ${{ matrix.board.platforms }}
+          libraries: |
+            # Install the library from the local path.
+            - source-path: ./
+            - name: SD
+            - name: Servo
+          sketch-paths: |
+            - examples/Block2-Sports
+            - examples/Block3-Magic/Concepts
+            - examples/Block3-Magic/Projects/BinaryLP/BinaryLP.ino
+            - examples/Block3-Magic/Projects/BinaryLP_Workshop
+            - examples/Block3-Magic/Projects/BoomBox
+            - examples/Block3-Magic/Projects/CookieMonster/CookieMonster.ino
+            - examples/Block3-Magic/Projects/Drawdio
+            - examples/Block3-Magic/Projects/KnockKnockBox
+            - examples/Block3-Magic/Projects/POV
+            - examples/Block3-Magic/Projects/Sequencer
+            - examples/Block4-Robots/Concepts
+            - examples/Block4-Robots/Projects/CameraRobot/CameraRobot.ino
+            - examples/Block4-Robots/Projects/CrawlingRobot
+            - examples/Block4-Robots/Projects/LightChaser
+            - examples/Block4-Robots/Projects/LineFollower
+            - examples/Block4-Robots/Projects/MagicBox
+            - examples/Block4-Robots/Projects/TickleRobot
+            - examples/Block5-Space(101-only)/Concepts
+            - examples/Block5-Space(101-only)/Projects/AsteroidAttack/AsteroidAttack.ino
+            - examples/Block5-Space(101-only)/Projects/AsteroidAttack/AsteroidAttack.ino
+            - examples/Block5-Space(101-only)/Projects/PlanetFinder
+            - examples/Block5-Space(101-only)/Projects/ShipNavigator
+            - examples/Block5-Space(101-only)/Projects/SpaceRover
+            - examples/Block5-Space(101-only)/Projects/ZazzTheAlien
+            - examples/Help/Button
+            - examples/Help/ButtonGroup
+            - examples/Help/CapacitiveSwitch
+            - examples/Help/CapacitiveSwitchTest
+            - examples/Help/ContinuousServo
+            - examples/Help/IRArray
+            - examples/Help/Joystick
+            - examples/Help/Knob
+            - examples/Help/LightSensor
+            - examples/Help/LightSensorTest
+            - examples/Help/Melody
+            - examples/Help/PiezoKnockSensor
+            - examples/Help/Player
+            - examples/Help/Serialportsend/Serialportsend.ino
+            - examples/Help/StandardServo
+            - examples/Help/TiltSwitch
+            - examples/Help/UltrasonicSensor
+            - examples/Help/vuMeter
+            - examples/Help/Wheels
+          enable-deltas-report: true
+          sketches-report-path: ${{ env.SKETCHES_REPORTS_PATH }}
+
+      - name: Save sketches report as workflow artifact
+        uses: actions/upload-artifact@v2
+        with:
+          if-no-files-found: error
+          path: ${{ env.SKETCHES_REPORTS_PATH }}
+          name: ${{ env.SKETCHES_REPORTS_PATH }}

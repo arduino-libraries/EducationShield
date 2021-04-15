@@ -24,7 +24,7 @@ Melody speaker=Melody(8);
 
 //The range of capacitive sensor values to be
 //mapped to music tones. See example
-//"help/CapacitiveSwitchTest" about how to get
+//"Help/CapacitiveSwitchTest" for how to get
 //the values
 int lowerThreshold=80;
 int upperThreshold=900;
@@ -39,7 +39,7 @@ void setup(){
 }
 void loop(){
   //Get value of the sensor. If it's smaller
-  //than threshold, it'll be 0
+  //than the threshold, it'll be 0
   int value=me.getValue(lowerThreshold);
 
   //map the sensor value to tones. The map()

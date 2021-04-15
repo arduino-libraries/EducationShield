@@ -1,7 +1,7 @@
 /*  
 * Button
 * A button is a digital input. This means that it can have two 
-* states, either HIGH (5V in Uno, 3V in 101) or LOW (0V). When 
+* states, either HIGH (5 V in Uno, 3 V in 101) or LOW (0 V). When 
 * you connect a button to your control board you can read these 
 * states as 1 or 0. 
 * 
@@ -30,7 +30,7 @@ void loop(){
   //  timeout: milliseconds within which the button should
   //    be pressed. If pressed within time, the function
   //    returns 1, otherwise 0. If not used, it waits
-  //    untill being pressed.
+  //    until being pressed.
   //
   //Wait until the button is pressed.
   Serial.println(me.pressed());
@@ -40,7 +40,7 @@ void loop(){
   //released(timeout)
   //  timeout: same as in pressed(timeout).
   //
-  //Wait untill the button is released.
+  //Wait until the button is released.
   Serial.println(me.released());
 
   Serial.println("Press a few times...");
@@ -48,7 +48,7 @@ void loop(){
   //
   //Check if the button has been pressed without blocking the
   //sketch execution. Useful when press detection is not part
-  //of the main programme logic.
+  //of the main program logic.
   long timer=millis();
   int counter=0;
   while(millis()-timer<3000){

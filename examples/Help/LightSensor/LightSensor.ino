@@ -8,7 +8,7 @@
 *
 * The EducationShield library includes some features for 
 * using the LightSensor as a button, or get values directly. See 
-* the example LightSensortest fo more information about how to 
+* the example LightSensorTest for more information about how to 
 * configure it correctly. 
 *
 * (c) 2013-2016 Arduino LLC.
@@ -37,7 +37,7 @@ void loop(){
   //		phototransistor should be cover-uncovered. If
   //		cover-uncovered within time, the
   //		function returns 1, otherwise 0. If
-  //		not used, it waits untill being
+  //		not used, it waits until being
   //		cover-uncovered.
   //
   //Wait until the phototransistor gets cover-uncovered.

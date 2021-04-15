@@ -1,4 +1,4 @@
-/*  Serialportrecive
+/*  Serialportsend
 *
 * connect a potentiometer to your board and you will check its value by using Processing
 *

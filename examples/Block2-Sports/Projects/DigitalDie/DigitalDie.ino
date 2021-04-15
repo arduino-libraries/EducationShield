@@ -5,7 +5,7 @@
 *
 * You "throw" the die by shaking a tilt sensor. The LEDs 
 * will show different numbers, waiting a longer and longer 
-* time for each number,  until it finally stops. Don't be 
+* time for each number, until it finally stops. Don't be 
 * too fast to cheer believing it stopped on your desired 
 * number or you might get disappointed ...
 *
@@ -14,12 +14,12 @@
  
 #include <EducationShield.h>
 
-//declare the pins used for leds, 9 leds in total
+//declare the pins used for LEDs, 9 LEDs in total
 int pinCount=9;
 int ledPins[] = {2, 3, 4, 5, 6, 7, 8, 11, 13};
 
 /*
-declare the tilt switch, it's connected to tinkerkit 
+declare the tilt switch, it's connected to TinkerKit 
 port 9
 */
 TiltSwitch ts=TiltSwitch(9);
@@ -27,7 +27,7 @@ TiltSwitch ts=TiltSwitch(9);
 /*
   Define the patterns of die values. Each pattern is
   an array of 9 integers, indicating the on/off state
-  of each led.
+  of each LED.
   And because there're 6 possible patterns, we need a 
   2-dimensional array to define all the data. It's a 
   big array of 6 elements, each element is an array of
@@ -122,18 +122,18 @@ void loop(){
     displayDie(value);
     
     /*
-      See why waitTime have to be float? If it's an integer,
-      multiply it by 1.3 will make it lose everything behind
+      See why waitTime has to be float? If it's an integer,
+      multiplying it by 1.3 will make it lose everything behind
       the decimal mark. We use 2 as the starting value, 
       2*1.3 should be 2.6, losing the fractional parts means
-      it'll be 2 in the end, so 2*1.3=2! It'll 
+      it'll be 2 in the end, so 2*1.3=2!
     */
     waitTime=waitTime*1.3;    
     delay(waitTime);
   }
   
   /*
-    Now the die is stable, wait untill the tilt switch is 
+    Now the die is stable, wait until the tilt switch is 
     activated again. ts.pressed() stops the whole program 
     until it's activated.
   */
@@ -141,7 +141,7 @@ void loop(){
 }
 
 void displayDie(int num){
-  //Show the die value by turning on/off the right leds
+  //Show the die value by turning on/off the right LEDs
   for(int i=0;i<pinCount;i++){
     digitalWrite(ledPins[i],die[num][i]);
   }

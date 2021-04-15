@@ -1,11 +1,15 @@
 Education Shield for Arduino 101
 ========
 
+[![Check Arduino status](https://github.com/arduino-libraries/EducationShield/actions/workflows/check-arduino.yml/badge.svg)](https://github.com/arduino-libraries/EducationShield/actions/workflows/check-arduino.yml)
+[![Compile Examples status](https://github.com/arduino-libraries/EducationShield/actions/workflows/compile-examples.yml/badge.svg)](https://github.com/arduino-libraries/EducationShield/actions/workflows/compile-examples.yml)
+[![Spell Check status](https://github.com/arduino-libraries/EducationShield/actions/workflows/spell-check.yml/badge.svg)](https://github.com/arduino-libraries/EducationShield/actions/workflows/spell-check.yml)
+
 The EducationShield library is intended to be used with the Education Shield provided in the CTC kit. It presents the necessary functions to interact with 3 and 4 pin connectors used in many sensors and actuators. Furthermore, it includes the functionality of SD-Card Reader and audio jack.
 
 ![alt tag](references/images/EducationShield.jpg)
 
-CTC101 Project
+CTC 101 Project
 ===========
 
 CTC 101 is a modular STEAM program consisting of a toolbox with more than 25 projects and easy to assemble experiments, an online platform, and guided educators support.

@@ -113,7 +113,7 @@ void serialEvent() {
   message = myPort.readStringUntil(newLine); // Read from port until new line (ASCII code 13)
   if (message != null) {
     valArray = split(message, ","); // Split message by commas and store in String array 
-    angleVal = float(valArray[0]); // Convert to float angeVal
+    angleVal = float(valArray[0]); // Convert to float angleVal
     buttonState = int(valArray[1]); // Convert to int buttonState
 
     myPort.write("s"); // Write an "s" to receive more data from the board

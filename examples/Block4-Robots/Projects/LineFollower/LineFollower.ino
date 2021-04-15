@@ -1,7 +1,7 @@
 /*
 * LineFollower  
 * The Line Follower does exactly what the name suggests, 
-* it follows a line. Make it go where ever you want by 
+* it follows a line. Make it go wherever you want by 
 * showing the way with a 3 cm wide, black line. 
 * 
 * (c) 2013-2016 Arduino LLC.

@@ -8,8 +8,8 @@
 *     clear() - turns all LEDs off.
 *     on(LEDindex) - turns one LED on
 *     off(LEDindex) - turns one LED off
-*     scrollRight(speed, startIndex) - one LED light up at a time from left to right
-*     scrollLeft(speed, startIndex) - one LED light up at a time from right to left
+*     scrollRight(speed, startIndex) - one LED lights up at a time from left to right
+*     scrollLeft(speed, startIndex) - one LED lights up at a time from right to left
 *     blink(LEDindex,speed, times) - one LED blinks
 *     blinkAll(speed, times) - all LEDs blink
 *     fillFrom(startIndex, stopIndex) - turns LEDs from startIndex to stopIndex on
@@ -24,7 +24,7 @@
 VUMeter me;
 
 //The pins used by the VUMeter, default to 2-5 and 7. Can be
-//customized as wish, but do change the pinCount if the
+//customized as you wish, but do change the pinCount if the
 //number of LEDs are changed.
 int pins[]={2,3,4,5,7};
 
@@ -41,7 +41,7 @@ void setup(){
 }
 void loop(){
   //fill(number)
-  //  number: how many leds from first pin shall be turned on
+  //  number: how many LEDs from first pin shall be turned on
   //
   //Fill 5 LEDs
   me.fill(5);
@@ -69,15 +69,15 @@ void loop(){
 
   //scrollRight(speed, startIndex)
   //  speed: milliseconds before the next LED turns on
-  //  startIndex: from which LED to the left it start
+  //  startIndex: from which LED to the left it starts
   //     scrolling. If not specified, it's 1.
   //
-  //One LED light up at a time, scroll from left to right
+  //One LED lights up at a time, scrolling from left to right
   me.scrollRight(700);
 
   //scrollLeft(speed, startIndex)
   //  speed: milliseconds before the next LED turns on
-  //  startIndex: from which LED TO THE RIGHT it start
+  //  startIndex: from which LED TO THE RIGHT it starts
   //     scrolling. If not specified, it's 1.
   //
   //And then scroll back from the 2nd on the right
@@ -85,10 +85,10 @@ void loop(){
 
   //blink(index, speed, times)
   //  index: which LED should blink
-  //  speed: milliseconds, of which the LED light on and off
+  //  speed: milliseconds, of which the LED lights on and off
   //  times: how many times the LED blinks. Defaults to 1
   //
-  //the 3rd led will be blinking for 10 times, each time
+  //the 3rd LED will be blinking 10 times, each time
   //with 100 milliseconds on and 100 milliseconds off
   me.blink(2,100,10);
 
@@ -103,7 +103,7 @@ void loop(){
   //  leftIndex: start filling from which LED
   //  rightIndex: end filling to which LED
   //
-  //The 2nd to 4th LED will be light up
+  //The 2nd to 4th LED will light up
   me.fillFrom(1,3);
   delay(2000);
 

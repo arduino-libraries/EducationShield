@@ -13,7 +13,7 @@
 
 #include <EducationShield.h>
 
-//Position of the leds in VU-meter is represented
+//Position of the LEDs in VU-meter is represented
 //by their names here. So we can use names to find LEDs later
 #define YELLOW_LED_1 0
 #define GREEN_LED 1
@@ -37,13 +37,13 @@ void setup(){
   player_1.begin();
   player_2.begin();
 
-  //We need this for generating random number later
+  //We need this for generating random numbers later
   randomSeed(analogRead(0));
 }
 void loop(){
  lights.clear();
 
- //Red led means both of you should hold the tilt switch sword up right
+ //Red LED means both of you should hold the tilt switch sword up right
  lights.on(RED_LED);
 
  //Wait for a random period of time, between 3 seconds
@@ -51,14 +51,14 @@ void loop(){
  delay(random(3000,6000));
 
  lights.off(RED_LED);
- //When the green led turns on, game starts
+ //When the green LED turns on, game starts
  lights.on(GREEN_LED);
 
  //Swing your swords as fast as you can, the faster one 
  //will be returned by getWinner()
  int winner=getWinner();
 
- //The yellow led by side of the winner will light up
+ //The yellow LED on the side of the winner will light up
  if(winner==1){
    lights.on(YELLOW_LED_1);
  }else{
@@ -68,7 +68,7 @@ void loop(){
 }
 
 //The function below waits for either of the tilter
-//switch to be swang. The first one to swing
+//switch to be swung. The first one to swing
 //will be returned by its number
 int getWinner(){
   do{

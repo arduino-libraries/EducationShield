@@ -13,7 +13,7 @@
 Joystick me=Joystick(A1,A0);
 
 void setup(){
-  //Start serial comunication to be able to print values to the serial monitor
+  //Start serial communication to be able to print values to the Serial Monitor
   Serial.begin(9600);
 }
 void loop(){

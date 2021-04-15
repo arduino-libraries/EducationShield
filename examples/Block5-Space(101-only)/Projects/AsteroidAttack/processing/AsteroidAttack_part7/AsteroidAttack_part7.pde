@@ -10,7 +10,7 @@
 
 import processing.serial.*;
 
-//Arraylists where we can put our objects
+//ArrayLists where we can put our objects
 ArrayList<Star> starArr = new ArrayList<Star>(); // Array of stars
 ArrayList<Shot> shotArr = new ArrayList<Shot>(); // Array of shots
 ArrayList<Asteroid> asteroidArr = new ArrayList<Asteroid>(); // Array of asteroids
@@ -64,7 +64,7 @@ float playerX; // Player x position
 float playerY; // Player y position
 float posVar=0; 
 boolean playerHit=false; // Use to check if player is hit
-float life=200; // The players life points
+float life=200; // The player's life points
 
 //Image array
 String[] imgFiles={"spaceShip.png", "meteor_small.png", "meteor_big.png"};
@@ -148,7 +148,7 @@ void serialEvent() {
   message = myPort.readStringUntil(newLine); // Read from port until new line (ASCII code 13)
   if (message != null) {
     valArray = split(message, ","); // Split message by commas and store in String array 
-    angleVal = float(valArray[0]); // Convert to float angeVal
+    angleVal = float(valArray[0]); // Convert to float angleVal
     buttonState = int(valArray[1]); // Convert to int buttonState
 
     myPort.write("s"); // Write an "s" to receive more data from the board

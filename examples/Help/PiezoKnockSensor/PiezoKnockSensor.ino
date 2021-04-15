@@ -1,10 +1,10 @@
 /* 
 * Piezo Knock Sensor
-* Piezo can play music, as well as used as knock sensor.
+* Piezo can play music, as well as be used as knock sensor.
 *
-* Connect the red pin of the piezo to a 1m ohm resistor, 
-* and the resistor to an analog pin(A5 in this example), 
-* the other pin to GND. Connect a 3.3v zener diode in 
+* Connect the red pin of the piezo to a 1M ohm resistor, 
+* and the resistor to an analog pin (A5 in this example), 
+* the other pin to GND. Connect a 3.3 V Zener diode in 
 * parallel to the piezo and resistor circuit, with its 
 * anode to GND, cathode to A5.
 *       
@@ -36,7 +36,7 @@ void loop(){
   //	timeout: milliseconds within which the sensor should
   //		be knocked. If knocked within time, the function
   //		returns 1, otherwise 0. If not used, it waits
-  //		untill being knocked.
+  //		until being knocked.
   //
   //Wait until the button is knocked.
   Serial.println(sensor.knocked());

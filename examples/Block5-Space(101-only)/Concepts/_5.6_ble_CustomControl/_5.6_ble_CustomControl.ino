@@ -1,9 +1,9 @@
 /*
 * _5.5_ble_valueDisplay
 * 
-* This example shows how to receive data in 101. When you tap the buttons in CTC app Custom
+* This example shows how to receive data in the Arduino 101. When you tap the buttons in the CTC app Custom
 * Control interface, the values associated with the buttons will be received by 101 in the form of a
-* one char sized array. The value is displayed to serial monitor afterwards.
+* one char sized array. The value is displayed to Serial Monitor afterwards.
 *
 * (c) 2013-2016 Arduino LLC.
 */

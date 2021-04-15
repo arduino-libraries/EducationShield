@@ -52,7 +52,7 @@ void loop() {
 
 
       //Note the sequence of data being sent, the phone app displays 
-      //the values in the same squence.
+      //the values in the same sequence.
       ble.addValue(buttonValue);
       ble.addValue(count);
       ble.addValue(lightValue);    

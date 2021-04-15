@@ -5,7 +5,7 @@ class Asteroid {
   float ypos; // Asteroid y position
   float asteroidSize=50; //The size of the asteroids
   float speed; // Speed of movement
-  boolean isShot; // Determines is it has been hit
+  boolean isShot; // Determines if it has been hit
 
   // The Constructor is defined with arguments
   Asteroid(float Xpos, float inSpeed, float size) { 

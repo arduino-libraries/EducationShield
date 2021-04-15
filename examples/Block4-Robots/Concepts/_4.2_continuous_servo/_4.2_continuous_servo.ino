@@ -1,7 +1,7 @@
 /*
 * _4.2_continuous_servo
 * 
-* The board  will control the continuous rotation servo by writing a speed to it instead of a position.
+* The board will control the continuous rotation servo by writing a speed to it instead of a position.
 *
 * (c) 2013-2016 Arduino LLC.
 */

@@ -2,18 +2,18 @@
 *	This sketch should be used prior to using the component in
 *	Projects. Projects suitable for this library should have 2
 *	states: uncovered and covered. That is to say, you want to
-*	track objects covering/moving pass the sensor.
+*	track objects covering/moving past the sensor.
 *
 *	HOW-TO:
-*	Upload this sketch to the control board, open the serial monitor. You
+*	Upload this sketch to the control board, open the Serial Monitor. You
 *	will see the current value of the phototransistor.
 *
 *	Make sure the sensor is in its desired setting and not
-*	moving. When the value gets stable, take note of it(we call
+*	moving. When the value gets stable, take note of it (we call
 *	it "baseValue").
 *
 *	Now cover the sensor with desired object. When the value
-*	gets stable, take note of it(topValue). Remembe these values
+*	gets stable, take note of it (topValue). Remember these values
 * and use them when configuring.
 *
 *	"baseValue" and "threshold" will be used for defining the

@@ -28,7 +28,7 @@ void setup(){
   //The system automatically calibrates itself
   calibrate();
   
-  // Initialize the sound player. Open the serial monitor to see
+  // Initialize the sound player. Open the Serial Monitor to see
   //the sound files found on your micro SD card
   player.begin();
 

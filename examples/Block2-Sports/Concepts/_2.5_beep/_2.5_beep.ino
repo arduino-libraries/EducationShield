@@ -1,7 +1,7 @@
 /*
 * _2.5_beep
 * 
-* The piezo makes click with a 1 millisecond interval.
+* The piezo makes clicks with a 1 millisecond interval.
 *
 * (c) 2013-2016 Arduino LLC.
 */

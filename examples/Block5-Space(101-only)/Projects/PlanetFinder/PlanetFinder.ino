@@ -15,7 +15,7 @@ IMU imu; // the IMU
 bool blinkState = false; // state of the LED
 const int ledPin = 13;      // activity LED pin
 const int piezoPin = 8; //piezo
-const int redPin = 6; // the red led
+const int redPin = 6; // the red LED
 int piezoState = LOW;             // piezoState used to set the piezo
 
 bool newGame = true;
@@ -46,10 +46,10 @@ void setup() {
 
   // configure Arduino LED for activity indicator
   pinMode(ledPin, OUTPUT);
-  digitalWrite(ledPin, HIGH); // turn on led to show that the board has executed
+  digitalWrite(ledPin, HIGH); // turn on LED to show that the board has executed
 
   pinMode(piezoPin, OUTPUT); // sets piezo
-  pinMode(redPin, OUTPUT); // sets red led
+  pinMode(redPin, OUTPUT); // sets red LED
   randomSeed(analogRead(0)); // initializes the pseudo-random number generator
 
 }
@@ -74,7 +74,7 @@ void loop() {
   }
 
 
-  // print the roll/pitch and the taget roll/pitch needed for debugging only
+  // print the roll/pitch and the target roll/pitch needed for debugging only
   Serial.print("roll:");
   Serial.print(roll);
   Serial.print("\t");
@@ -98,7 +98,7 @@ void loop() {
 
 
 
-  // click in shorter intervals the close the gyro read is to the goal
+  // click in shorter intervals the closer the gyro read is to the goal
   unsigned long currentMillis = millis();
   if (currentMillis - previousMillis >= closeTogoal ) {
     // save the last time you clicked the piezo

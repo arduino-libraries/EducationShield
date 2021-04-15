@@ -2,7 +2,7 @@
 *
 * For playing sound with a piezo.
 *
-* Connect the one pin of the piezo to a digital pin 
+* Connect one pin of the piezo to a digital pin 
 *       (8 in this example) and the other pin to ground.
 *
 *       (c) 2013-2016 Arduino LLC.
@@ -31,7 +31,7 @@ void loop(){
 
   //play(length, notes, duration, speed)
   //  length: number of notes in your music.
-  //  notes: the arry of notes.
+  //  notes: the array of notes.
   //  noteDuration: the array of note duration
   //  speed: how fast the music plays. No less than 1.0, the bigger the slower
   //
