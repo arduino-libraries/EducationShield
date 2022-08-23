@@ -263,7 +263,7 @@ void calculateHypotenuse(){
 //*********************************************************************************
 void redrawButton(){
   
-  //  Calcuates if mouse is hovering over button and changes the fill accordingly
+  //  Calculates if mouse is hovering over button and changes the fill accordingly
   if(newY<topLimit && newY>bottomLimit && newX>= leftLimit && newX<=rightLimit){
       fill(0);
     }
