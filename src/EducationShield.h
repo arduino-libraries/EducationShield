@@ -16,6 +16,10 @@
 #include <CurieIMU.h>
 #endif
 
+#if defined(ARDUINO_ARCH_RENESAS_UNO) || defined(ARDUINO_ARCH_RENESAS)
+#include <ArduinoBLE.h>
+#endif
+
 #define LED_LENGTH 20
 #define BUTTONGROUP_LENGTH 10
 
@@ -242,7 +246,7 @@ class UltrasonicSensor{
 };
 
 
-#if defined(__arc__)
+#if defined(__arc__) || defined(ARDUINO_ARCH_RENESAS_UNO) || defined(ARDUINO_ARCH_RENESAS)
 
 class BLEPeripheralBase{
 	public:

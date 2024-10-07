@@ -1,4 +1,4 @@
-#if defined(__arc__)
+#if defined(__arc__) || defined(ARDUINO_ARCH_RENESAS_UNO) || defined(ARDUINO_ARCH_RENESAS)
 
 #include "EducationShield.h"
 

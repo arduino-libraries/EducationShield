@@ -41,10 +41,6 @@
 
 CapacitiveSensor::CapacitiveSensor(uint8_t sendPin, uint8_t receivePin)
 {
-	//save pin numbers
-	_sendPin = sendPin;
-	_receivePin = receivePin;
-
 	// initialize this instance's variables
 	// Serial.begin(9600);		// for debugging
 	error = 1;
@@ -67,7 +63,6 @@ CapacitiveSensor::CapacitiveSensor(uint8_t sendPin, uint8_t receivePin)
 	pinMode(receivePin, INPUT);						// receivePin to INPUT
 	digitalWrite(sendPin, LOW);
 
-	//TODO SYV: Quitar esto si no se va a usar
 	sBit = PIN_TO_BITMASK(sendPin);					// get send pin's ports and bitmask
 	sReg = PIN_TO_BASEREG(sendPin);					// get pointer to output register
 
@@ -95,8 +90,8 @@ long CapacitiveSensor::capacitiveSensor(uint8_t samples)
 
 		// only calibrate if time is greater than CS_AutocaL_Millis and total is less than 10% of baseline
 		// this is an attempt to keep from calibrating when the sensor is seeing a "touched" signal
-
-		if ( (millis() - lastCal > CS_AutocaL_Millis) && abs(total  - leastTotal) < (int)(.10 * (float)leastTotal) ) {
+		unsigned long diff = (total > leastTotal) ? total - leastTotal : leastTotal - total;
+		if ( (millis() - lastCal > CS_AutocaL_Millis) && diff < (int)(.10 * (float)leastTotal) ) {
 
 			// Serial.println();               // debugging
 			// Serial.println("auto-calibrate");
@@ -158,43 +153,47 @@ void CapacitiveSensor::set_CS_Timeout_Millis(unsigned long timeout_millis){
 
 int CapacitiveSensor::SenseOneCycle(void)
 {
-  noInterrupts();
-	digitalWrite(_sendPin,LOW);
-	digitalWrite(_receivePin, INPUT);
-	pinMode(_receivePin, OUTPUT);
-	digitalWrite(_receivePin, LOW);
+    noInterrupts();
+	DIRECT_WRITE_LOW(sReg, sBit);	// sendPin Register low
+	DIRECT_MODE_INPUT(rReg, rBit);	// receivePin to input (pullups are off)
+	DIRECT_MODE_OUTPUT(rReg, rBit); // receivePin to OUTPUT
+	DIRECT_WRITE_LOW(rReg, rBit);	// pin is now LOW AND OUTPUT
 	delayMicroseconds(10);
-	pinMode(_receivePin, INPUT);
-	digitalWrite(_sendPin, HIGH);
-  interrupts();
+	DIRECT_MODE_INPUT(rReg, rBit);	// receivePin to input (pullups are off)
+	DIRECT_WRITE_HIGH(sReg, sBit);	// sendPin High
+    interrupts();
 
 	while ( !DIRECT_READ(rReg, rBit) && (total < CS_Timeout_Millis) ) {  // while receive pin is LOW AND total is positive value
 		total++;
 	}
+	//Serial.print("SenseOneCycle(1): ");
+	//Serial.println(total);
 
 	if (total > CS_Timeout_Millis) {
 		return -2;         //  total variable over timeout
 	}
 
 	// set receive pin HIGH briefly to charge up fully - because the while loop above will exit when pin is ~ 2.5V
-  noInterrupts();
-	digitalWrite(_receivePin,HIGH);
-	pinMode(_receivePin, OUTPUT);
-	digitalWrite(_receivePin, HIGH);
-	pinMode(_receivePin, INPUT);
-	digitalWrite(_sendPin, LOW);
-  interrupts();
+    noInterrupts();
+	DIRECT_WRITE_HIGH(rReg, rBit);
+	DIRECT_MODE_OUTPUT(rReg, rBit);  // receivePin to OUTPUT - pin is now HIGH AND OUTPUT
+	DIRECT_WRITE_HIGH(rReg, rBit);
+	DIRECT_MODE_INPUT(rReg, rBit);	// receivePin to INPUT (pullup is off)
+	DIRECT_WRITE_LOW(sReg, sBit);	// sendPin LOW
+    interrupts();
 
 #ifdef FIVE_VOLT_TOLERANCE_WORKAROUND
-	pinMode(_receivePin, OUTPUT);
+	DIRECT_MODE_OUTPUT(rReg, rBit);
+	DIRECT_WRITE_LOW(rReg, rBit);
 	delayMicroseconds(10);
-	pinMode(_receivePin, INPUT);
+	DIRECT_MODE_INPUT(rReg, rBit);	// receivePin to INPUT (pullup is off)
 #else
 	while ( DIRECT_READ(rReg, rBit) && (total < CS_Timeout_Millis) ) {  // while receive pin is HIGH  AND total is less than timeout
 		total++;
 	}
 #endif
-
+	//Serial.print("SenseOneCycle(2): ");
+	//Serial.println(total);
 
 	if (total >= CS_Timeout_Millis) {
 		return -2;     // total variable over timeout

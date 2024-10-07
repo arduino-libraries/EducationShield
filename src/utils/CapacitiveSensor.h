@@ -70,6 +70,17 @@
 #define DIRECT_WRITE_LOW(base, mask)    (*((base)+8) = (mask))
 #define DIRECT_WRITE_HIGH(base, mask)   (*((base)+4) = (mask))
 
+#elif defined(__IMXRT1052__) || defined(__IMXRT1062__)
+#define PIN_TO_BASEREG(pin)             (portOutputRegister(pin))
+#define PIN_TO_BITMASK(pin)             (digitalPinToBitMask(pin))
+#define IO_REG_TYPE uint32_t
+#define IO_REG_ASM
+#define DIRECT_READ(base, mask)         ((*((base)+2) & (mask)) ? 1 : 0)
+#define DIRECT_MODE_INPUT(base, mask)   (*((base)+1) &= ~(mask))
+#define DIRECT_MODE_OUTPUT(base, mask)  (*((base)+1) |= (mask))
+#define DIRECT_WRITE_LOW(base, mask)    (*((base)+34) = (mask))
+#define DIRECT_WRITE_HIGH(base, mask)   (*((base)+33) = (mask))
+
 #elif defined(__SAM3X8E__)
 #define PIN_TO_BASEREG(pin)             (&(digitalPinToPort(pin)->PIO_PER))
 #define PIN_TO_BITMASK(pin)             (digitalPinToBitMask(pin))
@@ -225,6 +236,38 @@ void directModeOutput(IO_REG_TYPE pin)
 #define DIRECT_WRITE_LOW(base, mask)    ((*((base)+5)) = (mask))
 #define DIRECT_WRITE_HIGH(base, mask)   ((*((base)+6)) = (mask))
 
+#elif defined(__SAMD51__)
+#define PIN_TO_BASEREG(pin)             portModeRegister(digitalPinToPort(pin))
+#define PIN_TO_BITMASK(pin)             (digitalPinToBitMask(pin))
+#define IO_REG_TYPE uint32_t
+#define IO_REG_ASM
+#define DIRECT_READ(base, mask)         (((*((base)+8)) & (mask)) ? 1 : 0) // IN
+#define DIRECT_MODE_INPUT(base, mask)   ((*((base)+1)) = (mask)) // DIRCLR
+#define DIRECT_MODE_OUTPUT(base, mask)  ((*((base)+2)) = (mask)) // DIRSET
+#define DIRECT_WRITE_LOW(base, mask)    ((*((base)+5)) = (mask)) // OUTCLR
+#define DIRECT_WRITE_HIGH(base, mask)   ((*((base)+6)) = (mask)) /// OUTSET
+
+#elif defined(ARDUINO_NRF52_ADAFRUIT) || defined(ARDUINO_ARCH_NRF52840)
+
+/* 
+Required for the Arduino Nano 33 BLE Sense to satisfy the compiler
+as build.f_cpu is not defined in the boards.txt file.
+The concept of F_CPU doesn't fully apply as mbed RTOS is used which uses preemption.
+*/
+#if defined(ARDUINO_ARCH_NRF52840) && !defined(F_CPU)
+#define F_CPU 64000000L
+#endif
+
+#define PIN_TO_BASEREG(pin)             (0)
+#define PIN_TO_BITMASK(pin)             digitalPinToPinName(pin)
+#define IO_REG_TYPE uint32_t
+#define IO_REG_ASM
+#define DIRECT_READ(base, pin)          nrf_gpio_pin_read(pin)
+#define DIRECT_WRITE_LOW(base, pin)     nrf_gpio_pin_clear(pin)
+#define DIRECT_WRITE_HIGH(base, pin)    nrf_gpio_pin_set(pin)
+#define DIRECT_MODE_INPUT(base, pin)    nrf_gpio_cfg_input(pin, NRF_GPIO_PIN_NOPULL)
+#define DIRECT_MODE_OUTPUT(base, pin)   nrf_gpio_cfg_output(pin)
+
 #elif defined(RBL_NRF51822)
 #define PIN_TO_BASEREG(pin)             (0)
 #define PIN_TO_BITMASK(pin)             (pin)
@@ -316,12 +359,58 @@ void directWriteHigh(volatile IO_REG_TYPE *base, IO_REG_TYPE pin)
 #define DIRECT_WRITE_LOW(base, pin)	directWriteLow(base, pin)
 #define DIRECT_WRITE_HIGH(base, pin)	directWriteHigh(base, pin)
 
+
+#elif defined(ARDUINO_ARCH_STM32)
+
+#define PIN_TO_BASEREG(pin)             (0)
+#define PIN_TO_BITMASK(pin)             (pin)
+#define IO_REG_TYPE uint32_t
+#define IO_REG_ASM
+
+#define DIRECT_READ(base, pin)          digitalRead(pin)
+#define DIRECT_MODE_INPUT(base, pin)    pinMode(pin,INPUT)
+#define DIRECT_MODE_OUTPUT(base, pin)   pinMode(pin,OUTPUT)
+#define DIRECT_WRITE_LOW(base, pin)     digitalWrite(pin, LOW)
+#define DIRECT_WRITE_HIGH(base, pin)    digitalWrite(pin, HIGH)
+
+#elif defined(ARDUINO_ARCH_APOLLO3)
+#define PIN_TO_BASEREG(pin) (0)
+#define PIN_TO_BITMASK(pin) (pin)
+#define IO_REG_TYPE uint32_t
+#define IO_REG_ASM
+#define DIRECT_READ(base, mask) (am_hal_gpio_input_read(mask))
+#define DIRECT_MODE_INPUT(base, mask) (am_hal_gpio_pinconfig(mask, g_AM_HAL_GPIO_INPUT))
+#define DIRECT_MODE_OUTPUT(base, mask) (am_hal_gpio_pinconfig(mask, g_AM_HAL_GPIO_OUTPUT))
+#define DIRECT_WRITE_LOW(base, mask) (am_hal_gpio_output_clear(mask))
+#define DIRECT_WRITE_HIGH(base, mask) (am_hal_gpio_output_set(mask))
+
+#elif defined(ARDUINO_ARCH_RTTHREAD)
+#define PIN_TO_BASEREG(pin)             (0)
+#define PIN_TO_BITMASK(pin)             (pin)
+#define IO_REG_TYPE uint32_t
+#define IO_REG_ASM
+#define DIRECT_READ(base, pin)          digitalRead(pin)
+#define DIRECT_MODE_INPUT(base, pin)    pinMode(pin,INPUT)
+#define DIRECT_MODE_OUTPUT(base, pin)   pinMode(pin,OUTPUT)
+#define DIRECT_WRITE_LOW(base, pin)     digitalWrite(pin, LOW)
+#define DIRECT_WRITE_HIGH(base, pin)    digitalWrite(pin, HIGH)
+
+#elif defined(ARDUINO_ARCH_RENESAS_UNO) || defined(ARDUINO_ARCH_RENESAS)
+#define PIN_TO_BASEREG(pin)             (0)
+#define PIN_TO_BITMASK(pin)             (pin)
+#define IO_REG_TYPE uint32_t
+#define IO_REG_ASM
+#define DIRECT_READ(base, pin)          digitalRead(pin)
+#define DIRECT_MODE_INPUT(base, pin)    pinMode(pin,INPUT)
+#define DIRECT_MODE_OUTPUT(base, pin)   pinMode(pin,OUTPUT)
+#define DIRECT_WRITE_LOW(base, pin)     digitalWrite(pin, LOW)
+#define DIRECT_WRITE_HIGH(base, pin)    digitalWrite(pin, HIGH)
+
 #endif
 
 // some 3.3V chips with 5V tolerant pins need this workaround
 //
-#if defined(__MK20DX256__) || defined(__arc__) 
-#warning "Using Five Volts Tolerance Workarround!"
+#if defined(__MK20DX256__)
 #define FIVE_VOLT_TOLERANCE_WORKAROUND
 #endif
 
@@ -340,8 +429,6 @@ class CapacitiveSensor
   // library-accessible "private" interface
   private:
   // variables
-  	int _sendPin;
-	int _receivePin;
 	int error;
 	unsigned long  leastTotal;
 	unsigned int   loopTimingFactor;
